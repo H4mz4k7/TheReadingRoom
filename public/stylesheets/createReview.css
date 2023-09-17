@@ -1,0 +1,13 @@
+/* Increase the size of the stars */
+
+.rating .star {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/*!* Add shading on hover *!*/
+
+.rating .star:hover{
+  color: #f0ad4e;
+}
+
