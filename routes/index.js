@@ -1,19 +1,49 @@
 var express = require('express');
 var router = express.Router();
 var users = require('../controllers/users')
+const crypto = require('crypto');
+const User = require('../models/users')
+const e = require("express");
+const session = require("express-session");
+
+const secretKey = crypto.randomBytes(32).toString('hex');
+let isAuthenticated = false;
+let wantToPost = false;
+
+router.use(session({
+  secret: secretKey, // Secret key for session data encryption
+  resave: false,
+  saveUninitialized: false
+}));
 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', );
+
+    if (req.session.username ){
+        res.render('index', {isAuthenticated : isAuthenticated, username : req.session.username});
+    }
+    else{
+        res.render('index', {isAuthenticated})
+    }
+
 });
 
 router.get('/login', function(req, res, next) {
-  res.render('login', );
+    if (!isAuthenticated){
+        res.render('login', );
+    } else {
+        res.redirect('/');
+    }
+
 });
 
 router.get('/create_review', function(req, res, next) {
-  res.render('create-review', );
+    if (isAuthenticated){
+        res.render('create-review', );
+    } else {
+        res.redirect('/login');
+    }
 });
 
 router.post('/users', function (req,res){
@@ -21,19 +51,35 @@ router.post('/users', function (req,res){
 })
 
 
-app.post('/userLogin', (req, res) => {
-  const { username, password } = req.body;
+
+
+
+router.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+
 
   // Validate and authenticate user here (e.g., check credentials against a database)
+  User.findOne({email : email, password : password})
+      .then((data) => {
+        if(data){
 
-  if (authenticated) {
-    // Start a session and store user data (e.g., username) in the session
-    req.session.username = username;
-    res.redirect('/profile'); // Redirect to a secured profile page
-  } else {
-    res.render('login', { error: 'Invalid username or password' });
-  }
+          req.session.username = data.username;
+
+          isAuthenticated = true;
+
+          res.redirect('/'); // Redirect to a secured profile page
+        } else{
+          res.render('login', { error: "Invalid email or password" });
+        }
+      })
+      .catch((error) => {
+        console.error('Error', error);
+        res.render('login', { error: "An error occurred during authentication" });
+      })
+
 });
+
 
 
 module.exports = router;
