@@ -54,12 +54,12 @@
                                         <p class="text-muted">Forgot your password?</p>
                                         <a id="toggleFormButton" class="text-muted">Click here to register</a>
                                     </form>
-                                    <form id = "registerForm" class="text-center" method="POST" style="display: none;">
-                                        <div class="mb-3"><input id="email" class="form-control" type="email" name="email" placeholder="Email"></div>
-                                        <div class="mb-3"><input id="username" class="form-control" type="text" name="username" placeholder="Username"></div>
-                                        <div class="mb-3"><input id="password" class="form-control" type="password" name="password" placeholder="Password"></div>
-                                        <div class="mb-3"><input id="confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Confirm Password"></div>
-                                        <div class="mb-3"><button id="registerBtn" class="btn btn-primary d-block w-100">Register</button></div>
+                                    <form id = "registerForm" class="text-center" action="/register" method="POST" style="display: none;">
+                                        <div class="mb-3"><input id="email" class="form-control" type="email" name="email" placeholder="Email" required></div>
+                                        <div class="mb-3"><input id="username" class="form-control" type="text" name="username" placeholder="Username" required></div>
+                                        <div class="mb-3"><input id="password" class="form-control" type="password" name="password" placeholder="Password" required></div>
+                                        <div class="mb-3"><input id="confirmPassword" class="form-control" type="password" name="confirmPassword" placeholder="Confirm Password" required></div>
+                                        <div class="mb-3"><button id="registerBtn" class="btn btn-primary d-block w-100" type="submit">Register</button></div>
                                         <a id="toggleFormButton2" class="text-muted" >Click here to Log in</a>
                                     </form>
                                 </div>

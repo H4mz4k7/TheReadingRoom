@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var users = require('../controllers/users')
+var reviews = require('../controllers/reviews')
 const crypto = require('crypto');
 const User = require('../models/users')
 const e = require("express");
@@ -38,16 +39,33 @@ router.get('/login', function(req, res, next) {
 
 });
 
+
+router.get('/view_review', function(req, res, next) {
+    if (req.session.username ){
+        res.render('view-review', {isAuthenticated : isAuthenticated, username : req.session.username});
+    }
+    else{
+        res.render('view-review', {isAuthenticated})
+    }
+
+});
+
 router.get('/create_review', function(req, res, next) {
     if (isAuthenticated){
-        res.render('create-review', );
+        res.render('create-review', {username : req.session.username});
     } else {
+        wantToPost = true;
         res.redirect('/login');
+
     }
 });
 
 router.post('/users', function (req,res){
   users.create(req,res);
+})
+
+router.post('/create_review', function (req,res){
+    reviews.create(req,res);
 })
 
 
@@ -68,7 +86,13 @@ router.post('/login', (req, res) => {
 
           isAuthenticated = true;
 
-          res.redirect('/'); // Redirect to a secured profile page
+          if (wantToPost){
+              res.redirect('/create_review')
+              wantToPost = false;
+          } else {
+              res.redirect('/'); // Redirect to a secured profile page
+          }
+
         } else{
           res.render('login', { error: "Invalid email or password" });
         }
@@ -79,6 +103,10 @@ router.post('/login', (req, res) => {
       })
 
 });
+
+router.post('/register', (req,res)=>{
+    res.redirect('/login');
+})
 
 
 

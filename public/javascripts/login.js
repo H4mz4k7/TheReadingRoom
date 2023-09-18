@@ -14,6 +14,9 @@ $(document).ready(function () {
     });
 
 
+
+
+
     function validateForm() {
         var password = $("#password").val();
         var confirmPassword = $("#confirmPassword").val();
@@ -28,38 +31,52 @@ $(document).ready(function () {
     }
 
 
+    const $registerForm = $("#registerForm");
+    const $registerBtn = $("#registerBtn");
+
     // $("#registerBtn").click(function (){
     //     return validateForm(); // Prevent form submission if validation fails
     // });
 
-    $("#registerBtn").click(function () {
+    $registerForm.submit(function () {
         // Disable the button to prevent multiple clicks
-        $(this).prop('disabled', true);
+        $registerBtn.prop('disabled', true);
+
+
 
         let email = $("#email").val();
         let username = $("#username").val();
         let password = $("#password").val();
 
-        $.ajax({
-            url: '/users',
-            type: 'POST',
-            data: JSON.stringify({email: email, username: username, password: password}),
-            contentType: 'application/json',
-            success: function () {
-                console.log('User saved successfully!');
-                // You can redirect or display a success message here
+        if (validateForm()){
+            $.ajax({
+                url: '/users',
+                type: 'POST',
+                data: JSON.stringify({email: email, username: username, password: password}),
+                contentType: 'application/json',
+                success: function () {
+                    console.log('User saved successfully!');
+                    // You can redirect or display a success message here
 
-                // Re-enable the button after success (if needed)
-                $("#registerBtn").prop('disabled', false);
-            },
-            error: function (xhr, status, error) {
-                console.error('Error saving user:', error);
-                // Handle the error and provide feedback to the user
+                    // Re-enable the button after success (if needed)
+                    $("#registerBtn").prop('disabled', false);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error saving user:', error);
+                    // Handle the error and provide feedback to the user
 
-                // Re-enable the button after error (if needed)
-                $("#registerBtn").prop('disabled', false);
-            }
-        });
+                    // Re-enable the button after error (if needed)
+                    $("#registerBtn").prop('disabled', false);
+                }
+            });
+        }
+        else{
+            event.preventDefault();
+            $registerBtn.prop('disabled', false);
+        }
+
+
+
     });
 
 });

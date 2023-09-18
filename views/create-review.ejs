@@ -26,7 +26,13 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="/" style="color: var(--bs-primary);">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about-us.html" style="color: var(--bs-primary);">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/login" style="color: var(--bs-primary);">Log in</a></li>
+                    <li class="nav-item dropdown">
+                        <a id="username" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><%= username %></a>
+                        <div class="dropdown-menu" data-bs-popper="none">
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Sign out</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -38,20 +44,29 @@
                     <h2 class="text-info">Create Review</h2>
                     <p>Fill out the form below to post your review!</p>
                 </div>
-                <form>
-                    <div class="mb-3"><label class="form-label" for="title">Book Title</label><input class="form-control" type="text" id="name" name="name" data-bs-theme="light"></div>
-                    <div class="mb-3"><label class="form-label" for="author">Author</label><input class="form-control" type="text" id="subject" name="subject" data-bs-theme="light"></div><div class="rating">
-  <label class="form-label" for="rating">Rating</label>
-  <br>  
-  <span id="star1" class="star" data-rating="1">&#9733;</span>
-  <span id="star2" class="star" data-rating="2">&#9733;</span>
-  <span id="star3" class="star" data-rating="3">&#9733;</span>
-  <span id="star4" class="star" data-rating="4">&#9733;</span>
-  <span id="star5" class="star" data-rating="5">&#9733;</span>
-</div>
+                <form action="/create_review" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label" for="title">Book Title</label>
+                        <input class="form-control" type="text" id="title" name="title" data-bs-theme="light">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="author">Author</label>
+                        <input class="form-control" type="text" id="author" name="author" data-bs-theme="light">
+                    </div>
+                    <div class="rating">
+                      <label class="form-label" for="rating">Rating</label>
+                      <br>
+                      <span id="star1" class="star" data-rating="1">&#9733;</span>
+                      <span id="star2" class="star" data-rating="2">&#9733;</span>
+                      <span id="star3" class="star" data-rating="3">&#9733;</span>
+                      <span id="star4" class="star" data-rating="4">&#9733;</span>
+                      <span id="star5" class="star" data-rating="5">&#9733;</span>
+                    </div>
 
-                    <div class="mb-3"></div><label class="form-label" for="review">Review</label><textarea class="form-control" id="message" name="message" data-bs-theme="light" style="height: 150px;"></textarea>
-                    <div class="mb-3"></div><button class="btn btn-primary" type="submit">Post!</button>
+                    <div class="mb-3"></div>
+                    <label class="form-label" for="review">Review</label>
+                    <textarea class="form-control" id="review" name="review" data-bs-theme="light" style="height: 150px;"></textarea>
+                    <div class="mb-3"></div><button id="postBtn" class="btn btn-primary" type="submit">Post!</button>
                 </form>
             </div>
         </section>
