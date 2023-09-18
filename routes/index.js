@@ -4,6 +4,7 @@ var users = require('../controllers/users')
 var reviews = require('../controllers/reviews')
 const crypto = require('crypto');
 const User = require('../models/users')
+const Review = require('../models/reviews')
 const e = require("express");
 const session = require("express-session");
 
@@ -106,6 +107,36 @@ router.post('/login', (req, res) => {
 
 router.post('/register', (req,res)=>{
     res.redirect('/login');
+})
+
+
+
+router.get('/getReviews', (req, res) =>{
+    Review.find( {})
+        .then((data) => {
+
+            res.json(data)
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+})
+
+
+router.get('/getSingleReview', (req, res) =>{
+
+    const { username, title, author } = req.query;
+
+    Review.findOne( {title : title, username: username, author : author})
+        .then((data) => {
+
+            res.json(data)
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
 })
 
 
