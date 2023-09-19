@@ -5,37 +5,46 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Home - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
-    <link rel="stylesheet" href="assets/css/bs-theme-overrides.css">
-    <link rel="stylesheet" href="assets/css/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
-    <link rel="stylesheet" href="assets/css/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="/stylesheets/bs-theme-overrides.css">
+    <link rel="stylesheet" href="/stylesheets/baguetteBox.min.css">
+    <link rel="stylesheet" href="/stylesheets/vanilla-zoom.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/baguetteBox.min.js"></script>
+    <script src="/javascripts/vanilla-zoom.js"></script>
+    <script src="/javascripts/theme.js"></script>
+    <script src="/javascripts/profile.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar navbar-light">
-        <div class="container"><a class="navbar-brand logo" href="#" style="color: var(--bs-primary);">The Reading Room</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html" style="color: var(--bs-primary);">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about-us.html" style="color: var(--bs-primary);">About Us</a></li>
-                    <li class="nav-item dropdown show"><a class="dropdown-toggle nav-link" aria-expanded="true" data-bs-toggle="dropdown" href="#">username</a>
-                        <div class="dropdown-menu show" data-bs-popper="none" style="display: none;"><a class="dropdown-item" href="#">First Item</a><a class="dropdown-item" href="#">Second Item</a><a class="dropdown-item" href="#">Third Item</a></div>
-                    </li>
-                </ul>
-            </div>
+<nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar navbar-light">
+    <div class="container"><a class="navbar-brand logo" href="/" style="color: var(--bs-primary);">The Reading Room</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navcol-1">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/" style="color: var(--bs-primary);">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="about-us.html" style="color: var(--bs-primary);">About Us</a></li>
+                <li class="nav-item dropdown">
+                    <a id="username" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><%= username %></a>
+                    <div class="dropdown-menu" data-bs-popper="none">
+                        <a class="dropdown-item" href="/profile">Profile</a>
+                        <a class="dropdown-item" href="/signout">Sign out</a>
+                    </div>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
     <main class="page landing-page">
         <section class="clean-block clean-info dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info" style="color: var(--bs-primary);">USERNAME</h2>
+                    <h2 class="text-info" style="color: var(--bs-primary);"><%= username %></h2>
                     <p style="max-width: 600px;">Your Book Reviews: Below is a list of all the book reviews you've shared with the reading community. Explore your literary journey, and feel free to add more reviews anytime!</p>
                 </div>
                 <div style="text-align: center;">
-                    <div class="btn-group" role="group" style="text-align: center;"><button class="btn btn-primary" type="button">Post a Review!</button></div>
+                    <div class="btn-group" role="group" style="text-align: center;"><button class="btn btn-primary" type="button" onclick="window.location.href='/create_review'">Post a Review!</button></div>
                 </div>
             </div>
             <div class="table-responsive text-center border-1" style="margin: 18px;">
@@ -49,8 +58,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr></tr>
-                        <tr></tr>
                     </tbody>
                 </table>
             </div>
@@ -96,10 +103,7 @@
             <p>© 2023 Copyright Text</p>
         </div>
     </footer>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/baguetteBox.min.js"></script>
-    <script src="assets/js/vanilla-zoom.js"></script>
-    <script src="assets/js/theme.js"></script>
+
 </body>
 
 </html>

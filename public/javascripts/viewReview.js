@@ -98,6 +98,8 @@
 
                 } else {
                     console.log('No information found for the book :', title);
+                    $("#img").css("display", "none");
+                    $("#abstract").css("display", "none");
 
                 }
             },

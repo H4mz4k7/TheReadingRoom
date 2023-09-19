@@ -50,10 +50,13 @@ $(document).ready(function () {
                 contentType: 'application/json',
                 success: function () {
                     console.log('Review saved successfully!');
-                    // You can redirect or display a success message here
 
+
+                    // You can redirect or display a success message here
                     // Re-enable the button after success (if needed)
-                    $("#postBtn").prop('disabled', false);
+                    window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`;
+
+
                 },
                 error: function (xhr, status, error) {
                     console.error('Error saving review:', error);

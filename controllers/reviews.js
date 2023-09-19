@@ -24,7 +24,8 @@ exports.create = function(req, res) {
     review.save()
         .then((savedReview) => {
             // Comment saved successfully
-            console.log('User saved successfully:', savedReview);
+            console.log('Review saved successfully:', savedReview);
+
         })
         .catch((error) => {
             // Error occurred while saving the comment

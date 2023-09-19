@@ -9,6 +9,7 @@ const e = require("express");
 var comments = require('../controllers/comments')
 const Comment = require('../models/comments');
 const session = require("express-session");
+const bcrypt = require('bcrypt');
 
 const secretKey = crypto.randomBytes(32).toString('hex');
 let wantToPost = false;
@@ -68,12 +69,36 @@ router.get('/create_review', function(req, res, next) {
 
 });
 
-router.post('/users', function (req,res){
-  users.create(req,res);
-})
+router.get('/profile', function(req, res, next) {
+
+    res.render('profile', {username : req.session.username});
+
+});
+
+
+router.post('/users', function (req, res) {
+    // Assuming you want to hash the password before saving it
+
+    const password  = req.body.password;
+
+    // Modify the password value (e.g., hash it using bcrypt)
+    bcrypt.hash(password, 10, (err, hash) => {
+        if (err) {
+            console.error('Error hashing password:', err);
+            res.status(500).json({ message: 'Internal server error' });
+        } else {
+            // Update the password in the req.body object with the hashed value
+            req.body.password = hash;
+
+            // Now you can proceed to create the user or save the user data
+            users.create(req, res);
+        }
+    });
+});
 
 router.post('/create_review', function (req,res){
     reviews.create(req,res);
+    res.status(200).send('Review saved successfully');
 })
 
 
@@ -86,28 +111,33 @@ router.post('/login', (req, res) => {
 
 
   // Validate and authenticate user here (e.g., check credentials against a database)
-  User.findOne({email : email, password : password})
-      .then((data) => {
-        if(data){
-
-          req.session.username = data.username;
-
-
-          if (wantToPost){
-              res.redirect('/create_review')
-              wantToPost = false;
-          } else {
-              res.redirect('/'); // Redirect to a secured profile page
+  User.findOne({email : email})
+      .then(async (user) => {
+          if (!user) {
+              return res.render('login', { error: 'Invalid email or password' });
           }
 
-        } else{
-          res.render('login', { error: "Invalid email or password" });
-        }
+          // Compare the entered password with the stored hash
+          const passwordMatch = await bcrypt.compare(password, user.password);
+
+          if (passwordMatch) {
+              // Passwords match, set the user's session and redirect
+              req.session.username = user.username;
+
+              if (wantToPost) {
+                  res.redirect('/create_review');
+                  wantToPost = false;
+              } else {
+                  res.redirect('/'); // Redirect to a secured profile page
+              }
+          } else {
+              res.render('login', { error: 'Invalid email or password' });
+          }
       })
       .catch((error) => {
-        console.error('Error', error);
-        res.render('login', { error: "An error occurred during authentication" });
-      })
+          console.error('Error during login:', error);
+          res.render('login', { error: 'An error occurred during authentication' });
+      });
 
 });
 
@@ -140,6 +170,23 @@ router.get('/getReviews', (req, res) =>{
             console.error('Error:', error);
         });
 })
+
+router.get('/getProfileReviews', (req, res) =>{
+
+    const username = req.query.username;
+
+    Review.find( {username : username})
+        .then((data) => {
+
+            res.json(data)
+
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+})
+
+
 
 
 router.get('/getSingleReview', (req, res) =>{
@@ -179,6 +226,26 @@ router.get('/comments', function (req,res){
              console.error('Error: ', error);
          });
 })
+
+
+router.get('/getUsersAndEmails', function (req, res, next) {
+
+    const { username, email } = req.query;
+
+    User.find({
+        $or: [
+            { username: username },
+            { email: email }
+        ]
+    })
+        .then((data) => {
+            res.json(data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            res.status(500).json({ message: 'Internal server error' });
+        });
+});
 
 
 
