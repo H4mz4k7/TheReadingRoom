@@ -1,13 +1,14 @@
 $(document).ready(function () {
 
+    let room_number = (Math.round(Math.random() * 10000))
+
     let rating = null;
 
-    console.log($("#username").text())
 
     $(".star").click(function () {
         $(".star").css("color", "black");
         rating = $(this).data("rating");
-        console.log(rating);
+
 
 
         for (let i = 1; i < rating + 1; i++){
@@ -43,7 +44,8 @@ $(document).ready(function () {
                     author : author,
                     rating : rating,
                     review : review,
-                    username : username
+                    username : username,
+                    room_number : room_number
                 }),
                 contentType: 'application/json',
                 success: function () {

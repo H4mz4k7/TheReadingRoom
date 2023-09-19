@@ -1,5 +1,6 @@
 var bodyParser = require("body-parser");
-var Review = require('../models/reviews');
+//var req = require('request');
+var Comment = require('../models/comments');
 var path = require('path');
 
 
@@ -10,24 +11,25 @@ exports.create = function(req, res) {
     // Extract user data from the request body
     var userData = req.body;
 
+    // Get the current date and time
+    let currentDate = new Date();
+
     // Create a new Comment object with the extracted data
-    let review = new Review({
-        title: userData.title,
-        author: userData.author,
-        rating: userData.rating,
-        review: userData.review,
+    let comment = new Comment({
+        room_number: userData.room_number,
+        comment_string: userData.comment_string,
         username: userData.username,
-        room_number: userData.room_number
+        time: currentDate
     });
 
     // Save the comment to the database
-    review.save()
-        .then((savedReview) => {
+    comment.save()
+        .then((savedComment) => {
             // Comment saved successfully
-            console.log('User saved successfully:', savedReview);
+            console.log('Comment saved successfully:', savedComment);
         })
         .catch((error) => {
             // Error occurred while saving the comment
-            console.error('Error saving review:', error);
+            console.error('Error saving comment:', error);
         });
 }

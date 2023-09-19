@@ -8,8 +8,8 @@ var ReviewsSchema = new Schema(
         author: {type: String, required: true, max: 100},
         rating: {type: Number, required: true},
         review: {type: String, required: true},
-        username: {type: String, required: true}
-
+        username: {type: String, required: true},
+        room_number: {type: Number, required: true}
     }
 );
 
