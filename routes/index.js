@@ -10,6 +10,9 @@ var comments = require('../controllers/comments')
 const Comment = require('../models/comments');
 const session = require("express-session");
 const bcrypt = require('bcrypt');
+const axios = require('axios');
+
+const googleAPIKey = 'AIzaSyBjIIFRyXPIXYCYnZi9U8bA1hWNb0dUhQ0';
 
 const secretKey = crypto.randomBytes(32).toString('hex');
 let wantToPost = false;
@@ -247,6 +250,42 @@ router.get('/getUsersAndEmails', function (req, res, next) {
         });
 });
 
+
+
+
+router.get('/getBookInfo', async (req, res) => {
+    const title = req.query.title;
+    const author = req.query.author;
+
+    try {
+        // Make a request to the Google Books API to search for the book by title and author
+        const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
+            params: {
+                q: `intitle:${title}+inauthor:${author}`,
+                key: googleAPIKey
+            },
+        });
+
+        // Check if there are any search results
+        if (response.data.items && response.data.items.length > 0) {
+            const book = response.data.items[0].volumeInfo;
+
+
+            // Check if a thumbnail image is available
+            const imageUrl = book.imageLinks ? book.imageLinks.thumbnail : null;
+
+            // Check if an abstract/description is available
+            const abstract = book.description || 'No description available';
+
+            res.json({ imageUrl: imageUrl, abstract: abstract });
+        } else {
+            res.json({ error: 'Book not found' });
+        }
+    } catch (error) {
+        console.error('Error fetching book image and description from Google Books API:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
 
 
 

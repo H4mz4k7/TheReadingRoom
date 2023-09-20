@@ -24,6 +24,9 @@
 
 
 
+
+
+
     function showReview() {
         $.ajax({
             url: '/getSingleReview',
@@ -41,75 +44,36 @@
         })
     }
 
+        function getBookInfo(title, author) {
+            $.ajax({
+                url: '/getBookInfo', // Server-side route to retrieve book image
+                type: 'GET',
+                data: { title: title, author: author },
+                success: function (data) {
+                    // Display the book image on the client side
+                    const $img = $('#img');
+                    const $abstract = $('#abstract')
 
 
-    function getBookInfo(title,author) {
-        // Encode the book  for use in the SPARQL query
+                    $img.attr('src', data.imageUrl);
+                    $abstract.text(data.abstract);
 
-
-        let encodedTitle = title.trim().replace(/\s/g, '_').toLowerCase()
-
-
-        let encodedAuthor = author.trim().replace(/\s/g, '_')
-        encodedAuthor = encodedAuthor.split('_').map((part) => {
-            return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
-        }).join('_');
-
-
-        let queryAbstract =`
-        PREFIX dbo: <http://dbpedia.org/ontology/>
-        PREFIX dbr: <http://dbpedia.org/resource/>
-
-        SELECT ?abstract
-        WHERE {
-            ?book a dbo:Book;
-                dbo:abstract ?abstract;
-                rdfs:label ?label;
-                dbo:author dbr:${encodedAuthor}.
-
-            FILTER (LANGMATCHES(LANG(?abstract), "en") && CONTAINS(LCASE(?label), "${encodedTitle}"))
-        }
-        LIMIT 1
-        `;
+                    if ($abstract.height() < 250){
+                        $img.height(250);
+                    }
+                    else{
+                        $img.height($abstract.height());
+                    }
 
 
 
-        // Define the DBpedia SPARQL endpoint URL
-        const sparqlEndpointUrl = 'https://dbpedia.org/sparql';
-
-        // Send the SPARQL query to DBpedia using AJAX
 
 
-        $.ajax({
-            url: sparqlEndpointUrl,
-            type: 'GET',
-            data: {
-                query: queryAbstract,
-                format: 'json'
-            },
-            success: function(data) {
-                // Handle the query results
-                const results = data.results.bindings;
-
-                if (results.length > 0) {
-                    const abstract = results[0].abstract.value;
-
-                    $("#abstract").text(abstract)
-
-                } else {
-                    console.log('No information found for the book :', title);
-                    $("#img").css("display", "none");
-                    $("#abstract").css("display", "none");
-
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching book image:', error);
                 }
-            },
-            error: function(xhr, status, error) {
-                // Handle errors
-
-                console.error('Error retrieving bird information from DBpedia:', error);
-            }
-        });
-
-    }
+            });
+        }
 
 });
