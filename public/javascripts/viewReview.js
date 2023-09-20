@@ -51,19 +51,26 @@
                 data: { title: title, author: author },
                 success: function (data) {
                     // Display the book image on the client side
-                    const $img = $('#img');
-                    const $abstract = $('#abstract')
 
-
-                    $img.attr('src', data.imageUrl);
-                    $abstract.text(data.abstract);
-
-                    if ($abstract.height() < 250){
-                        $img.height(250);
+                    if (data.error){
+                        $("#APIData").hide();
                     }
                     else{
-                        $img.height($abstract.height());
+                        const $img = $('#img');
+                        const $abstract = $('#abstract')
+
+
+                        $img.attr('src', data.imageUrl);
+                        $abstract.text(data.abstract);
+
+                        if ($abstract.height() < 250){
+                            $img.height(250);
+                        }
+                        else{
+                            $img.height($abstract.height());
+                        }
                     }
+
 
 
 
@@ -72,6 +79,7 @@
                 },
                 error: function (xhr, status, error) {
                     console.error('Error fetching book image:', error);
+                    $("#APIData").hide();
                 }
             });
         }
