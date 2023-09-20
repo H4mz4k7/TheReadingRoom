@@ -14,6 +14,8 @@ const bcrypt = require('bcrypt');
 const secretKey = crypto.randomBytes(32).toString('hex');
 let wantToPost = false;
 
+
+
 router.use(session({
   secret: secretKey, // Secret key for session data encryption
   resave: false,
@@ -35,13 +37,11 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
 
-
-    if (!req.session.username ){
-        res.render('login',);
-    } else{
+    if (!req.session.username) {
+        res.render('login');
+    } else {
         res.redirect('/');
     }
-
 
 });
 
@@ -154,6 +154,7 @@ router.get('/signout', (req, res) => {
 });
 
 router.post('/register', (req,res)=>{
+
     res.redirect('/login');
 })
 
@@ -213,8 +214,7 @@ router.get('/comments', function (req,res){
 
      const room_number = req.query.room_number;
 
-     console.log(room_number);
-     console.log(typeof room_number);
+
 
      Comment.find({room_number : room_number})
          .then((data) => {

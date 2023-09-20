@@ -15,15 +15,30 @@ $(document).ready(function () {
 
     });
 
+    let $alert = $("#alert");
+
+    $alert.hide();
+
+
+    const urlParams = new URLSearchParams(window.location.search);
+
+    const isError = urlParams.get("isError");
+
+    if (isError){
+        $("#loginForm").hide()
+        $("#registerForm").show()
+        $alert.show();
+        $alert.text("Username or email is already in use");
+    }
+
+
 
 
 
     const $registerForm = $("#registerForm");
     const $registerBtn = $("#registerBtn");
 
-    // $("#registerBtn").click(function (){
-    //     return validateForm(); // Prevent form submission if validation fails
-    // });
+
 
     $registerForm.submit(function (event) {
         // Disable the button to prevent multiple clicks
@@ -39,7 +54,6 @@ $(document).ready(function () {
             var confirmPassword = $("#confirmPassword").val();
 
             if (password !== confirmPassword) {
-                alert("Password and Confirm Password do not match!");
                 return false; // Prevent form submission
             }
 
@@ -49,6 +63,7 @@ $(document).ready(function () {
 
 
         if (validateForm()){
+
             const getUsersAndEmailsPromise = new Promise(function (resolve, reject) {
                 $.ajax({
                     url: '/getUsersAndEmails',
@@ -91,18 +106,23 @@ $(document).ready(function () {
                     });
                 })
                 .catch(function (error) {
-                    console.log(event)
-                    event.preventDefault();
+
+                    const isError = true;
+
+                    // Redirect to /users with the isError query parameter
+                    window.location.href = `/login?isError=${isError}`;
                     $("#registerBtn").prop('disabled', false);
-                    alert(error);
                 });
 
 
 
         }
         else{
-            console.log(event)
             event.preventDefault();
+            $("#confirmPassword").val("");
+            $("#password").val("");
+            $alert.show();
+            $alert.text("Passwords do not match");
             $("#registerBtn").prop('disabled', false);
         }
 

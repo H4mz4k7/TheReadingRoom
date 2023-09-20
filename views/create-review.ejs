@@ -44,7 +44,8 @@
                     <h2 class="text-info">Create Review</h2>
                     <p>Fill out the form below to post your review!</p>
                 </div>
-                <form action="/create_review" method="POST">
+                <p id="alert" class="text-center" style="color: red;"></p>
+                <form id="createReview" action="/create_review" method="POST">
                     <div class="mb-3">
                         <label class="form-label" for="title">Book Title</label>
                         <input class="form-control" type="text" id="title" name="title" data-bs-theme="light">

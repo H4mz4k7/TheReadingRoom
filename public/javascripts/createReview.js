@@ -4,6 +4,9 @@ $(document).ready(function () {
 
     let rating = null;
 
+    const $alert = $("#alert");
+    $alert.hide();
+
 
     $(".star").click(function () {
         $(".star").css("color", "black");
@@ -20,9 +23,10 @@ $(document).ready(function () {
 
 
 
-    $("#postBtn").click(function () {
+    $("#createReview").submit(function (event) {
         // Disable the button to prevent multiple clicks
-        $(this).prop('disabled', true);
+        const $postBtn = $("#postBtn");
+        $postBtn.prop('disabled', true);
 
 
         let title = $("#title").val();
@@ -31,11 +35,16 @@ $(document).ready(function () {
         let username = $("#username").text();
 
 
+
         if (!title || !author || !rating || !review || !username){
-            alert("Please fill out all fields.");
-            $("#postBtn").prop('disabled', false);
+
+            event.preventDefault();
+            $alert.show()
+            $alert.text("Please fill out all fields.");
+            $postBtn.prop('disabled', false);
         }
         else{
+            console.log("not correct")
             $.ajax({
                 url: '/create_review',
                 type: 'POST',
@@ -61,7 +70,7 @@ $(document).ready(function () {
                 error: function (xhr, status, error) {
                     console.error('Error saving review:', error);
                     // Handle the error and provide feedback to the user
-
+                    event.preventDefault()
                     // Re-enable the button after error (if needed)
                     $("#postBtn").prop('disabled', false);
                 }
