@@ -14,7 +14,7 @@ $(document).ready(function () {
 
         $("#sendMsg").prop('disabled', true);
         $chat_input.prop('disabled', true);
-        $chat_input.val("Please log in to use chat features!");
+        $chat_input.attr("placeholder", "Please log in to use chat features!");
     }
     else{
         $("#sendMsg").prop('disabled', false);

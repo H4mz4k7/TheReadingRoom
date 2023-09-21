@@ -1,8 +1,30 @@
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js')
+        .then(function(registration) {
+            console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch(function(error) {
+            console.error('Service Worker registration failed:', error);
+        });
+}
+
+
+
 $(document).ready(function () {
 
 
 
+
     showReviews();
+
+
+    $("#findBook").click(function() {
+        $("html, body").animate({
+            scrollTop: $("#listSection").offset().top
+        }, 50); // 1000 milliseconds for smooth scrolling, adjust as needed
+    });
+
 
 
     function showReviews() {
