@@ -13,10 +13,11 @@
     <link rel="stylesheet" href="/stylesheets/vanilla-zoom.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
-    <script src="/javascripts/createReview.js"></script>
+    <script type="module" src="/javascripts/createReview.js"></script>
     <script src="/javascripts/baguetteBox.min.js"></script>
     <script src="/javascripts/vanilla-zoom.js"></script>
     <script src="/javascripts/theme.js"></script>
+    <script type="module" src="/javascripts/utility.js"></script>
 </head>
 
 <body>
@@ -44,7 +45,7 @@
                     <p>Fill out the form below to post your review!</p>
                 </div>
                 <p id="alert" class="text-center" style="color: red;"></p>
-                <form id="createReview" action="/create_review" method="POST">
+                <form id="createReview">
                     <div class="mb-3">
                         <label class="form-label" for="title">Book Title</label>
                         <input class="form-control" type="text" id="title" name="title" data-bs-theme="light">

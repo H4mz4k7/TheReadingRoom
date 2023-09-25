@@ -24,9 +24,11 @@ $(document).ready(function () {
 
     const isError = urlParams.get("isError");
 
+    const $registerForm = $("#registerForm");
+
     if (isError){
         $("#loginForm").hide()
-        $("#registerForm").show()
+        $registerForm.show()
         $alert.show();
         $alert.text("Username or email is already in use");
     }
@@ -35,7 +37,7 @@ $(document).ready(function () {
 
 
 
-    const $registerForm = $("#registerForm");
+
     const $registerBtn = $("#registerBtn");
 
 
@@ -70,7 +72,7 @@ $(document).ready(function () {
                     type: 'GET',
                     data: { username: username, email : email },
                     success: function (data) {
-                        if (data){
+                        if (data.length !== 0){
                             reject("Username or email is already in use")
                         }else{
                             resolve(); // Resolve the Promise when the request is successful

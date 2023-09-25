@@ -1,4 +1,6 @@
-    $(document).ready(function () {
+
+$(document).ready(function () {
+
 
     const urlParams = new URLSearchParams(window.location.search);
 
@@ -17,15 +19,9 @@
         $("#star" + i).css("color", "#f0ad4e")
     }
 
-
     showReview();
 
     getBookInfo(title,author);
-
-
-
-
-
 
     function showReview() {
         $.ajax({
@@ -34,54 +30,53 @@
             data: {title : title, author : author, username : username},
             success: function (data) {
 
+
+
                 const  review = data.review;
                 $('#review').text(review)
+
 
             },
             error: function (xhr, status, error) {
                 console.error('Error fetching data from MongoDB:', error);
+
             }
         })
     }
 
-        function getBookInfo(title, author) {
-            $.ajax({
-                url: '/getBookInfo', // Server-side route to retrieve book image
-                type: 'GET',
-                data: { title: title, author: author },
-                success: function (data) {
-                    // Display the book image on the client side
+    function getBookInfo(title, author) {
+        $.ajax({
+            url: '/getBookInfo', // Server-side route to retrieve book image
+            type: 'GET',
+            data: { title: title, author: author },
+            success: function (data) {
+                // Display the book image on the client side
 
-                    if (data.error){
-                        $("#APIData").hide();
-                    }
-                    else{
-                        const $img = $('#img');
-                        const $abstract = $('#abstract')
-
-
-                        $img.attr('src', data.imageUrl);
-                        $abstract.text(data.abstract);
-
-                        if ($abstract.height() < 250){
-                            $img.height(250);
-                        }
-                        else{
-                            $img.height($abstract.height());
-                        }
-                    }
-
-
-
-
-
-
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error fetching book image:', error);
+                if (data.error){
                     $("#APIData").hide();
                 }
-            });
-        }
+                else{
+                    const $img = $('#img');
+                    const $abstract = $('#abstract')
+
+
+                    $img.attr('src', data.imageUrl);
+                    $abstract.text(data.abstract);
+
+                    if ($abstract.height() < 250){
+                        $img.height(250);
+                    }
+                    else{
+                        $img.height($abstract.height());
+                    }
+                }
+
+            },
+            error: function (xhr, status, error) {
+                console.error('Error fetching book image:', error);
+                $("#APIData").hide();
+            }
+        });
+    }
 
 });

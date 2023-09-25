@@ -1,3 +1,5 @@
+import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
+
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
@@ -9,6 +11,7 @@ if ('serviceWorker' in navigator) {
         });
 }
 
+let db;
 
 
 $(document).ready(function () {
@@ -16,7 +19,56 @@ $(document).ready(function () {
 
 
 
-    showReviews();
+
+    const request = indexedDB.open('reviewsDatabase', 1);
+
+
+    request.onupgradeneeded = function(event) {
+        // Get the reference to the database
+        db = event.target.result;
+
+
+        const reviewsStore = db.createObjectStore('reviewsStore', { keyPath: 'id', autoIncrement: true });
+
+        // Define the structure of the object store
+
+        reviewsStore.createIndex('status', 'status', { unique: false });
+        reviewsStore.createIndex('title', 'title', { unique: false });
+        reviewsStore.createIndex('author', 'author', { unique: false });
+        reviewsStore.createIndex('rating', 'rating', { unique: false });
+        reviewsStore.createIndex('review', 'review', { unique: false });
+        reviewsStore.createIndex('username', 'username', { unique: false });
+        reviewsStore.createIndex('room_number', 'room_number', { unique: true });
+
+    };
+
+
+    request.onsuccess = function(event) {
+        // Get the reference to the database
+        db = event.target.result;
+
+        isOnline(
+            function () {
+                console.log("offline");
+                showReviewsOffline();
+            },
+            function () {
+                console.log("online");
+
+                syncReview(showReviewsOnline);
+
+
+            }
+        );
+
+    }
+
+    request.onerror = function(event) {
+        // Log any errors that occur during the request
+        console.error('IndexedDB error:', event.target.error);
+    };
+
+
 
 
     $("#findBook").click(function() {
@@ -25,80 +77,74 @@ $(document).ready(function () {
         }, 50); // 1000 milliseconds for smooth scrolling, adjust as needed
     });
 
-
-
-    function showReviews() {
-        $.ajax({
-            url: '/getReviews',
-            type: 'GET',
-            success: function (data) {
-
-                data.forEach(function(item) {
-
-                    const { title, author, rating, username } = item;
-                    appendToTable(title, author, rating, username);
-
-                });
-
-                makeRowsClickable();
-
-            },
-            error: function (xhr, status, error) {
-                console.error('Error fetching data from MongoDB:', error);
-            }
-        })
-    }
-
-
-
-    function makeRowsClickable(){
-        const $clickableRows = $("table tbody tr");
-
-
-        // Add a click event listener to each clickable row
-        $clickableRows.each(function () {
-            const $row = $(this);
-
-            $row.on("click", function () {
-                const title = $row.find("td:eq(0)").text(); // Adjust the index based on your table structure
-                const author = $row.find("td:eq(1)").text();
-                const rating = $row.find("td:eq(2)").text();
-                const username = $row.find("td:eq(3)").text();
-
-
-                window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`;
-            });
-        });
-    }
-
-
-
-
-
-    function appendToTable(title, author, rating, username){
-
-        const $tableBody = $('table tbody');
-
-        const $newRow = $('<tr>');
-
-        const $titleCell = $('<td>').text(title);
-        $newRow.append($titleCell);
-
-        const $authorCell = $('<td>').text(author);
-        $newRow.append($authorCell);
-
-        const $ratingCell = $('<td>').text(rating);
-        $newRow.append($ratingCell);
-
-        const $postedByCell = $('<td>').text(username);
-        $newRow.append($postedByCell);
-
-
-
-
-        $tableBody.append($newRow);
-
-    }
-
-
 });
+
+
+
+function showReviewsOnline() {
+    $.ajax({
+        url: '/getReviews',
+        type: 'GET',
+        success: function (data) {
+
+            const transaction = db.transaction('reviewsStore', 'readwrite');
+            const reviewsStore = transaction.objectStore('reviewsStore')
+            reviewsStore.clear()
+
+            data.forEach(function(item) {
+
+                const { title, author, rating, username} = item;
+
+
+                const request = reviewsStore.add(item);
+                appendToTable(title, author, rating, username);
+
+
+                request.onerror = function(event) {
+                    console.error('Error adding item to IndexedDB:', event.target.error);
+                };
+
+            });
+
+            makeRowsClickable();
+
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching data from MongoDB:', error);
+
+        }
+    })
+}
+
+
+function showReviewsOffline(){
+
+
+    const transaction = db.transaction('reviewsStore', 'readonly');
+    const reviewsStore = transaction.objectStore('reviewsStore');
+
+    // Open a cursor to iterate over the data in the object store
+    const cursorRequest = reviewsStore.openCursor();
+
+    cursorRequest.onsuccess = function(event) {
+        const cursor = event.target.result;
+
+        if (cursor) {
+            const { title ,author, rating, username } = cursor.value;
+
+            appendToTable(title,author,rating,username);
+
+            // Move to the next cursor item
+            cursor.continue();
+        }
+
+        makeRowsClickable();
+    };
+
+    cursorRequest.onerror = function(event) {
+        console.error('Error retrieving data from IndexedDB:', event.target.error);
+    };
+
+}
+
+

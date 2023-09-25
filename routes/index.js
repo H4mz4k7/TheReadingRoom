@@ -29,6 +29,9 @@ router.use(session({
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
+
+    console.log("want to post INDEX: " + wantToPost)
+
     if (req.session.username ){
         res.render('index', {isAuthenticated : true, username : req.session.username});
     }
@@ -40,6 +43,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
 
+    console.log("want to post LOGIN: " + wantToPost)
     if (!req.session.username) {
         res.render('login');
     } else {
@@ -50,6 +54,7 @@ router.get('/login', function(req, res, next) {
 
 
 router.get('/view_review', function(req, res, next) {
+
 
     if (req.session.username ){
         res.render('view-review', {isAuthenticated : true, username : req.session.username});
@@ -79,8 +84,22 @@ router.get('/profile', function(req, res, next) {
 });
 
 
+router.get('/offline', function(req, res, next) {
+
+    if (req.session.username ){
+        res.render('offline', {isAuthenticated : true, username : req.session.username});
+    }
+    else{
+        res.render('offline', {isAuthenticated : false})
+    }
+});
+
+
+
 router.post('/users', function (req, res) {
     // Assuming you want to hash the password before saving it
+
+    console.log("want to post REGISTER(POST): " + wantToPost)
 
     const password  = req.body.password;
 
@@ -101,6 +120,9 @@ router.post('/users', function (req, res) {
 
 router.post('/create_review', function (req,res){
     reviews.create(req,res);
+    if (wantToPost === true){
+        wantToPost = false;
+    }
     res.status(200).send('Review saved successfully');
 })
 
@@ -113,6 +135,7 @@ router.post('/login', (req, res) => {
 
 
 
+    console.log("want to post LOGIN(POST): " + wantToPost)
   // Validate and authenticate user here (e.g., check credentials against a database)
   User.findOne({email : email})
       .then(async (user) => {
@@ -128,8 +151,8 @@ router.post('/login', (req, res) => {
               req.session.username = user.username;
 
               if (wantToPost) {
-                  res.redirect('/create_review');
                   wantToPost = false;
+                  res.redirect('/create_review');
               } else {
                   res.redirect('/'); // Redirect to a secured profile page
               }
@@ -228,6 +251,20 @@ router.get('/comments', function (req,res){
          .catch((error) => {
              console.error('Error: ', error);
          });
+})
+
+router.get('/allComments', function (req,res){
+
+
+    Comment.find({})
+        .then((data) => {
+
+            res.json(data);
+
+        })
+        .catch((error) => {
+            console.error('Error: ', error);
+        });
 })
 
 

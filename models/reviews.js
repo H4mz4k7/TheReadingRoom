@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var ReviewsSchema = new Schema(
     {
         title: {type: String, required: true},
-        author: {type: String, required: true, max: 100},
+        author: {type: String, required: true},
         rating: {type: Number, required: true},
         review: {type: String, required: true},
         username: {type: String, required: true},

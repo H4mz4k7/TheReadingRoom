@@ -1,82 +1,96 @@
+import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
+
+let db;
 $(document).ready(function () {
 
 
-    let username = $("#username").text();
-    showReviews();
 
 
-    function showReviews() {
-        $.ajax({
-            url: '/getProfileReviews',
-            data: {username : username},
-            type: 'GET',
-            success: function (data) {
+    let user = $("#username").text();
 
-                data.forEach(function(item) {
+    const request = indexedDB.open('reviewsDatabase', 1);
 
-                    const { title, author, rating, username } = item;
-                    appendToTable(title, author, rating, username);
 
-                });
 
-                makeRowsClickable();
 
+    request.onsuccess = function(event) {
+        // Get the reference to the database
+        db = event.target.result;
+
+        isOnline(
+            function () {
+                console.log("offline");
+                showReviewsOffline(user);
             },
-            error: function (xhr, status, error) {
-                console.error('Error fetching data from MongoDB:', error);
+            function () {
+                console.log("online");
+                syncReview(showReviews,user);
+
             }
-        })
-    }
-
-
-
-    function makeRowsClickable(){
-        const $clickableRows = $("table tbody tr");
-
-
-        // Add a click event listener to each clickable row
-        $clickableRows.each(function () {
-            const $row = $(this);
-
-            $row.on("click", function () {
-                const title = $row.find("td:eq(0)").text(); // Adjust the index based on your table structure
-                const author = $row.find("td:eq(1)").text();
-                const rating = $row.find("td:eq(2)").text();
-                const username = $row.find("td:eq(3)").text();
-
-
-                window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`;
-            });
-        });
-    }
-
-
-
-
-
-    function appendToTable(title, author, rating, username){
-
-        const $tableBody = $('table tbody');
-
-        const $newRow = $('<tr>');
-
-        const $titleCell = $('<td>').text(title);
-        $newRow.append($titleCell);
-
-        const $authorCell = $('<td>').text(author);
-        $newRow.append($authorCell);
-
-        const $ratingCell = $('<td>').text(rating);
-        $newRow.append($ratingCell);
-
-        const $postedByCell = $('<td>').text(username);
-        $newRow.append($postedByCell);
-
-
-
-
-        $tableBody.append($newRow);
+        );
 
     }
+
+    request.onerror = function(event) {
+        // Log any errors that occur during the request
+        console.error('IndexedDB error:', event.target.error);
+    };
+
+
 
 });
+
+
+function showReviews(user) {
+    $.ajax({
+        url: '/getProfileReviews',
+        data: {username : user},
+        type: 'GET',
+        success: function (data) {
+
+            data.forEach(function(item) {
+
+                const { title, author, rating, username } = item;
+                appendToTable(title, author, rating, username);
+
+            });
+
+            makeRowsClickable();
+
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching data from MongoDB:', error);
+        }
+    })
+}
+
+function showReviewsOffline(user){
+
+
+    const transaction = db.transaction('reviewsStore', 'readonly');
+    const reviewsStore = transaction.objectStore('reviewsStore');
+
+    // Open a cursor to iterate over the data in the object store
+    const cursorRequest = reviewsStore.openCursor();
+
+    cursorRequest.onsuccess = function(event) {
+        const cursor = event.target.result;
+
+        if (cursor){
+            if (cursor.value.username === user){
+                const { title ,author, rating, username } = cursor.value;
+                appendToTable(title,author,rating,username);
+            }
+
+            cursor.continue();
+
+            makeRowsClickable();
+        }
+
+    };
+
+    cursorRequest.onerror = function(event) {
+        console.error('Error retrieving data from IndexedDB:', event.target.error);
+    };
+
+}

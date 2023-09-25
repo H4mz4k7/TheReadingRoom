@@ -12,14 +12,14 @@ exports.create = function(req, res) {
     var userData = req.body;
 
     // Get the current date and time
-    let currentDate = new Date();
+
 
     // Create a new Comment object with the extracted data
     let comment = new Comment({
         room_number: userData.room_number,
         comment_string: userData.comment_string,
         username: userData.username,
-        time: currentDate
+        time: userData.time
     });
 
     // Save the comment to the database
