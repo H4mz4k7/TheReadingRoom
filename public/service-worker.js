@@ -63,18 +63,17 @@ self.addEventListener('activate', function (e) {
 
 
 /**
- * returned cache page if user is offline
+ * caches page if online, returns cached page if user is offline and cache page is available. If cached page is not available then display offline page
  */
 self.addEventListener('fetch', function(event) {
-    // Skip caching for POST requests
+
+    //filter out urls that are not needed to cache
     if (event.request.method === 'POST') {
         return;
     }
 
-
-    // Check if the request URL starts with 'http' or 'https'
     if (!event.request.url.startsWith('http')) {
-        // Skip the request
+
         return;
     }
 
@@ -91,13 +90,13 @@ self.addEventListener('fetch', function(event) {
 
     event.respondWith(
         fetch(event.request)
-            .then(function (response) {
-                // Check if response is valid (status 200)
+            .then(function (response) { //if online
+                // Check if response is valid
                 if (response.status === 200) {
                     // Clone the response as it can only be consumed once
                     const responseClone = response.clone();
 
-                    // Store the response in the cache for GET requests
+                    // Store the response in the cache
                     if (event.request.method === 'GET') {
                         caches.open('cache')
                             .then(function (cache) {
@@ -109,13 +108,12 @@ self.addEventListener('fetch', function(event) {
                 // Return the response
                 return response;
             })
-            .catch(function () {
+            .catch(function () { //if offline
                 // Serve the request from the cache if available
                 return caches.open('cache')
                     .then(function (cache) {
                         if (event.request.url.includes('/login')) {
-                            // Respond with the offline page for /login
-                            return cache.match('/offline');
+                            return cache.match('/offline'); //need to be online to login so display offline page if offline
                         }
                         else{
                             return cache.match(event.request)
@@ -123,7 +121,7 @@ self.addEventListener('fetch', function(event) {
                                     if (cachedResponse) {
                                         return cachedResponse;
                                     } else {
-                                        return cache.match('/offline')
+                                        return cache.match('/offline') //display offline page if no cached page available
                                     }
                                 });
                         }
@@ -144,6 +142,10 @@ self.addEventListener('sync', function(event) {
     }
 });
 
+
+/**
+ * Add any offline added reviews to mongoDB
+ */
 function syncReviews() {
     const request = indexedDB.open('reviewsDatabase', 1);
 
@@ -157,9 +159,11 @@ function syncReviews() {
 
             const syncRequests = [];
 
+
             cursorRequest.onsuccess = function(event) {
                 const cursor = event.target.result;
 
+                //iterate through indexeddb and if any reviews have been added offline then add to mongoDB
                 if (cursor) {
                     const value = cursor.value;
 
@@ -196,6 +200,15 @@ function syncReviews() {
 }
 
 
+/**
+ * add review to mongoDB
+ * @param title
+ * @param author
+ * @param username
+ * @param rating
+ * @param review
+ * @param room_number
+ */
 function pushReviewsToDB(title, author, username, rating, review, room_number) {
     return new Promise(function(resolve, reject) {
 

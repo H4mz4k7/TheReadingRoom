@@ -20,6 +20,7 @@ $(document).ready(function () {
     $alert.hide();
 
 
+    //retrieve error param from url (if it is there) and display relevant alert
     const urlParams = new URLSearchParams(window.location.search);
 
     const isError = urlParams.get("isError");
@@ -46,14 +47,18 @@ $(document).ready(function () {
         // Disable the button to prevent multiple clicks
         $registerBtn.prop('disabled', true);
 
+
+        //extract data from form
         let email = $("#email").val();
         let username = $("#username").val();
-        let password = $("#password").val();
+        let $password = $("#password");
+        let password = $password.val();
 
 
+        //check passwords match
         function validateForm() {
 
-            var confirmPassword = $("#confirmPassword").val();
+            const confirmPassword = $("#confirmPassword").val();
 
             if (password !== confirmPassword) {
                 return false; // Prevent form submission
@@ -66,26 +71,29 @@ $(document).ready(function () {
 
         if (validateForm()){
 
+            //check if there is a user already registered with same email or username
             const getUsersAndEmailsPromise = new Promise(function (resolve, reject) {
                 $.ajax({
                     url: '/getUsersAndEmails',
                     type: 'GET',
                     data: { username: username, email : email },
                     success: function (data) {
-                        if (data.length !== 0){
+                        if (data.length !== 0){ //if data extracted then username/email is in use
                             reject("Username or email is already in use")
                         }else{
-                            resolve(); // Resolve the Promise when the request is successful
+                            resolve(); // Resolve if no data is found
                         }
                     },
                     error: function (xhr, status, error) {
-                        reject(error); // Reject the Promise if there is an error
+                        reject(error);
                     }
                 });
             });
 
+            //after db is checked this block is called
             getUsersAndEmailsPromise
                 .then(function (){
+                    //create new user
                     $.ajax({
                         url: '/users',
                         type: 'POST',
@@ -93,22 +101,18 @@ $(document).ready(function () {
                         contentType: 'application/json',
                         success: function () {
                             console.log('User saved successfully!');
-                            // You can redirect or display a success message here
 
-                            // Re-enable the button after success (if needed)
                             $("#registerBtn").prop('disabled', false);
                         },
                         error: function (xhr, status, error) {
                             console.error('Error saving user:', error);
-                            // Handle the error and provide feedback to the user
 
-                            // Re-enable the button after error (if needed)
                             $("#registerBtn").prop('disabled', false);
                         }
                     });
                 })
                 .catch(function (error) {
-
+                    //if username/email is in use add error to search param and reload page
                     const isError = true;
 
                     // Redirect to /users with the isError query parameter
@@ -120,9 +124,10 @@ $(document).ready(function () {
 
         }
         else{
+            //alert if passwords do not match
             event.preventDefault();
             $("#confirmPassword").val("");
-            $("#password").val("");
+            $password.val("");
             $alert.show();
             $alert.text("Passwords do not match");
             $("#registerBtn").prop('disabled', false);

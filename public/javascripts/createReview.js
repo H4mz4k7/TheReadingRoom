@@ -5,6 +5,9 @@ let db;
 
 $(document).ready(function () {
 
+
+    //open indexeddb for reviews db to use later
+
     const request = indexedDB.open('reviewsDatabase', 1);
 
 
@@ -21,6 +24,7 @@ $(document).ready(function () {
 
 
 
+    //assign random number to room_number
     let room_number = (Math.round(Math.random() * 10000))
 
     let rating = null;
@@ -29,6 +33,8 @@ $(document).ready(function () {
     $alert.hide();
 
 
+
+    //styling for selecting number of stars
     $(".star").click(function () {
         $(".star").css("color", "black");
         rating = $(this).data("rating");
@@ -43,7 +49,7 @@ $(document).ready(function () {
     });
 
 
-
+    //on form submit
     $("#createReview").submit(function (event) {
 
         event.preventDefault();
@@ -53,6 +59,7 @@ $(document).ready(function () {
         $postBtn.prop('disabled', true);
 
 
+        //extract review data from form
         let title = $("#title").val();
         let author = $("#author").val();
         let review = $("#review").val();
@@ -62,6 +69,7 @@ $(document).ready(function () {
 
 
 
+        //if data has not all been entered, return alert
         if (!title || !author || !rating || !review || !username){
 
 
@@ -82,6 +90,8 @@ $(document).ready(function () {
             }
 
 
+            //check if user is online or offline, if online then add to indexeddb with status value 'online' and add to mongoDB.
+            //if offline then add to indexeddb only, with status value 'offline'
             isOnline(
                 function () {
                     console.log("offline adding");
@@ -93,7 +103,7 @@ $(document).ready(function () {
                     const request = reviewsStore.add(reviewObject);
 
                     request.onsuccess = function (event){
-                        window.location.href = '/'
+                        window.location.href = '/' //redirect page to home page after submitting (if offline)
                     }
 
                     request.onerror = function (event) {
@@ -121,7 +131,7 @@ $(document).ready(function () {
                             success: function () {
                                 console.log('Review saved successfully!');
 
-                                window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`;
+                                window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`; //redirect to view the page posted
 
 
 

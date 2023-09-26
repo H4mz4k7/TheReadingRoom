@@ -5,6 +5,7 @@ let db;
 
 $(document).ready(function () {
 
+
     let room_number = null;
 
     let chatName = $("#chatName").text();
@@ -12,6 +13,7 @@ $(document).ready(function () {
 
 
 
+    //handling turning off ability to comment when offline
     window.addEventListener('offline', function () {
         $("#sendMsg").prop('disabled', true);
         $chat_input.prop('disabled', true);
@@ -35,6 +37,7 @@ $(document).ready(function () {
     )
 
 
+    //extract variables from url to find specific review for page
     const urlParams = new URLSearchParams(window.location.search);
 
     const title = urlParams.get("title");
@@ -47,18 +50,20 @@ $(document).ready(function () {
             type: 'GET',
             data: { title: title, author: author, username: username },
             success: function (data) {
-                room_number = data.room_number;
-                resolve(); // Resolve the Promise when the request is successful
+                room_number = data.room_number; // assign correct room_number from review to variable
+                resolve();
             },
             error: function (xhr, status, error) {
-                reject(error); // Reject the Promise if there is an error
+                reject(error);
             }
         });
     });
 
 
+    //after review has been found and room_number has been assigned this section of code is called
     getSingleReviewPromise
         .then(function () {
+
 
 
             const request = indexedDB.open('commentsDatabase', 1);
@@ -71,7 +76,6 @@ $(document).ready(function () {
 
                 const commentsStore = db.createObjectStore('commentsStore', { keyPath: 'id', autoIncrement: true });
 
-                // Define the structure of the object store
 
                 commentsStore.createIndex('username', 'username', { unique: false });
                 commentsStore.createIndex('time', 'time', { unique: false });
@@ -85,6 +89,7 @@ $(document).ready(function () {
                 // Get the reference to the database
                 db = event.target.result;
 
+                //on success of opening the indexedb, check whether user is online or offline and call the correct method of displaying comments
                 isOnline(
                     function () {
                         console.log("offline");
@@ -108,7 +113,7 @@ $(document).ready(function () {
 
 
 
-
+            //live chat features
 
             socket.emit('create or join', room_number, chatName);
 
@@ -123,6 +128,8 @@ $(document).ready(function () {
                 writeOnHistory(formattedDateTime + ' | ' + userId + ': ' + chatText);
             });
 
+
+            //post comment to dbs when button is clicked or enter is pressed
 
             $("#sendMsg").click(function () {
                 postComment(chatName, room_number)
@@ -144,13 +151,14 @@ $(document).ready(function () {
 });
 
 
-
-
-
-
-
-
+/**
+ * post the comment to indexeddb and mongoDB
+ * @param chatName username
+ * @param room_number room_number of the review currently being viewed
+ */
 function postComment(chatName, room_number){
+
+    //create an object for the comment
     let commentObject = {
         username : chatName,
         room_number : room_number,
@@ -163,10 +171,12 @@ function postComment(chatName, room_number){
     const commentsStore = transaction.objectStore('commentsStore');
 
 
+    //add comment to indexeddb
     const request = commentsStore.add(commentObject);
 
 
     request.onsuccess = function (event){
+        //add comment to mongoDB
         $.ajax({
             url: '/comments',
             type: 'POST',
@@ -183,6 +193,7 @@ function postComment(chatName, room_number){
         });
     }
 
+    //emit the chat for other sessions to receive (live chat)
     socket.emit('chat', room_number, chatName, commentObject.comment_string);
 
     request.onerror = function (event) {
@@ -191,8 +202,13 @@ function postComment(chatName, room_number){
 }
 
 
-
+/**
+ * showing comments if the user is connected to the internet, as well as updating the local indexeddb
+ * @param room_number room_number of the review currently being viewed
+ */
 async function showCommentsOnline(room_number) {
+
+    //retrieve all the comments in the db correlating to the room number
     try {
         const data = await $.ajax({
             url: '/comments',
@@ -200,6 +216,7 @@ async function showCommentsOnline(room_number) {
             data: { room_number: room_number },
         });
 
+        //sort in chronological order
         data.sort((a, b) => new Date(a.time) - new Date(b.time));
 
         const transaction = db.transaction('commentsStore', 'readwrite');
@@ -207,10 +224,12 @@ async function showCommentsOnline(room_number) {
 
         const cursorRequest = commentsStore.openCursor();
 
+
         await new Promise((resolve, reject) => {
             cursorRequest.onsuccess = function (event) {
                 const cursor = event.target.result;
 
+                //delete all comments correlating to the room_number from indexeddb
                 if (cursor) {
                     if (cursor.value.room_number === room_number) {
                         const deleteRequest = commentsStore.delete(cursor.primaryKey);
@@ -225,7 +244,7 @@ async function showCommentsOnline(room_number) {
                         cursor.continue();
                     }
                 } else {
-                    resolve();
+                    resolve(); // after all comments with specific room_number have been deleted, resolve promise
                 }
             };
 
@@ -234,10 +253,13 @@ async function showCommentsOnline(room_number) {
             };
         });
 
+
+        //iterate through data retrieved from mongoDB
         for (const item of data) {
             const { username, time, comment_string } = item;
 
             await new Promise((resolve, reject) => {
+                //add latest comments (from mongoDB) to indexeddb
                 const request = commentsStore.add(item);
                 console.log("Added");
 
@@ -247,10 +269,10 @@ async function showCommentsOnline(room_number) {
                 };
             });
 
-            // Create a Date object from the string
+
+            //display comment on page
             const dateTime = new Date(time);
 
-            // Format the Date object as a string (e.g., "September 19, 2023 13:14:56")
             const formattedDateTime = dateTime.toLocaleString();
 
             writeOnHistory(formattedDateTime + ' | ' + username + ': ' + comment_string);
@@ -261,13 +283,17 @@ async function showCommentsOnline(room_number) {
 }
 
 
+/**
+ * showing comments if the user is not connected to the internet
+ * @param room_number room_number of the review currently being viewed
+ */
 function showCommentsOffline(room_number){
 
 
+    //retrieve comment with specific room_number from indexeddb
     const transaction = db.transaction('commentsStore', 'readonly');
     const commentsStore = transaction.objectStore('commentsStore');
 
-    // Open a cursor to iterate over the data in the object store
     const cursorRequest = commentsStore.openCursor();
 
     cursorRequest.onsuccess = function(event) {
@@ -277,16 +303,13 @@ function showCommentsOffline(room_number){
             if (cursor.value.room_number === room_number){
                 const { time ,comment_string, username } = cursor.value;
 
-                console.log(time)
+                //display comment on page
                 const dateTime = new Date(time);
-
-                // Format the Date object as a string (e.g., "September 19, 2023 13:14:56")
                 const formattedDateTime = dateTime.toLocaleString();
                 writeOnHistory(formattedDateTime + ' | ' + username + ': ' + comment_string);
 
             }
 
-            // Move to the next cursor item
             cursor.continue();
         }
     };
@@ -298,14 +321,21 @@ function showCommentsOffline(room_number){
 }
 
 
-
+/**
+ * display comment in comment history section
+ * @param text message to display
+ */
 function writeOnHistory(text) {
     let $history = $('#history');
     $history.val($history.val() + text + '\n');
     $("#chat_input").val('');
 }
 
-
+/**
+ * allows user to chat if they are logged in
+ * @param chatName username (if logged in)
+ * @param $chat_input element with id "chat_input"
+ */
 function chatDisplayOnline(chatName,$chat_input){
     if (!chatName){
 

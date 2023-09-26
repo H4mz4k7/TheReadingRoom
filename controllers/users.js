@@ -4,27 +4,27 @@ var path = require('path');
 
 
 /**
- * Code to create and save comments into mongoDB
+ * Code to create and save users into mongoDB
  */
 exports.create = function(req, res) {
     // Extract user data from the request body
     var userData = req.body;
 
-    // Create a new Comment object with the extracted data
+    // Create a new User object with the extracted data
     let user = new User({
         email: userData.email,
         username: userData.username,
         password: userData.password,
     });
 
-    // Save the comment to the database
+    // Save the User to the database
     user.save()
         .then((savedUser) => {
-            // Comment saved successfully
+            // User saved successfully
             console.log('User saved successfully:', savedUser);
         })
         .catch((error) => {
-            // Error occurred while saving the comment
+            // Error occurred while saving the User
             console.error('Error saving user:', error);
         });
 }

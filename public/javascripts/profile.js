@@ -17,6 +17,9 @@ $(document).ready(function () {
         // Get the reference to the database
         db = event.target.result;
 
+
+        //if user is online show latest updated version of reviews from mongoDB and sync offline added reviews to mongoDB
+        //if offline then show stored indexeddb version of reviews
         isOnline(
             function () {
                 console.log("offline");
@@ -40,7 +43,10 @@ $(document).ready(function () {
 
 });
 
-
+/**
+ * retrieve users reviews from mongoDB and display in table
+ * @param user the user logged in
+ */
 function showReviews(user) {
     $.ajax({
         url: '/getProfileReviews',
@@ -64,6 +70,11 @@ function showReviews(user) {
     })
 }
 
+
+/**
+ * retrieve users reviews from indexeddb and display in table
+ * @param user the user logged in
+ */
 function showReviewsOffline(user){
 
 

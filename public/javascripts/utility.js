@@ -1,29 +1,34 @@
-
-
+/**
+ * make the table data clickable
+ */
 function makeRowsClickable(){
     const $clickableRows = $("table tbody tr");
 
 
-    // Add a click event listener to each clickable row
+
     $clickableRows.each(function () {
         const $row = $(this);
 
         $row.on("click", function () {
-            const title = $row.find("td:eq(0)").text(); // Adjust the index based on your table structure
+            const title = $row.find("td:eq(0)").text();
             const author = $row.find("td:eq(1)").text();
             const rating = $row.find("td:eq(2)").text();
             const username = $row.find("td:eq(3)").text();
 
 
-            window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`;
+            window.location.href = `/view_review?title=${title}&author=${author}&rating=${rating}&username=${username}`; //redirect page based on the clicked table row
         });
     });
 }
 
 
-
-
-
+/**
+ * add review data from mongoDB to table
+ * @param title
+ * @param author
+ * @param rating
+ * @param username
+ */
 function appendToTable(title, author, rating, username){
 
     const $tableBody = $('table tbody');
@@ -50,7 +55,12 @@ function appendToTable(title, author, rating, username){
 }
 
 
-
+/**
+ * check whether the user is connected to the internet or not by sending an HTTP request to a page.
+ * If there is a response then online, else offline
+ * @param no
+ * @param yes
+ */
 function isOnline(no, yes) {
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -68,6 +78,11 @@ function isOnline(no, yes) {
 }
 
 
+/**
+ * call the sync function in the service worker to add any offline added reviews to mongoDB
+ * @param displayFunc function to display the reviews
+ * @param param parameter for the display function (if necessary)
+ */
 function syncReview(displayFunc, param) {
     navigator.serviceWorker.ready
         .then(function (registration) {

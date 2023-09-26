@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+
+/**
+ * comment schema for mongoDB
+ */
 var CommentsSchema = new Schema(
     {
         room_number: {type: Number, required: true},

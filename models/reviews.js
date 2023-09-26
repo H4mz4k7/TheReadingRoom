@@ -2,6 +2,10 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
+
+/**
+ * reviews schema for mongoDB
+ */
 var ReviewsSchema = new Schema(
     {
         title: {type: String, required: true},

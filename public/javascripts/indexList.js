@@ -1,6 +1,7 @@
 import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
 
 
+//register service worker
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('/service-worker.js')
         .then(function(registration) {
@@ -18,8 +19,7 @@ $(document).ready(function () {
 
 
 
-
-
+    //create indexeddb for reviews
     const request = indexedDB.open('reviewsDatabase', 1);
 
 
@@ -47,6 +47,8 @@ $(document).ready(function () {
         // Get the reference to the database
         db = event.target.result;
 
+        //if user is online show latest updated version of reviews from mongoDB and sync offline added reviews to mongoDB
+        //if offline then show stored indexeddb version of reviews
         isOnline(
             function () {
                 console.log("offline");
@@ -80,7 +82,9 @@ $(document).ready(function () {
 });
 
 
-
+/**
+ * retrieve all reviews from mongoDB and display in table, add review to indexeddb
+ */
 function showReviewsOnline() {
     $.ajax({
         url: '/getReviews',
@@ -89,15 +93,15 @@ function showReviewsOnline() {
 
             const transaction = db.transaction('reviewsStore', 'readwrite');
             const reviewsStore = transaction.objectStore('reviewsStore')
-            reviewsStore.clear()
+            reviewsStore.clear() //delete
 
             data.forEach(function(item) {
 
                 const { title, author, rating, username} = item;
 
 
-                const request = reviewsStore.add(item);
-                appendToTable(title, author, rating, username);
+                const request = reviewsStore.add(item); // add to indexeddb
+                appendToTable(title, author, rating, username); //add to table
 
 
                 request.onerror = function(event) {
@@ -116,7 +120,9 @@ function showReviewsOnline() {
     })
 }
 
-
+/**
+ * retrieve all reviews from indexeddb and display in table
+ */
 function showReviewsOffline(){
 
 

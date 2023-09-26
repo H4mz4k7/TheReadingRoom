@@ -18,7 +18,7 @@ const secretKey = crypto.randomBytes(32).toString('hex');
 let wantToPost = false;
 
 
-
+//creating a session for logging in
 router.use(session({
   secret: secretKey, // Secret key for session data encryption
   resave: false,
@@ -30,8 +30,7 @@ router.use(session({
 router.get('/', function(req, res, next) {
 
 
-    console.log("want to post INDEX: " + wantToPost)
-
+    //pass username variable if logged in
     if (req.session.username ){
         res.render('index', {isAuthenticated : true, username : req.session.username});
     }
@@ -43,7 +42,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
 
-    console.log("want to post LOGIN: " + wantToPost)
     if (!req.session.username) {
         res.render('login');
     } else {
@@ -96,14 +94,13 @@ router.get('/offline', function(req, res, next) {
 
 
 
+//creating users
 router.post('/users', function (req, res) {
-    // Assuming you want to hash the password before saving it
 
-    console.log("want to post REGISTER(POST): " + wantToPost)
 
     const password  = req.body.password;
 
-    // Modify the password value (e.g., hash it using bcrypt)
+    //hash password using bcrypt before storing it in db (security)
     bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
             console.error('Error hashing password:', err);
@@ -112,7 +109,6 @@ router.post('/users', function (req, res) {
             // Update the password in the req.body object with the hashed value
             req.body.password = hash;
 
-            // Now you can proceed to create the user or save the user data
             users.create(req, res);
         }
     });
@@ -135,8 +131,7 @@ router.post('/login', (req, res) => {
 
 
 
-    console.log("want to post LOGIN(POST): " + wantToPost)
-  // Validate and authenticate user here (e.g., check credentials against a database)
+  // Validate and authenticate user. Check if email and password match entry in db
   User.findOne({email : email})
       .then(async (user) => {
           if (!user) {
@@ -173,7 +168,6 @@ router.get('/signout', (req, res) => {
         if (err) {
             console.error('Error destroying session:', err);
         }
-        // Refresh the current page
 
         res.redirect('/');
     });

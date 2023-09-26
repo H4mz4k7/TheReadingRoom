@@ -2,6 +2,7 @@
 $(document).ready(function () {
 
 
+    //extract data from url
     const urlParams = new URLSearchParams(window.location.search);
 
     const title = urlParams.get("title");
@@ -13,9 +14,8 @@ $(document).ready(function () {
     $("#username").text(`Review by: ${username}`)
 
 
+    //css for colouring star rating
     for (let i = 1; i < rating + 1; i++){
-
-
         $("#star" + i).css("color", "#f0ad4e")
     }
 
@@ -23,6 +23,10 @@ $(document).ready(function () {
 
     getBookInfo(title,author);
 
+
+    /**
+     * show the full review by retrieving it from mongoDB
+     */
     function showReview() {
         $.ajax({
             url: '/getSingleReview',
@@ -44,13 +48,18 @@ $(document).ready(function () {
         })
     }
 
+    /**
+     * retrieve book info and picture from Google books API
+     * @param title
+     * @param author
+     */
     function getBookInfo(title, author) {
         $.ajax({
-            url: '/getBookInfo', // Server-side route to retrieve book image
+            url: '/getBookInfo',
             type: 'GET',
             data: { title: title, author: author },
             success: function (data) {
-                // Display the book image on the client side
+
 
                 if (data.error){
                     $("#APIData").hide();
@@ -59,6 +68,7 @@ $(document).ready(function () {
                     const $img = $('#img');
                     const $abstract = $('#abstract')
 
+                    //display data extracted from google books
 
                     $img.attr('src', data.imageUrl);
                     $abstract.text(data.abstract);

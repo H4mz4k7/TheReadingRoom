@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-//The URL which will be queried. Run "mongod.exe" for this to connect
+
 // Define the MongoDB connection string
 var mongoDB = 'mongodb://127.0.0.1:27017/database';
 
