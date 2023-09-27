@@ -18,8 +18,13 @@ On this website, a user can register an account and login (the password is hashe
 Installation for local running:
 
 -Use Webstorm (or another IDE)
+
 -Download node.js https://nodejs.org
+
 -Download MongoDB https://www.mongodb.com/try/download/community
+
 -Download files from Github
+
 -Run "npm install" to install dependencies of the system
+
 -Run "/bin/www"
