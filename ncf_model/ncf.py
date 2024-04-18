@@ -19,7 +19,7 @@ EPOCHS = 100
 BATCH_SIZE = 32
 LEARNING_RATE = 0.0005778618758548964
 
-full_books_df = books.getData()
+full_books_df = books.get_and_store_data()
 books_df = full_books_df.copy().drop(["title", "authors"], axis=1) 
 
 train, test = python_stratified_split(books_df, col_user="user_id", col_item="book_id")

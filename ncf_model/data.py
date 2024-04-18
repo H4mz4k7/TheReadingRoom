@@ -1,13 +1,30 @@
 import sys
 import pandas as pd
 import tensorflow as tf
+tf.get_logger().setLevel('ERROR') # only show error messages
 import numpy as np
 import matplotlib.pyplot as plt
 
 
 
+    
+    
 
-def getData():
+def sort_data(filtered_book_df,id):
+    unique_userIds = filtered_book_df[id].unique()
+    unique_userIds.sort()
+
+    # Create a mapping from old userIds to new ones (starting from 1)
+    user_id_mapping = {old_id: new_id for new_id, old_id in enumerate(unique_userIds, start=1)}
+
+    # Apply the mapping to the userIds column
+    filtered_book_df[id] = filtered_book_df[id].map(user_id_mapping)
+
+    return filtered_book_df
+
+
+
+def get_and_store_data():
     ratings = pd.read_csv('../books_data/ratings_new.csv')
     books = pd.read_csv('../books_data/books_new.csv')
 
@@ -32,8 +49,13 @@ def getData():
     books_count = filtered_book_df['book_id'].value_counts()
     filtered_book_df = filtered_book_df[filtered_book_df['book_id'].isin(books_count[books_count >= 15].index)]
 
-
-    return filtered_book_df
+    filtered_book_df = sort_data(filtered_book_df, 'book_id')
+    filtered_book_df = sort_data(filtered_book_df, 'user_id')
+    filtered_book_df = filtered_book_df.sort_values(by='user_id', ascending=True)
 
     
+    ratings_file = "./ratings.csv"
+    filtered_book_df.to_csv(ratings_file, index=False)
+
+    return filtered_book_df
 
