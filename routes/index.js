@@ -11,7 +11,8 @@ const Comment = require('../models/comments');
 const session = require("express-session");
 const bcrypt = require('bcrypt');
 const axios = require('axios');
-
+const Predictions = require('../models/predictions');
+const Ratings = require('../models/ratings')
 const googleAPIKey = 'AIzaSyBjIIFRyXPIXYCYnZi9U8bA1hWNb0dUhQ0';
 
 const secretKey = crypto.randomBytes(32).toString('hex');
@@ -76,7 +77,6 @@ router.get('/create_review', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next) {
-
     res.render('profile', {username : req.session.username});
 
 });
@@ -289,32 +289,181 @@ router.get('/getBookInfo', async (req, res) => {
     const author = req.query.author;
 
     try {
-        // Make a request to the Google Books API to search for the book by title and author
         const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
             params: {
                 q: `intitle:${title}+inauthor:${author}`,
-                key: googleAPIKey
+                key: googleAPIKey,
             },
         });
 
-        // Check if there are any search results
         if (response.data.items && response.data.items.length > 0) {
-            const book = response.data.items[0].volumeInfo;
+            // Filter items to find the first one with English language
+            const englishBook = response.data.items.find(item => item.volumeInfo.language === 'en');
 
+            if (englishBook) {
+                const book = englishBook.volumeInfo;
 
-            // Check if a thumbnail image is available
-            const imageUrl = book.imageLinks ? book.imageLinks.thumbnail : null;
+                const imageUrl = book.imageLinks ? book.imageLinks.thumbnail : null;
+                const abstract = book.description || 'No description available';
 
-            // Check if an abstract/description is available
-            const abstract = book.description || 'No description available';
-
-            res.json({ imageUrl: imageUrl, abstract: abstract });
+                res.json({ imageUrl: imageUrl, abstract: abstract });
+            } else {
+                res.json({ error: 'English description not found' });
+            }
         } else {
             res.json({ error: 'Book not found' });
         }
     } catch (error) {
         console.error('Error fetching book image and description from Google Books API:', error);
         res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
+
+// Route to get top books for a user by username
+router.get('/top-books', async (req, res) => {
+    try {
+        // First find the user to get the user_id
+        const user = await User.findOne({ username: req.query.username});
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        userId = user.user_id;
+        const topBooks = await getTopBooksForUser(userId);
+        res.json(topBooks);
+    } catch (error) {
+        console.error('Failed to fetch top books:', error);
+        res.status(500).send('Server error');
+    }
+});
+
+async function getBookImage(title, author) {
+    try {
+        const response = await axios.get('https://www.googleapis.com/books/v1/volumes', {
+            params: {
+                q: `intitle:"${title}" inauthor:"${author}"`,  
+                key: googleAPIKey
+            }
+        });
+
+        if (response.data.items && response.data.items.length > 0) {
+            const item = response.data.items[0];
+            const imageLinks = item.volumeInfo.imageLinks;
+            return {
+                title: item.volumeInfo.title,
+                author: item.volumeInfo.authors ? item.volumeInfo.authors.join(', ') : 'Unknown Author',
+                image: imageLinks ? imageLinks.thumbnail : null  
+            };
+        }
+
+        console.log('No books found matching the query.');
+        return {
+            title: title,
+            author: author,
+            image: null  
+        };
+    } catch (error) {
+        console.error('Failed to fetch book details from Google Books API:', error);
+        if (error.response && error.response.status === 429) {
+            console.log('Rate limit exceeded. Returning title and authors with null image.');
+            return {
+                title: title,
+                author: author,
+                image: null
+            };
+        }
+        return null;
+    }
+}
+
+async function getTopBooksForUser(userId) {
+    try {
+        const topBooks = await Predictions.aggregate([
+            { $match: { user_id: userId } },
+            { $sort: { prediction: -1 } },
+            { $limit: 10 },
+            {
+                $lookup: {
+                    from: 'books',
+                    localField: 'book_id',
+                    foreignField: 'book_id',
+                    as: 'book_info'
+                }
+            },
+            { $unwind: '$book_info' },
+            {
+                $project: {
+                    _id: 0,
+                    title: '$book_info.title',
+                    authors: '$book_info.authors'
+                }
+            }
+        ]);
+
+        // Enhance books with images from Google Books API
+        const booksWithImages = await Promise.all(topBooks.map(book =>
+            getBookImage(book.title, book.authors.split(',')[0].trim())  // Only send the first author
+        ));
+
+        return booksWithImages.filter(book => book !== null); 
+    } catch (error) {
+        console.error('Error fetching top books for user:', error);
+        throw error;  // Rethrow to handle it in the route
+    }
+}
+
+
+
+router.get('/read-books', async (req, res) => {
+    try {
+        const booksWithRatings = await Ratings.aggregate([
+            {
+                $lookup: {
+                    from: 'users',  // MongoDB collection name for users
+                    localField: 'user_id',
+                    foreignField: 'user_id',
+                    as: 'user'
+                }
+            },
+            {
+                $match: {
+                    'user.username': req.query.username
+                }
+            },
+            {
+                $lookup: {
+                    from: 'books',  // MongoDB collection name for books
+                    localField: 'book_id',
+                    foreignField: 'book_id',
+                    as: 'book'
+                }
+            },
+            {
+                $unwind: '$book'
+            },
+            {
+                $project: {
+                    _id: 0,
+                    title: '$book.title',
+                    author: { 
+                        $arrayElemAt: [
+                            { $split: ["$book.authors", ", "] },  // Split the authors string into an array
+                            0  // Get the first element (first author)
+                        ]
+                    },
+                    rating: '$rating'  
+                }
+            }
+        ]);
+
+        if (!booksWithRatings.length) {
+            return res.status(404).send('No books found for this user');
+        }
+
+        res.json(booksWithRatings);
+    } catch (error) {
+        console.error('Failed to fetch books and ratings:', error);
+        res.status(500).send('Server error');
     }
 });
 

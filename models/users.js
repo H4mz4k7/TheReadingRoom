@@ -10,7 +10,7 @@ var UsersSchema = new Schema(
         email: {type: String, required: true},
         username: {type: String, required: true, max: 100},
         password: {type: String, required: true},
-
+        user_id: {type: Number, required: true, index: true}
     }
 );
 

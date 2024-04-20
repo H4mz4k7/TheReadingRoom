@@ -2,7 +2,7 @@
  * make the table data clickable
  */
 function makeRowsClickable(){
-    const $clickableRows = $("table tbody tr");
+    const $clickableRows = $("table:first tbody tr");
 
 
 
@@ -29,9 +29,15 @@ function makeRowsClickable(){
  * @param rating
  * @param username
  */
-function appendToTable(title, author, rating, username){
+function appendToTable(title, author, rating, username = null){
 
-    const $tableBody = $('table tbody');
+    if (username !== null){
+        var $tableBody = $('table:first tbody');
+    }
+    else{
+        $tableBody = $('#read-books tbody');
+    }
+    
 
     const $newRow = $('<tr>');
 
@@ -44,11 +50,10 @@ function appendToTable(title, author, rating, username){
     const $ratingCell = $('<td>').text(rating);
     $newRow.append($ratingCell);
 
-    const $postedByCell = $('<td>').text(username);
-    $newRow.append($postedByCell);
-
-
-
+    if (username !== null){
+        const $postedByCell = $('<td>').text(username);
+        $newRow.append($postedByCell);
+    }
 
     $tableBody.append($newRow);
 

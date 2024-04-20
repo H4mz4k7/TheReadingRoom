@@ -1,25 +1,16 @@
 import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
 
 let db;
-$(document).ready(function () {
 
 
+let mySwiper;
 
-
+jQuery(function() {
     let user = $("#username").text();
-
     const request = indexedDB.open('reviewsDatabase', 1);
 
-
-
-
     request.onsuccess = function(event) {
-        // Get the reference to the database
         db = event.target.result;
-
-
-        //if user is online show latest updated version of reviews from mongoDB and sync offline added reviews to mongoDB
-        //if offline then show stored indexeddb version of reviews
         isOnline(
             function () {
                 console.log("offline");
@@ -27,20 +18,18 @@ $(document).ready(function () {
             },
             function () {
                 console.log("online");
-                syncReview(showReviews,user);
-
+                syncReview(showReviews, user);
+                fetchTopBooks(user);
+                getRead(user);
             }
         );
-
     }
 
     request.onerror = function(event) {
-        // Log any errors that occur during the request
         console.error('IndexedDB error:', event.target.error);
     };
 
-
-
+    mySwiper = initializeSwiper(); 
 });
 
 /**
@@ -105,3 +94,101 @@ function showReviewsOffline(user){
     };
 
 }
+
+
+function initializeSwiper() {
+    const mySwiper = new Swiper('.mySwiper', {
+        slidesPerView: 5,
+        spaceBetween: 30,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        breakpoints: {
+            // when window width is >= 320px
+            320: {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            // when window width is >= 480px
+            550: {
+                slidesPerView: 3,
+                spaceBetween: 40
+            },
+            // when window width is >= 640px
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 40
+            },
+            1000: {
+                slidesPerView: 5,
+                spaceBetween: 40
+            }
+        }
+    });
+    return mySwiper;
+}
+
+function fetchTopBooks(user) {
+    $.ajax({
+        url: `/top-books`,
+        data: {username : user},
+        type: 'GET',
+        dataType: 'json', // Expecting JSON data in response
+        success: function (books) {
+            addSlides(books);
+
+            if (!mySwiper) {
+                mySwiper = initializeSwiper();
+            } else {
+                mySwiper.update();
+            }
+
+
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching top books:', error);
+        }
+    });
+}
+
+
+
+
+function addSlides(books) {
+    const defaultImagePath = '/images/blank_cover.jpg'; 
+    books.forEach(book => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+            <img src="${book.image || defaultImagePath}" alt="${book.title}" style="width: 100%; height: auto;">
+            <h3>${book.title}</h3>
+            <p>${book.author}</p>
+        `;
+        mySwiper.appendSlide(slide);
+    });
+    mySwiper.update();  // Make sure to update Swiper after adding slides
+}
+
+  
+  
+function getRead(user) {
+    $.ajax({
+        url: `/read-books`,
+        data: {username : user},
+        type: 'GET',
+        dataType: 'json', // Expecting JSON data in response
+        success: function (books) {
+            console.log(books)
+            books.forEach(book => {
+                appendToTable(book.title, book.author, book.rating)
+            })
+
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching top books:', error);
+        }
+    });
+}
+

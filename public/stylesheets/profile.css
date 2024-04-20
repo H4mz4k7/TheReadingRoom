@@ -1,0 +1,92 @@
+.table-container {
+    max-height: 250px; /* Adjust this value based on the height of your rows */
+    overflow-y: auto; /* Enables vertical scrolling */
+    width: 100%; /* Adjust width as necessary */
+}
+
+
+.swiper {
+    width: 80%;
+    height: auto;
+    margin: auto;
+
+    h3 {
+        padding-top: 10px;
+        font-size: 17px;
+        margin-bottom: 0px !important;
+        font-weight: bold;
+    }
+    
+    p {
+        font-size: 14px;
+    }
+
+    
+}
+
+.swiper-slide {
+    width: 20%;
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-width: 60%;
+    height: auto;
+    object-fit: contain;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: rgb(72, 47, 10) !important;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    cursor: pointer;
+    user-select: none;  /* Prevent text selection */
+}
+
+#addBtn{
+    margin-top: 10px;
+}
+
+
+
+
+
+
+@media (max-width: 1000px) {
+    .swiper-slide img {
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    
+
+    .swiper{
+        h3 {
+            font-size: 15px; 
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+    
+} 
+
+@media (max-width: 480px) {
+    .swiper{
+        h3 {
+            font-size: 13px; 
+        }
+        p {
+            font-size: 11px;
+        }
+    }
+
+}
+

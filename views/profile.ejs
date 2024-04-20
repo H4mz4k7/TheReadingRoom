@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/stylesheets/bs-theme-overrides.css">
     <link rel="stylesheet" href="/stylesheets/baguetteBox.min.css">
     <link rel="stylesheet" href="/stylesheets/vanilla-zoom.min.css">
+    <link rel="stylesheet" href="/stylesheets/profile.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/> 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
     <script src="/javascripts/baguetteBox.min.js"></script>
@@ -48,19 +51,49 @@
                 </div>
             </div>
             <div class="table-responsive text-center border-1" style="margin: 18px;">
-                <table class="table">
-                    <thead class="border-black">
-                        <tr>
-                            <th class="border rounded-0 border-1 border-primary">Title:</th>
-                            <th class="border rounded-0 border-1 border-primary">Author:</th>
-                            <th class="border rounded-0 border-1 border-primary">Rating:</th>
-                            <th class="border rounded-0 border-1 border-primary">Posted by:</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div class="table-container">
+                    <table class="table">
+                        <thead class="border-black">
+                            <tr>
+                                <th class="border rounded-0 border-1 border-primary">Title:</th>
+                                <th class="border rounded-0 border-1 border-primary">Author:</th>
+                                <th class="border rounded-0 border-1 border-primary">Rating:</th>
+                                <th class="border rounded-0 border-1 border-primary">Posted by:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+            <!-- Swiper -->
+            <div class="swiper mySwiper">
+                <h2 class="text-info" style="color: var(--bs-primary);">Recommended For You:</h2>
+                <div class="swiper-wrapper">
+                <!-- Slides will be dynamically added here -->
+                </div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+            <div class="table-responsive text-center border-1" style="margin: 18px;">
+                <h2 class="text-info" style="color: var(--bs-primary);">Books You Have Read:</h2>
+                <div class="table-container">
+                    <table id="read-books" class="table">
+                        <thead class="border-black">
+                            <tr>
+                                <th class="border rounded-0 border-1 border-primary">Title:</th>
+                                <th class="border rounded-0 border-1 border-primary">Author:</th>
+                                <th class="border rounded-0 border-1 border-primary">Rating:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="addBtn" class="btn-group" role="group" style="text-align: center;"><button class="btn btn-primary" type="button" >Add a book</button></div>
+            </div>
+            
         </section>
     </main>
     <footer class="page-footer dark">
