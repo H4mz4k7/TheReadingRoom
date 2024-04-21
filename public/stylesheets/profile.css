@@ -53,6 +53,11 @@
     margin-top: 10px;
 }
 
+#read-books tr {
+    cursor: default !important;
+    user-select: none;
+}
+
 
 
 

@@ -1,4 +1,4 @@
-import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
+import {appendToTable, makeRowsClickable, isOnline, syncReview, addUserToIDB} from './utility.js';
 
 
 //register service worker
@@ -13,11 +13,54 @@ if ('serviceWorker' in navigator) {
 }
 
 let db;
-
+let dbUser
 
 $(document).ready(function () {
 
+    let user = $("#username").text() || null;
 
+    isOnline(
+        function () {
+            console.log("offline");
+        },
+        function () {
+            console.log("online");
+            if (user){
+                checkUserByUsername(user, (exists, userData) => {
+                    if (exists) {
+                        console.log('User exists with data:', userData);
+                    } else {
+                        console.log('User does not exist');
+                        addUserToIDB(user, dbUser)
+                    }
+                });
+            }
+        }
+    );
+    
+
+
+    const requestUser = indexedDB.open('UserDatabase', 1);
+
+    requestUser.onupgradeneeded = function(event) {
+        dbUser = event.target.result;
+        if (!dbUser.objectStoreNames.contains('users')) {
+            const store = dbUser.createObjectStore('users', { keyPath: 'user_id' });
+            store.createIndex('username', 'username', { unique: true });
+            store.createIndex('email', 'email', { unique: true });
+
+        }
+    };
+
+    requestUser.onsuccess = function(event) {
+        dbUser = event.target.result;
+    };
+
+    requestUser.onerror = function(event) {
+        console.error('IndexedDB error:', event.target.error);
+    };
+    
+    
 
     //create indexeddb for reviews
     const request = indexedDB.open('reviewsDatabase', 1);
@@ -153,4 +196,26 @@ function showReviewsOffline(){
 
 }
 
+
+function checkUserByUsername(username, callback) {
+    const transaction = dbUser.transaction(['users'], 'readonly');
+    const store = transaction.objectStore('users');
+    const index = store.index('username');
+    const request = index.get(username);
+
+    request.onsuccess = function() {
+        if (request.result) {
+            console.log('User found:', request.result);
+            callback(true, request.result); // User found, return true and the user data
+        } else {
+            console.log('User not found');
+            callback(false, null); // User not found, return false
+        }
+    };
+
+    request.onerror = function(event) {
+        console.error('Error searching for user:', event.target.error);
+        callback(false, null); // Error occurred, return false
+    };
+}
 

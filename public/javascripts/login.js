@@ -1,6 +1,24 @@
 
+import {addUserToIDB} from './utility.js';
+let db;
 
 $(document).ready(function () {
+
+
+    //open indexeddb for reviews db to use later
+
+    const request = indexedDB.open('userDatabase', 1);
+
+
+    request.onsuccess = function(event) {
+        // Get the reference to the database
+        db = event.target.result;
+    };
+
+    request.onerror = function(event) {
+        // Handle errors
+        console.error('IndexedDB error:', event.target.error);
+    };
 
     // Toggle between login and registration forms
     $("#toggleFormButton").click(function () {
@@ -70,58 +88,7 @@ $(document).ready(function () {
 
 
         if (validateForm()){
-
-            //check if there is a user already registered with same email or username
-            const getUsersAndEmailsPromise = new Promise(function (resolve, reject) {
-                $.ajax({
-                    url: '/getUsersAndEmails',
-                    type: 'GET',
-                    data: { username: username, email : email },
-                    success: function (data) {
-                        if (data.length !== 0){ //if data extracted then username/email is in use
-                            reject("Username or email is already in use")
-                        }else{
-                            resolve(); // Resolve if no data is found
-                        }
-                    },
-                    error: function (xhr, status, error) {
-                        reject(error);
-                    }
-                });
-            });
-
-            //after db is checked this block is called
-            getUsersAndEmailsPromise
-                .then(function (){
-                    //create new user
-                    $.ajax({
-                        url: '/users',
-                        type: 'POST',
-                        data: JSON.stringify({ email: email, username: username, password: password }),
-                        contentType: 'application/json',
-                        success: function () {
-                            console.log('User saved successfully!');
-
-                            $("#registerBtn").prop('disabled', false);
-                        },
-                        error: function (xhr, status, error) {
-                            console.error('Error saving user:', error);
-
-                            $("#registerBtn").prop('disabled', false);
-                        }
-                    });
-                })
-                .catch(function (error) {
-                    //if username/email is in use add error to search param and reload page
-                    const isError = true;
-
-                    // Redirect to /users with the isError query parameter
-                    window.location.href = `/login?isError=${isError}`;
-                    $("#registerBtn").prop('disabled', false);
-                });
-
-
-
+            registerUser(username, email, password);
         }
         else{
             //alert if passwords do not match
@@ -142,3 +109,31 @@ $(document).ready(function () {
 
 
 
+async function registerUser(username, email, password) {
+    try {
+        const response = await $.ajax({
+            url: '/getUsersAndEmails',
+            type: 'GET',
+            data: { username, email }
+        });
+
+        if (response.length !== 0) {
+            throw new Error("Username or email is already in use");
+        }
+
+        const userResponse = await $.ajax({
+            url: '/users',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ email, username, password })
+        });
+
+        
+        $("#registerBtn").prop('disabled', false);
+
+    } catch (error) {
+        console.error('Error:', error);
+        window.location.href = `/login?isError=true`;
+        $("#registerBtn").prop('disabled', false);
+    }
+}

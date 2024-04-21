@@ -108,7 +108,43 @@ function syncReview(displayFunc, param) {
 }
 
 
+function addUserToIDB(user,db){
+    console.log("testing this is called")
+    $.ajax({
+        url: '/user',
+        data: {username : user},
+        type: 'GET',
+        success: function (userData) {
+
+           
+
+            let userObject = {
+                email : userData.email,
+                username: user,
+                user_id: userData.user_id
+            }
+
+            
+            
+            const transaction = db.transaction('users', 'readwrite');
+            const usersStore = transaction.objectStore('users');
+
+            const request = usersStore.add(userObject);
+
+            request.onsuccess = function (event){
+                console.log("User saved to indexedDB")
+            }
+
+            request.onerror = function (event) {
+                console.error('Error adding item to IndexedDB:', event.target.error);
+            };
+        },
+        error: function (xhr, status, error) {
+            console.error('Error fetching data from MongoDB:', error);
+        }
+    })
+}
 
 
 
-export { appendToTable, makeRowsClickable, isOnline, syncReview };
+export { appendToTable, makeRowsClickable, isOnline, syncReview, addUserToIDB };

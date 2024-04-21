@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var users = require('../controllers/users')
 var reviews = require('../controllers/reviews')
+var books = require('../controllers/books')
+var ratings = require('../controllers/ratings')
 const crypto = require('crypto');
 const User = require('../models/users')
 const Review = require('../models/reviews')
@@ -13,6 +15,7 @@ const bcrypt = require('bcrypt');
 const axios = require('axios');
 const Predictions = require('../models/predictions');
 const Ratings = require('../models/ratings')
+const Books = require('../models/books')
 const googleAPIKey = 'AIzaSyBjIIFRyXPIXYCYnZi9U8bA1hWNb0dUhQ0';
 
 const secretKey = crypto.randomBytes(32).toString('hex');
@@ -114,14 +117,40 @@ router.post('/users', function (req, res) {
     });
 });
 
-router.post('/create_review', function (req,res){
-    reviews.create(req,res);
-    if (wantToPost === true){
-        wantToPost = false;
-    }
-    res.status(200).send('Review saved successfully');
-})
 
+
+router.post('/create_review', async (req, res) => {
+    try {
+
+        const { title, author, rating, username} = req.body;
+
+        reviews.create(req,res);
+        if (wantToPost === true){
+            wantToPost = false;
+        }
+
+        const user = await User.findOne({ username: username });
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        
+        console.log(user.user_id)
+        // Find or create the book
+        let book = await Books.findOne({ title: title, author: author });
+        if (!book) {
+            return books.create(req, res, async (createdBook) => { 
+                ratings.create({book_id: createdBook.book_id, user_id: user.user_id, rating},res)
+            });
+        }
+        else {
+            return ratings.create({book_id: book.book_id, user_id: user.user_id, rating},res)
+        }
+        
+    } catch (error) {
+        console.error('Failed to create review:', error);
+        res.status(500).send('Server error');
+    }
+});
 
 
 
@@ -364,7 +393,7 @@ async function getBookImage(title, author) {
         };
     } catch (error) {
         console.error('Failed to fetch book details from Google Books API:', error);
-        if (error.response && error.response.status === 429) {
+        if (error.response && error.response.status == 429) {
             console.log('Rate limit exceeded. Returning title and authors with null image.');
             return {
                 title: title,
@@ -395,14 +424,14 @@ async function getTopBooksForUser(userId) {
                 $project: {
                     _id: 0,
                     title: '$book_info.title',
-                    authors: '$book_info.authors'
+                    author: '$book_info.author' // Directly use the author's field
                 }
             }
         ]);
 
         // Enhance books with images from Google Books API
         const booksWithImages = await Promise.all(topBooks.map(book =>
-            getBookImage(book.title, book.authors.split(',')[0].trim())  // Only send the first author
+            getBookImage(book.title, book.author)
         ));
 
         return booksWithImages.filter(book => book !== null); 
@@ -413,13 +442,12 @@ async function getTopBooksForUser(userId) {
 }
 
 
-
 router.get('/read-books', async (req, res) => {
     try {
         const booksWithRatings = await Ratings.aggregate([
             {
                 $lookup: {
-                    from: 'users',  // MongoDB collection name for users
+                    from: 'users',
                     localField: 'user_id',
                     foreignField: 'user_id',
                     as: 'user'
@@ -432,7 +460,7 @@ router.get('/read-books', async (req, res) => {
             },
             {
                 $lookup: {
-                    from: 'books',  // MongoDB collection name for books
+                    from: 'books',
                     localField: 'book_id',
                     foreignField: 'book_id',
                     as: 'book'
@@ -445,12 +473,7 @@ router.get('/read-books', async (req, res) => {
                 $project: {
                     _id: 0,
                     title: '$book.title',
-                    author: { 
-                        $arrayElemAt: [
-                            { $split: ["$book.authors", ", "] },  // Split the authors string into an array
-                            0  // Get the first element (first author)
-                        ]
-                    },
+                    author: '$book.author', 
                     rating: '$rating'  
                 }
             }
@@ -463,6 +486,20 @@ router.get('/read-books', async (req, res) => {
         res.json(booksWithRatings);
     } catch (error) {
         console.error('Failed to fetch books and ratings:', error);
+        res.status(500).send('Server error');
+    }
+});
+
+
+router.get('/user', async (req, res) => {
+    try {
+        const user = await User.findOne({ username: req.query.username});
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        res.json(user)
+    } catch (error) {
+        console.error('Failed to fetch top books:', error);
         res.status(500).send('Server error');
     }
 });

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Contact Us - Brand</title>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i&amp;display=swap">
+    <link rel="stylesheet" href="/stylesheets/bs-theme-overrides.css">
+    <link rel="stylesheet" href="/stylesheets/baguetteBox.min.css">
+    <link rel="stylesheet" href="/stylesheets/createReview.css">
+    <link rel="stylesheet" href="/stylesheets/vanilla-zoom.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script type="module" src="/javascripts/createRating.js"></script>
+    <script src="/javascripts/baguetteBox.min.js"></script>
+    <script src="/javascripts/vanilla-zoom.js"></script>
+    <script src="/javascripts/theme.js"></script>
+    <script type="module" src="/javascripts/utility.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top bg-body clean-navbar navbar-light">
+        <div class="container"><a class="navbar-brand logo" href="/" style="color: var(--bs-primary);">The Reading Room</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/" style="color: var(--bs-primary);">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a id="username" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><%= username %></a>
+                        <div class="dropdown-menu" data-bs-popper="none">
+                            <a class="dropdown-item" href="/profile">Profile</a>
+                            <a class="dropdown-item" href="/signout">Sign out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="page contact-us-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Add a Book</h2>
+                    <p>Fill out the form below to add your book to Read!</p>
+                </div>
+                <p id="alert" class="text-center" style="color: red;"></p>
+                <form id="createReview">
+                    <div class="mb-3">
+                        <label class="form-label" for="title">Book Title</label>
+                        <input class="form-control" type="text" id="title" name="title" data-bs-theme="light">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="author">Author</label>
+                        <input class="form-control" type="text" id="author" name="author" data-bs-theme="light">
+                    </div>
+                    <div class="rating">
+                      <label class="form-label" for="rating">Rating</label>
+                      <br>
+                      <span id="star1" class="star" data-rating="1">&#9733;</span>
+                      <span id="star2" class="star" data-rating="2">&#9733;</span>
+                      <span id="star3" class="star" data-rating="3">&#9733;</span>
+                      <span id="star4" class="star" data-rating="4">&#9733;</span>
+                      <span id="star5" class="star" data-rating="5">&#9733;</span>
+                    </div>
+                    <div class="mb-3"></div>
+                    <div class="mb-3"></div><button id="postBtn" class="btn btn-primary" type="submit" >Add Book!</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2023 Copyright Text</p>
+        </div>
+    </footer>
+</body>
+
+</html>

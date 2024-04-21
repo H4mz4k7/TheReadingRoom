@@ -1,6 +1,6 @@
-book_id,authors,title
+book_id,author,title
 1,Suzanne Collins,"The Hunger Games (The Hunger Games, #1)"
-2,"J.K. Rowling, Mary GrandPré","Harry Potter and the Sorcerer's Stone (Harry Potter, #1)"
+2,J.K. Rowling,"Harry Potter and the Sorcerer's Stone (Harry Potter, #1)"
 3,Stephenie Meyer,"Twilight (Twilight, #1)"
 4,Harper Lee,To Kill a Mockingbird
 5,F. Scott Fitzgerald,The Great Gatsby
@@ -11,29 +11,29 @@ book_id,authors,title
 10,Jane Austen,Pride and Prejudice
 11,Khaled Hosseini,The Kite Runner
 12,Veronica Roth,"Divergent (Divergent, #1)"
-13,"George Orwell, Erich Fromm, Celâl Üster",1984
+13,George Orwell,1984
 14,George Orwell,Animal Farm
-15,"Anne Frank, Eleanor Roosevelt, B.M. Mooyaart-Doubleday",The Diary of a Young Girl
-16,"Stieg Larsson, Reg Keeland","The Girl with the Dragon Tattoo (Millennium, #1)"
+15,Anne Frank,The Diary of a Young Girl
+16,Stieg Larsson,"The Girl with the Dragon Tattoo (Millennium, #1)"
 17,Suzanne Collins,"Catching Fire (The Hunger Games, #2)"
-18,"J.K. Rowling, Mary GrandPré, Rufus Beck","Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)"
+18,J.K. Rowling,"Harry Potter and the Prisoner of Azkaban (Harry Potter, #3)"
 19,J.R.R. Tolkien,"The Fellowship of the Ring (The Lord of the Rings, #1)"
 20,Suzanne Collins,"Mockingjay (The Hunger Games, #3)"
-21,"J.K. Rowling, Mary GrandPré","Harry Potter and the Order of the Phoenix (Harry Potter, #5)"
+21,J.K. Rowling,"Harry Potter and the Order of the Phoenix (Harry Potter, #5)"
 22,Alice Sebold,The Lovely Bones
-23,"J.K. Rowling, Mary GrandPré","Harry Potter and the Chamber of Secrets (Harry Potter, #2)"
-24,"J.K. Rowling, Mary GrandPré","Harry Potter and the Goblet of Fire (Harry Potter, #4)"
-25,"J.K. Rowling, Mary GrandPré","Harry Potter and the Deathly Hallows (Harry Potter, #7)"
+23,J.K. Rowling,"Harry Potter and the Chamber of Secrets (Harry Potter, #2)"
+24,J.K. Rowling,"Harry Potter and the Goblet of Fire (Harry Potter, #4)"
+25,J.K. Rowling,"Harry Potter and the Deathly Hallows (Harry Potter, #7)"
 26,Dan Brown,"The Da Vinci Code (Robert Langdon, #2)"
-27,"J.K. Rowling, Mary GrandPré","Harry Potter and the Half-Blood Prince (Harry Potter, #6)"
+27,J.K. Rowling,"Harry Potter and the Half-Blood Prince (Harry Potter, #6)"
 28,William Golding,Lord of the Flies
-29,"William Shakespeare, Robert           Jackson",Romeo and Juliet
+29,William Shakespeare,Romeo and Juliet
 30,Gillian Flynn,Gone Girl
 31,Kathryn Stockett,The Help
 32,John Steinbeck,Of Mice and Men
 33,Arthur Golden,Memoirs of a Geisha
 34,E.L. James,"Fifty Shades of Grey (Fifty Shades, #1)"
-35,"Paulo Coelho, Alan R. Clarke",The Alchemist
+35,Paulo Coelho,The Alchemist
 36,Lois Lowry,"The Giver (The Giver, #1)"
 37,C.S. Lewis,"The Lion, the Witch, and the Wardrobe (Chronicles of Narnia, #1)"
 38,Audrey Niffenegger,The Time Traveler's Wife
@@ -41,7 +41,7 @@ book_id,authors,title
 40,Elizabeth Gilbert,"Eat, Pray, Love"
 41,Rick Riordan,"The Lightning Thief (Percy Jackson and the Olympians, #1)"
 42,Louisa May Alcott,"Little Women (Little Women, #1)"
-43,"Charlotte Brontë, Michael Mason",Jane Eyre
+43,Charlotte Brontë,Jane Eyre
 44,Nicholas Sparks,"The Notebook (The Notebook, #1)"
 45,Sara Gruen,Water for Elephants
 46,Markus Zusak,The Book Thief
@@ -54,12 +54,12 @@ book_id,authors,title
 53,Aldous Huxley,Brave New World
 54,Stephenie Meyer,"Breaking Dawn (Twilight, #4)"
 55,Sue Monk Kidd,The Secret Life of Bees
-56,"Mark Twain, John Seelye, Guy Cardwell",The Adventures of Huckleberry Finn
-57,"E.B. White, Garth Williams, Rosemary Wells",Charlotte's Web
+56,Mark Twain,The Adventures of Huckleberry Finn
+57,E.B. White,Charlotte's Web
 58,Mark Haddon,The Curious Incident of the Dog in the Night-Time
 59,Paula Hawkins,The Girl on the Train
 60,Philip Pullman,"The Golden Compass (His Dark Materials, #1)"
-61,"Emily Brontë, Richard J. Dunn",Wuthering Heights
+61,Emily Brontë,Wuthering Heights
 62,Jodi Picoult,My Sister's Keeper
 63,Kurt Vonnegut Jr.,Slaughterhouse-Five
 64,Margaret Mitchell,Gone with the Wind
@@ -67,60 +67,60 @@ book_id,authors,title
 66,Stephen Chbosky,The Perks of Being a Wallflower
 67,Veronica Roth,"Insurgent (Divergent, #2)"
 68,Orson Scott Card,"Ender's Game (Ender's Saga, #1)"
-69,"Mary Wollstonecraft Shelley, Percy Bysshe Shelley, Maurice Hindle",Frankenstein
+69,Mary Wollstonecraft Shelley,Frankenstein
 70,Stephen King,The Shining (The Shining #1)
 71,Stephenie Meyer,"The Host (The Host, #1)"
 72,John Green,Looking for Alaska
 73,Helen Fielding,"Bridget Jones's Diary (Bridget Jones, #1)"
-74,"Jane Austen, Tony Tanner, Ros Ballaster",Sense and Sensibility
-75,"Louis Sachar, Louis Sachar","Holes (Holes, #1)"
+74,Jane Austen,Sense and Sensibility
+75,Louis Sachar,"Holes (Holes, #1)"
 76,Lauren Weisberger,"The Devil Wears Prada (The Devil Wears Prada, #1)"
-77,"Homer, Robert Fagles, E.V. Rieu, Frédéric Mugler, Bernard Knox",The Odyssey
-78,"Antoine de Saint-Exupéry, Richard Howard, Dom Marcos Barbosa, Melina Karakosta",The Little Prince
+77,Homer,The Odyssey
+78,Antoine de Saint-Exupéry,The Little Prince
 79,Jeannette Walls,The Glass Castle
 80,Jon Krakauer,Into the Wild
-81,"Charles Dickens, Richard Maxwell, Hablot Knight Browne",A Tale of Two Cities
+81,Charles Dickens,A Tale of Two Cities
 82,Shel Silverstein,The Giving Tree
 83,John Grisham,A Time to Kill
-84,"Elie Wiesel, Marion Wiesel",Night (The Night Trilogy #1)
+84,Elie Wiesel,Night (The Night Trilogy #1)
 85,John Green,Paper Towns
 86,William Goldman,The Princess Bride 
 87,S.E. Hinton,The Outsiders
 88,James Dashner,"The Maze Runner (Maze Runner, #1)"
-89,"Steven D. Levitt, Stephen J. Dubner","Freakonomics: A Rogue Economist Explores the Hidden Side of Everything (Freakonomics, #1)"
+89,Steven D. Levitt,"Freakonomics: A Rogue Economist Explores the Hidden Side of Everything (Freakonomics, #1)"
 90,Frances Hodgson Burnett,The Secret Garden
-91,"Gabriel García Márquez, Gregory Rabassa",One Hundred Years of Solitude
-92,"Oscar Wilde, Jeffrey Eugenides",The Picture of Dorian Gray
+91,Gabriel García Márquez,One Hundred Years of Solitude
+92,Oscar Wilde,The Picture of Dorian Gray
 93,E.L. James,"Fifty Shades Freed (Fifty Shades, #3)"
-94,"Bram Stoker, Nina Auerbach, David J. Skal",Dracula
-95,"Stieg Larsson, Reg Keeland","The Girl Who Played with Fire (Millennium, #2)"
+94,Bram Stoker,Dracula
+95,Stieg Larsson,"The Girl Who Played with Fire (Millennium, #2)"
 96,E.L. James,"Fifty Shades Darker (Fifty Shades, #2)"
 97,Barbara Kingsolver,The Poisonwood Bible
 98,David Sedaris,Me Talk Pretty One Day
 99,Maurice Sendak,Where the Wild Things Are
-100,"Alexandre Dumas, Robin Buss",The Count of Monte Cristo
+100,Alexandre Dumas,The Count of Monte Cristo
 101,Cormac McCarthy,The Road
 102,Veronica Roth,"Allegiant (Divergent, #3)"
 103,Tina Fey,Bossypants
 104,Nicholas Sparks,A Walk to Remember
 105,Sophie Kinsella,"Confessions of a Shopaholic (Shopaholic, #1)"
-106,"Victor Hugo, Lee Fahnestock, Norman MacAfee",Les Misérables
+106,Victor Hugo,Les Misérables
 107,George R.R. Martin,"A Clash of Kings  (A Song of Ice and Fire, #2)"
 108,Kim Edwards,The Memory Keeper's Daughter
 109,Jojo Moyes,"Me Before You (Me Before You, #1)"
 110,Joseph Heller,Catch-22
-111,"Mitch Albom, Saulius Dagys",Tuesdays with Morrie
+111,Mitch Albom,Tuesdays with Morrie
 112,Jeffrey Eugenides,Middlesex
-113,"Mark Twain, Guy Cardwell, John Seelye",The Adventures of Tom Sawyer
+113,Mark Twain,The Adventures of Tom Sawyer
 114,Madeleine L'Engle,"A Wrinkle in Time (A Wrinkle in Time Quintet, #1)"
 115,Amy Tan,The Joy Luck Club
 116,Margaret Atwood,The Handmaid's Tale
 117,Ann Brashares,"The Sisterhood of the Traveling Pants (Sisterhood, #1)"
-118,"Vladimir Nabokov, Craig Raine",Lolita
-119,"Gregory Maguire, Douglas Smith","Wicked: The Life and Times of the Wicked Witch of the West (The Wicked Years, #1)"
+118,Vladimir Nabokov,Lolita
+119,Gregory Maguire,"Wicked: The Life and Times of the Wicked Witch of the West (The Wicked Years, #1)"
 120,John Grisham,"The Firm (Penguin Readers, Level 5)"
 121,Emma Donoghue,Room
-122,"William Shakespeare, Richard Andrews, Rex Gibson",Hamlet
+122,William Shakespeare,Hamlet
 123,Frank Herbert,Dune (Dune Chronicles #1)
 124,Malcolm Gladwell,The Tipping Point: How Little Things Can Make a Big Difference
 125,Walter Isaacson,Steve Jobs
@@ -132,9 +132,9 @@ book_id,authors,title
 131,George R.R. Martin,"A Storm of Swords (A Song of Ice and Fire, #3)"
 132,Rebecca Wells,Divine Secrets of the Ya-Ya Sisterhood
 133,Diana Gabaldon,"Outlander (Outlander, #1)"
-134,"Nathaniel Hawthorne, Thomas E. Connolly, Nina Baym",The Scarlet Letter
+134,Nathaniel Hawthorne,The Scarlet Letter
 135,Ransom Riggs,"Miss Peregrine’s Home for Peculiar Children (Miss Peregrine’s Peculiar Children, #1)"
-136,"Stieg Larsson, Reg Keeland","The Girl Who Kicked the Hornet's Nest (Millennium, #3)"
+136,Stieg Larsson,"The Girl Who Kicked the Hornet's Nest (Millennium, #3)"
 137,Andy Weir,The Martian
 138,Ken Follett,"The Pillars of the Earth (The Kingsbridge Series, #1)"
 139,Anthony Doerr,All the Light We Cannot See
@@ -151,45 +151,45 @@ book_id,authors,title
 150,William Shakespeare,Macbeth
 151,J.R.R. Tolkien,"The Two Towers (The Lord of the Rings, #2)"
 152,Emily Giffin,"Something Borrowed (Darcy & Rachel, #1)"
-153,"Dr. Seuss, לאה נאור",Green Eggs and Ham
-154,"Roald Dahl, Quentin Blake","Charlie and the Chocolate Factory (Charlie Bucket, #1)"
+153,Dr. Seuss,Green Eggs and Ham
+154,Roald Dahl,"Charlie and the Chocolate Factory (Charlie Bucket, #1)"
 155,Rick Riordan,"The Battle of the Labyrinth (Percy Jackson and the Olympians, #4)"
 156,Charles Dickens,Great Expectations
 157,J.R.R. Tolkien,"The Return of the King (The Lord of the Rings, #3)"
-158,"Albert Camus, Matthew    Ward",The Stranger
+158,Albert Camus,The Stranger
 159,Rick Riordan,"The Lost Hero (The Heroes of Olympus, #1)"
 160,Rainbow Rowell,Eleanor & Park
 161,George R.R. Martin,"A Feast for Crows (A Song of Ice and Fire, #4)"
 162,Ally Condie,"Matched (Matched, #1)"
 163,Neil Gaiman,"American Gods (American Gods, #1)"
-164,"Stephen King, Bernie Wrightson",The Stand
+164,Stephen King,The Stand
 165,Nicholas Sparks,The Last Song
 166,Dan Brown,Digital Fortress
-167,"Jane Austen, Fiona Stafford",Emma
-168,"Leo Tolstoy, Louise Maude, Leo Tolstoj, Aylmer Maude",Anna Karenina
+167,Jane Austen,Emma
+168,Leo Tolstoy,Anna Karenina
 169,Anthony Burgess,A Clockwork Orange
 170,William Paul Young,The Shack
 171,Rick Riordan,"The Last Olympian (Percy Jackson and the Olympians, #5)"
 172,Stephen King,It
-173,"Fyodor Dostoyevsky, David McDuff",Crime and Punishment
+173,Fyodor Dostoyevsky,Crime and Punishment
 174,Sylvia Plath,The Bell Jar
 175,Frank McCourt,"Angela's Ashes (Frank McCourt, #1)"
-176,"Hermann Hesse, Hilda Rosner",Siddhartha
+176,Hermann Hesse,Siddhartha
 177,Truman Capote,In Cold Blood
-178,"Kami Garcia, Margaret Stohl","Beautiful Creatures (Caster Chronicles, #1)"
+178,Kami Garcia,"Beautiful Creatures (Caster Chronicles, #1)"
 179,Cassandra Clare,"Clockwork Angel (The Infernal Devices, #1)"
-180,"Roald Dahl, Quentin Blake",Matilda
+180,Roald Dahl,Matilda
 181,Erin Morgenstern,The Night Circus
 182,Philippa Gregory,"The Other Boleyn Girl (The Plantagenet and Tudor Novels, #9)"
 183,Scott Westerfeld,"Uglies (Uglies, #1)"
 184,George R.R. Martin,"A Dance with Dragons (A Song of Ice and Fire, #5)"
 185,J.R.R. Tolkien,"The Lord of the Rings (The Lord of the Rings, #1-3)"
 186,Cheryl Strayed,Wild: From Lost to Found on the Pacific Crest Trail
-187,"Alan Moore, Dave Gibbons, John Higgins",Watchmen
+187,Alan Moore,Watchmen
 188,Patrick Rothfuss,"The Name of the Wind (The Kingkiller Chronicle, #1)"
 189,Malcolm Gladwell,Outliers: The Story of Success
-190,"Herman Melville, Andrew Delbanco, Tom Quirk","Moby-Dick or, The Whale"
-191,"Mary Ann Shaffer, Annie Barrows",The Guernsey Literary and Potato Peel Pie Society
+190,Herman Melville,"Moby-Dick or, The Whale"
+191,Mary Ann Shaffer,The Guernsey Literary and Potato Peel Pie Society
 192,Chuck Palahniuk,Fight Club
 193,Charlaine Harris,"Dead Until Dark (Sookie Stackhouse, #1)"
 194,Alice Walker,The Color Purple
@@ -206,13 +206,13 @@ book_id,authors,title
 205,Richelle Mead,"Vampire Academy (Vampire Academy, #1)"
 206,Malcolm Gladwell,Blink: The Power of Thinking Without Thinking
 207,Ian McEwan,Atonement
-208,"Franz Kafka, Stanley Corngold",The Metamorphosis
+208,Franz Kafka,The Metamorphosis
 209,Rick Riordan,"The Titan's Curse (Percy Jackson and the Olympians, #3)"
 210,Ernest Cline,Ready Player One
 211,Garth Stein,The Art of Racing in the Rain
-212,"Erik Larson, Tony Goldwyn","The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
+212,Erik Larson,"The Devil in the White City: Murder, Magic, and Madness at the Fair That Changed America"
 213,Sylvia Day,"Bared to You (Crossfire, #1)"
-214,"C.S. Lewis, Pauline Baynes","The Chronicles of Narnia (Chronicles of Narnia, #1-7)"
+214,C.S. Lewis,"The Chronicles of Narnia (Chronicles of Narnia, #1-7)"
 215,Mark Cotta Vaz,Twilight: The Complete Illustrated Movie Companion
 216,Dave Pelzer,"A Child Called ""It"" (Dave Pelzer #1)"
 217,Robert Ludlum,"The Bourne Identity (Jason Bourne, #1)"
@@ -221,12 +221,12 @@ book_id,authors,title
 220,John Steinbeck,East of Eden
 221,Gillian Flynn,Dark Places
 222,John Grisham,The Client
-223,"Emma McLaughlin, Nicola Kraus","The Nanny Diaries (Nanny, #1)"
-224,"Lewis Carroll, John Tenniel, Martin Gardner",Alice's Adventures in Wonderland & Through the Looking-Glass
-225,"Jane Austen, James Kinsley, Deidre Shauna Lynch",Persuasion
+223,Emma McLaughlin,"The Nanny Diaries (Nanny, #1)"
+224,Lewis Carroll,Alice's Adventures in Wonderland & Through the Looking-Glass
+225,Jane Austen,Persuasion
 226,Tatiana de Rosnay,Sarah's Key
 227,Stephen King,"The Gunslinger (The Dark Tower, #1)"
-228,"Gabriel García Márquez, Edith Grossman",Love in the Time of Cholera
+228,Gabriel García Márquez,Love in the Time of Cholera
 229,Laurie Halse Anderson,Speak
 230,Liane Moriarty,The Husband's Secret
 231,Jon Krakauer,Into Thin Air: A Personal Account of the Mount Everest Disaster
@@ -238,19 +238,19 @@ book_id,authors,title
 237,Stephen King,Misery
 238,Gillian Flynn,Sharp Objects
 239,Katherine Paterson,Bridge to Terabithia
-240,"P.C. Cast, Kristin Cast","Marked (House of Night, #1)"
+240,P.C. Cast,"Marked (House of Night, #1)"
 241,Stephen R. Covey,The 7 Habits of Highly Effective People: Powerful Lessons in Personal Change
-242,"William Shakespeare, Barbara A. Mowat, Paul Werstine, Catherine Belsey",A Midsummer Night's Dream
+242,William Shakespeare,A Midsummer Night's Dream
 243,Jonathan Safran Foer,Extremely Loud and Incredibly Close
 244,R.J. Palacio,Wonder
 245,Dr. Seuss,The Cat in the Hat
 246,Marissa Meyer,"Cinder (The Lunar Chronicles, #1)"
-247,"Robert Galbraith, J.K. Rowling","The Cuckoo's Calling (Cormoran Strike, #1)"
+247,Robert Galbraith,"The Cuckoo's Calling (Cormoran Strike, #1)"
 248,Maggie Stiefvater,"Shiver (The Wolves of Mercy Falls, #1)"
-249,"Ayn Rand, Leonard Peikoff",Atlas Shrugged
-250,"Greg Mortenson, David Oliver Relin",Three Cups of Tea: One Man's Mission to Promote Peace ... One School at a Time
-251,"Jane Carruth, Lewis Carroll, Rene Cloke",Alice in Wonderland
-252,"Carlos Ruiz Zafón, Lucia Graves","The Shadow of the Wind (The Cemetery of Forgotten Books,  #1)"
+249,Ayn Rand,Atlas Shrugged
+250,Greg Mortenson,Three Cups of Tea: One Man's Mission to Promote Peace ... One School at a Time
+251,Jane Carruth,Alice in Wonderland
+252,Carlos Ruiz Zafón,"The Shadow of the Wind (The Cemetery of Forgotten Books,  #1)"
 253,James Dashner,"The Scorch Trials (Maze Runner, #2)"
 254,Dale Carnegie,How to Win Friends and Influence People
 255,Frances Mayes,Under the Tuscan Sun
@@ -262,35 +262,35 @@ book_id,authors,title
 261,Kristin Hannah,The Nightingale
 262,Kazuo Ishiguro,Never Let Me Go
 263,Cecelia Ahern,P.S. I Love You
-264,"Daphne du Maurier, Sally Beauman",Rebecca
+264,Daphne du Maurier,Rebecca
 265,Daniel Keyes,Flowers for Algernon
-266,"Laura Esquivel, Thomas  Christensen, Carol Christensen",Like Water for Chocolate
+266,Laura Esquivel,Like Water for Chocolate
 267,Lisa See,Snow Flower and the Secret Fan
-268,"Mario Puzo, Robert Thompson, Peter Bart",The Godfather
+268,Mario Puzo,The Godfather
 269,John Green,An Abundance of Katherines
 270,Isaac Asimov,Foundation (Foundation #1)
 271,Neil Gaiman,The Ocean at the End of the Lane
 272,Shel Silverstein,A Light in the Attic
-273,"John Tiffany, Jack Thorne, J.K. Rowling","Harry Potter and the Cursed Child - Parts One and Two (Harry Potter, #8)"
+273,John Tiffany,"Harry Potter and the Cursed Child - Parts One and Two (Harry Potter, #8)"
 274,Lauren Oliver,"Delirium (Delirium, #1)"
 275,John Grisham,The Pelican Brief
 276,Neil Gaiman,Coraline
-277,"Terry Pratchett, Neil Gaiman","Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch"
+277,Terry Pratchett,"Good Omens: The Nice and Accurate Prophecies of Agnes Nutter, Witch"
 278,Jack Kerouac,On the Road
 279,Graeme Simsion,"The Rosie Project (Don Tillman, #1)"
 280,Nicholas Sparks,The Lucky One
-281,"Ayn Rand, Leonard Peikoff",The Fountainhead
+281,Ayn Rand,The Fountainhead
 282,Richard Adams,"Watership Down (Watership Down, #1)"
 283,Mindy Kaling,Is Everyone Hanging Out Without Me? (And Other Concerns)
 284,Abraham Verghese,Cutting for Stone
-285,"C.S. Lewis, Pauline Baynes","The Voyage of the Dawn Treader (Chronicles of Narnia, #3)"
+285,C.S. Lewis,"The Voyage of the Dawn Treader (Chronicles of Narnia, #3)"
 286,Robert Louis Stevenson,Treasure Island
 287,Rick Riordan,"The Son of Neptune (The Heroes of Olympus, #2)"
 288,Stephen King,11/22/63
 289,Eric Carle,The Very Hungry Caterpillar Board Book
 290,Kurt Vonnegut Jr.,Cat's Cradle
-291,"H.G. Wells, Greg Bear, Carlo Pagetti",The Time Machine
-292,"Todd Burpo, Lynn Vincent",Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back
+291,H.G. Wells,The Time Machine
+292,Todd Burpo,Heaven is for Real: A Little Boy's Astounding Story of His Trip to Heaven and Back
 293,John Boyne,The Boy in the Striped Pajamas
 294,Joseph Conrad,Heart of Darkness
 295,Nicholas Sparks,Safe Haven
@@ -303,58 +303,58 @@ book_id,authors,title
 302,Cassandra Clare,"City of Fallen Angels (The Mortal Instruments, #4)"
 303,Jennifer Weiner,"Good in Bed (Cannie Shapiro, #1)"
 304,Colleen McCullough,The Thorn Birds
-305,"Neil Gaiman, Dave McKean",The Graveyard Book
+305,Neil Gaiman,The Graveyard Book
 306,M.L. Stedman,The Light Between Oceans
-307,"Cornelia Funke, Anthea Bell","Inkheart (Inkworld, #1)"
-308,"Spencer Johnson, Kenneth H. Blanchard",Who Moved My Cheese?
+307,Cornelia Funke,"Inkheart (Inkworld, #1)"
+308,Spencer Johnson,Who Moved My Cheese?
 309,Bill Bryson,A Walk in the Woods
 310,Maya Angelou,I Know Why the Caged Bird Sings
 311,Christina Baker Kline,Orphan Train
 312,Cassandra Clare,"City of Lost Souls (The Mortal Instruments, #5)"
 313,Maria Semple,"Where'd You Go, Bernadette"
 314,Neil Gaiman,Neverwhere
-315,"Milan Kundera, Michael Henry Heim",The Unbearable Lightness of Being
+315,Milan Kundera,The Unbearable Lightness of Being
 316,Rainbow Rowell,Fangirl
 317,John Irving,A Prayer for Owen Meany
 318,Janet Fitch,White Oleander
 319,Marie Lu,"Legend (Legend, #1)"
 320,Jodi Picoult,Nineteen Minutes
-321,"Randy Pausch, Jeffrey Zaslow",The Last Lecture
+321,Randy Pausch,The Last Lecture
 322,Robert Jordan,"The Eye of the World (Wheel of Time, #1)"
 323,Jodi Picoult,The Pact
 324,C.S. Lewis,"The Magician's Nephew (Chronicles of Narnia, #6)"
 325,Lisa Genova,Still Alice
-326,"Roald Dahl, Quentin Blake",James and the Giant Peach
+326,Roald Dahl,James and the Giant Peach
 327,James Patterson,"1st to Die (Women's Murder Club, #1)"
 328,Douglas Adams,The Ultimate Hitchhiker's Guide to the Galaxy
 329,David Nicholls,One Day
-330,"Margaret Wise Brown, Clement Hurd",Goodnight Moon
+330,Margaret Wise Brown,Goodnight Moon
 331,Pittacus Lore,"I Am Number Four (Lorien Legacies, #1)"
-332,"Homer, Robert Fagles, Frédéric Mugler, Bernard Knox",The Iliad
+332,Homer,The Iliad
 333,J.K. Rowling,The Casual Vacancy
 334,John Grisham,The Runaway Jury
 335,David Sedaris,Naked
 336,Christopher Paolini,"Eldest (The Inheritance Cycle, #2)"
-337,"L. Frank Baum, W.W. Denslow","The Wonderful Wizard of Oz (Oz, #1)"
+337,L. Frank Baum,"The Wonderful Wizard of Oz (Oz, #1)"
 338,C.S. Lewis,"Prince Caspian (Chronicles of Narnia, #2)"
 339,E. Lockhart,We Were Liars
 340,Stephen King,'Salem's Lot
-341,"Hunter S. Thompson, Ralph Steadman",Fear and Loathing in Las Vegas
+341,Hunter S. Thompson,Fear and Loathing in Las Vegas
 342,Cassandra Clare,"Clockwork Prince (The Infernal Devices, #2)"
 343,Amy Poehler,Yes Please
 344,William Shakespeare,Othello
 345,Toni Morrison,Beloved
 346,Kristin Cashore,"Graceling (Graceling Realm, #1)"
-347,"Lemony Snicket, Brett Helquist","The Bad Beginning (A Series of Unfortunate Events, #1)"
-348,"Erich Maria Remarque, A.W. Wheen",All Quiet on the Western Front
+347,Lemony Snicket,"The Bad Beginning (A Series of Unfortunate Events, #1)"
+348,Erich Maria Remarque,All Quiet on the Western Front
 349,Dr. Seuss,"Oh, The Places You'll Go!"
 350,Khaled Hosseini,And the Mountains Echoed
-351,"Philip K. Dick, Roger Zelazny",Do Androids Dream of Electric Sheep?
-352,"Charles Dickens, George Cruikshank, Philip Horne",Oliver Twist
+351,Philip K. Dick,Do Androids Dream of Electric Sheep?
+352,Charles Dickens,Oliver Twist
 353,C.S. Lewis,The Screwtape Letters
 354,Stephanie Perkins,"Anna and the French Kiss (Anna and the French Kiss, #1)"
 355,Dr. Seuss,How the Grinch Stole Christmas!
-356,"Alan Moore, David   Lloyd",V for Vendetta
+356,Alan Moore,V for Vendetta
 357,David McCullough,John Adams
 358,Dean Koontz,"Odd Thomas (Odd Thomas, #1)"
 359,Philip Pullman,"The Subtle Knife (His Dark Materials, #2)"
@@ -362,37 +362,37 @@ book_id,authors,title
 361,Rick Riordan,"The Red Pyramid (Kane Chronicles, #1)"
 362,Robert A. Heinlein,Stranger in a Strange Land
 363,David Sedaris,Dress Your Family in Corduroy and Denim
-364,"Roald Dahl, Quentin Blake",The BFG
+364,Roald Dahl,The BFG
 365,Bill Bryson,A Short History of Nearly Everything
 366,Jack London,The Call of the Wild
 367,James Dashner,"The Death Cure (Maze Runner, #3)"
 368,Neil Gaiman,Stardust
 369,Jhumpa Lahiri,The Namesake
 370,Deborah Harkness,"A Discovery of Witches (All Souls Trilogy, #1)"
-371,"Haruki Murakami, Jay Rubin",Norwegian Wood
+371,Haruki Murakami,Norwegian Wood
 372,Billie Letts,Where the Heart Is
-373,"John Green, David Levithan","Will Grayson, Will Grayson"
+373,John Green,"Will Grayson, Will Grayson"
 374,James Frey,A Million Little Pieces
 375,Richelle Mead,"Frostbite (Vampire Academy, #2)"
 376,Susan Cain,Quiet: The Power of Introverts in a World That Can't Stop Talking
 377,Scott O'Dell,"Island of the Blue Dolphins (Island of the Blue Dolphins, #1)"
-378,"Arthur Miller, Christopher Bigsby",The Crucible
+378,Arthur Miller,The Crucible
 379,Gary Paulsen,"Hatchet (Brian's Saga, #1)"
 380,Brandon Sanderson,"The Final Empire (Mistborn, #1)"
-381,"Robert Louis Stevenson, Vladimir Nabokov, Mervyn Peake, Dan Chaon",The Strange Case of Dr. Jekyll and Mr. Hyde
+381,Robert Louis Stevenson,The Strange Case of Dr. Jekyll and Mr. Hyde
 382,Dr. Seuss,The Lorax
 383,Jeff Kinney,"Diary of a Wimpy Kid (Diary of a Wimpy Kid, #1)"
 384,Sarah J. Maas,"Throne of Glass (Throne of Glass, #1)"
 385,Richelle Mead,"Shadow Kiss (Vampire Academy, #3)"
 386,Ernest Hemingway,For Whom the Bell Tolls
 387,Jamie Ford,Hotel on the Corner of Bitter and Sweet
-388,"Patrick Süskind, John E. Woods",Perfume: The Story of a Murderer
+388,Patrick Süskind,Perfume: The Story of a Murderer
 389,Eric Schlosser,Fast Food Nation: The Dark Side of the All-American Meal
 390,J.K. Rowling,The Tales of Beedle the Bard
 391,William Gibson,Neuromancer
 392,Ernest Hemingway,A Farewell to Arms
 393,Edgar Allan Poe,The Tell-Tale Heart and Other Writings
-394,"Sun Tzu, Thomas Cleary",The Art of War
+394,Sun Tzu,The Art of War
 395,William Landay,Defending Jacob
 396,Kurt Vonnegut Jr.,Breakfast of Champions
 397,Ann Patchett,Bel Canto
@@ -402,7 +402,7 @@ book_id,authors,title
 401,Gary Chapman,The Five Love Languages: How to Express Heartfelt Commitment to Your Mate
 402,Chris Cleave,Little Bee
 403,Alyson Noel,"Evermore (The Immortals, #1)"
-404,"Roald Dahl, Quentin Blake",The Witches
+404,Roald Dahl,The Witches
 405,Diane Setterfield,The Thirteenth Tale
 406,Richelle Mead,"Spirit Bound (Vampire Academy, #5)"
 407,Richelle Mead,"Blood Promise (Vampire Academy, #4)"
@@ -410,13 +410,13 @@ book_id,authors,title
 409,Paula McLain,The Paris Wife
 410,J.K. Rowling,"Harry Potter Boxset (Harry Potter, #1-7)"
 411,Kiera Cass,"The Elite (The Selection, #2)"
-412,"Umberto Eco, William Weaver, Seán Barrett",The Name of the Rose
-413,"Beatrice Sparks, Anonymous",Go Ask Alice
-414,"John Kennedy Toole, Walker Percy",A Confederacy of Dunces
+412,Umberto Eco,The Name of the Rose
+413,Beatrice Sparks,Go Ask Alice
+414,John Kennedy Toole,A Confederacy of Dunces
 415,Oscar Wilde,The Importance of Being Earnest
 416,Rick Riordan,"The Mark of Athena (The Heroes of Olympus, #3)"
 417,Terry Pratchett,"The Color of Magic (Discworld, #1; Rincewind #1)"
-418,"Haruki Murakami, Philip Gabriel",Kafka on the Shore
+418,Haruki Murakami,Kafka on the Shore
 419,Thomas Harris,"Red Dragon (Hannibal Lecter, #1)"
 420,Isaac Asimov,"I, Robot (Robot #0.1)"
 421,J.R. Ward,"Dark Lover (Black Dagger Brotherhood, #1)"
@@ -425,70 +425,70 @@ book_id,authors,title
 424,Arundhati Roy,The God of Small Things
 425,Sue Monk Kidd,The Invention of Wings
 426,Liane Moriarty,What Alice Forgot
-427,"Stephen Hawking, Cao Chi, Phạm Văn Thiều",A Brief History of Time
+427,Stephen Hawking,A Brief History of Time
 428,Ken Follett,"Fall of Giants (The Century Trilogy, #1)"
 429,Stephen King,Under the Dome
 430,Neal Stephenson,Snow Crash
 431,Sarah Dessen,Just Listen
-432,"A.A. Milne, Ernest H. Shepard","Winnie-the-Pooh (Winnie-the-Pooh, #1)"
+432,A.A. Milne,"Winnie-the-Pooh (Winnie-the-Pooh, #1)"
 433,S.J. Watson,Before I Go to Sleep
 434,Arthur Conan Doyle,A Study in Scarlet
 435,Christopher Paolini,"Brisingr (The Inheritance Cycle, #3)"
 436,Rick Warren,The Purpose Driven Life: What on Earth Am I Here for?
-437,"P.C. Cast, Kristin Cast","Betrayed (House of Night, #2)"
+437,P.C. Cast,"Betrayed (House of Night, #2)"
 438,Jim Butcher,"Storm Front (The Dresden Files, #1)"
-439,"Jane Austen, Alfred MacAdam",Northanger Abbey
+439,Jane Austen,Northanger Abbey
 440,Rick Yancey,"The 5th Wave (The 5th Wave, #1)"
 441,Charles Frazier,Cold Mountain
-442,"Laura Joffe Numeroff, Felicia Bond",If You Give a Mouse a Cookie
+442,Laura Joffe Numeroff,If You Give a Mouse a Cookie
 443,Emily Giffin,"Something Blue (Darcy & Rachel, #2)"
 444,Tennessee Williams,A Streetcar Named Desire
 445,Elizabeth Kostova,The Historian
 446,Emily St. John Mandel,Station Eleven
-447,"Fredrik Backman, Henning Koch",A Man Called Ove
+447,Fredrik Backman,A Man Called Ove
 448,Cassandra Clare,"Clockwork Princess (The Infernal Devices, #3)"
 449,Pearl S. Buck,"The Good Earth (House of Earth, #1)"
 450,Diana Gabaldon,"Dragonfly in Amber (Outlander, #2)"
 451,Anonymous,Holy Bible: King James Version
-452,"Chuck Dixon, J.R.R. Tolkien, David Wenzel, Sean Deming",The Hobbit: Graphic Novel
+452,Chuck Dixon,The Hobbit: Graphic Novel
 453,Junot Díaz,The Brief Wondrous Life of Oscar Wao
 454,Zora Neale Hurston,Their Eyes Were Watching God
-455,"Newt Scamander, J.K. Rowling, Albus Dumbledore",Fantastic Beasts and Where to Find Them
-456,"Malala Yousafzai, Christina Lamb",I Am Malala: The Story of the Girl Who Stood Up for Education and Was Shot by the Taliban
-457,"Jane Austen, Kathryn Sutherland, Tony Tanner, Claire Lamont",Mansfield Park
+455,Newt Scamander,Fantastic Beasts and Where to Find Them
+456,Malala Yousafzai,I Am Malala: The Story of the Girl Who Stood Up for Education and Was Shot by the Taliban
+457,Jane Austen,Mansfield Park
 458,Viktor E. Frankl,Man's Search for Meaning
 459,Tana French,"In the Woods (Dublin Murder Squad, #1)"
 460,Richard Dawkins,The God Delusion
 461,Gayle Forman,"Where She Went (If I Stay, #2)"
 462,John Irving,The World According to Garp
 463,Lee Child,"Killing Floor (Jack Reacher, #1)"
-464,"Daniel Defoe, Gerald McCann, Virginia Woolf",Robinson Crusoe
-465,"Niccolò Machiavelli, Adolph Caso, Rufus Goodwin, Benjamin Martinez",The Prince
+464,Daniel Defoe,Robinson Crusoe
+465,Niccolò Machiavelli,The Prince
 466,Philip Pullman,"The Amber Spyglass (His Dark Materials, #3)"
 467,Terry Goodkind,"Wizard's First Rule (Sword of Truth, #1)"
 468,Kathleen Grissom,The Kitchen House
 469,J.D. Salinger,Franny and Zooey
 470,Chuck Palahniuk,Choke
-471,"Fyodor Dostoyevsky, Richard Pevear, Larissa Volokhonsky",The Brothers Karamazov
+471,Fyodor Dostoyevsky,The Brothers Karamazov
 472,Jeanne DuPrau,"The City of Ember (Book of Ember, #1)"
 473,Stephen King,The Green Mile
 474,Kahlil Gibran,The Prophet
 475,Art Spiegelman,"Maus I: A Survivor's Tale: My Father Bleeds History (Maus, #1)"
-476,"P.C. Cast, Kristin Cast","Untamed (House of Night, #4)"
+476,P.C. Cast,"Untamed (House of Night, #4)"
 477,Orson Scott Card,"Speaker for the Dead (Ender's Saga, #2)"
 478,C.S. Lewis,Mere Christianity
 479,Donna Tartt,The Secret History
 480,Dave Eggers,A Heartbreaking Work of Staggering Genius
 481,Jean M. Auel,"The Clan of the Cave Bear (Earth's Children, #1)"
 482,Anna Sewell,Black Beauty
-483,"Leo Tolstoy, Henry Gifford, Aylmer Maude, Louise Maude",War and Peace
+483,Leo Tolstoy,War and Peace
 484,Bret Easton Ellis,American Psycho
 485,Meg Cabot,"The Princess Diaries (The Princess Diaries, #1)"
 486,Alexander McCall Smith,"The No. 1 Ladies' Detective Agency  (No. 1 Ladies' Detective Agency, #1)"
-487,"Robert Kirkman, Tony Moore","The Walking Dead, Vol. 01: Days Gone Bye"
+487,Robert Kirkman,"The Walking Dead, Vol. 01: Days Gone Bye"
 488,Arthur C. Clarke,"2001: A Space Odyssey (Space Odyssey, #1)"
 489,Francine Rivers,Redeeming Love
-490,"Tim LaHaye, Jerry B. Jenkins","Left Behind (Left Behind, #1)"
+490,Tim LaHaye,"Left Behind (Left Behind, #1)"
 491,Kiera Cass,"The One (The Selection, #3)"
 492,Suzanne Collins,"The Hunger Games Trilogy Boxset (The Hunger Games, #1-3)"
 493,Barbara Ehrenreich,Nickel and Dimed: On (Not) Getting By in America
@@ -496,13 +496,13 @@ book_id,authors,title
 495,Robert Jordan,"The Great Hunt (Wheel of Time, #2)"
 496,Patricia Cornwell,"Postmortem (Kay Scarpetta, #1)"
 497,Edgar Allan Poe,The Complete Stories and Poems
-498,"Corrie ten Boom, John Sherrill, Elizabeth Sherrill",The Hiding Place: The Triumphant True Story of Corrie Ten Boom
+498,Corrie ten Boom,The Hiding Place: The Triumphant True Story of Corrie Ten Boom
 499,Arthur Conan Doyle,The Adventures of Sherlock Holmes
 500,Pat Conroy,The Prince of Tides
 501,Michael Chabon,The Amazing Adventures of Kavalier & Clay
-502,"J.M. Barrie, Michael Hague",Peter Pan
+502,J.M. Barrie,Peter Pan
 503,Scott Westerfeld,"Pretties (Uglies, #2)"
-504,"Haruki Murakami, Jay Rubin",The Wind-Up Bird Chronicle
+504,Haruki Murakami,The Wind-Up Bird Chronicle
 505,Michael Connelly,"The Lincoln Lawyer (Mickey Haller, #1; Harry Bosch Universe, #16)"
 506,David Mitchell,Cloud Atlas
 507,Tim O'Brien,The Things They Carried
@@ -510,41 +510,41 @@ book_id,authors,title
 509,Jeff Lindsay,"Darkly Dreaming Dexter (Dexter, #1)"
 510,Charlaine Harris,"Living Dead in Dallas (Sookie Stackhouse, #2)"
 511,Robert Jordan,"The Dragon Reborn (Wheel of Time, #3)"
-512,"Jonathan Swift, Robert DeMaria Jr.",Gulliver's Travels
-513,"William Shakespeare, Barbara A. Mowat, Paul Werstine, Gail Kern Paster, Robert          Jackson",Much Ado About Nothing
-514,"Unknown, Seamus Heaney",Beowulf
+512,Jonathan Swift,Gulliver's Travels
+513,William Shakespeare,Much Ado About Nothing
+514,Unknown,Beowulf
 515,Harper Lee,Go Set a Watchman
 516,David Sedaris,When You Are Engulfed in Flames
 517,Laini Taylor,"Daughter of Smoke & Bone (Daughter of Smoke & Bone, #1)"
 518,Victoria Aveyard,"Red Queen (Red Queen, #1)"
 519,John Berendt,Midnight in the Garden of Good and Evil
-520,"Frances Hodgson Burnett, Nancy Bond",A Little Princess
+520,Frances Hodgson Burnett,A Little Princess
 521,Sarah Dessen,The Truth About Forever
 522,C.S. Lewis,"The Horse and His Boy (Chronicles of Narnia, #5)"
 523,Richelle Mead,"Last Sacrifice (Vampire Academy, #6)"
-524,"Laura Ingalls Wilder, Garth Williams","Little House on the Prairie (Little House, #2)"
-525,"Margery Williams Bianco, William   Nicholson",The Velveteen Rabbit
+524,Laura Ingalls Wilder,"Little House on the Prairie (Little House, #2)"
+525,Margery Williams Bianco,The Velveteen Rabbit
 526,Robert M. Pirsig,Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values
-527,"H.G. Wells, Arthur C. Clarke",The War of the Worlds
+527,H.G. Wells,The War of the Worlds
 528,Sara Shepard,"Pretty Little Liars (Pretty Little Liars, #1)"
 529,Don Freeman,Corduroy
 530,Michael Pollan,The Omnivore's Dilemma: A Natural History of Four Meals
 531,Kate Atkinson,Life After Life
 532,Nicholas Sparks,The Rescue
 533,Diana Gabaldon,"Voyager (Outlander, #3)"
-534,"Kenneth Branagh, William Shakespeare","Hamlet: Screenplay, Introduction And Film Diary"
+534,Kenneth Branagh,"Hamlet: Screenplay, Introduction And Film Diary"
 535,Jeffrey Eugenides,The Virgin Suicides
 536,Charlaine Harris,"Dead to the World (Sookie Stackhouse, #4)"
-537,"Thomas Hardy, Tim Dolin, Margaret R. Higonnet",Tess of the D'Urbervilles
-538,"Gustave Flaubert, Margaret Mauldon, Malcolm Bowie, Mark Overstall",Madame Bovary
-539,"Norton Juster, Jules Feiffer",The Phantom Tollbooth
+537,Thomas Hardy,Tess of the D'Urbervilles
+538,Gustave Flaubert,Madame Bovary
+539,Norton Juster,The Phantom Tollbooth
 540,Brandon Sanderson,"The Way of Kings (The Stormlight Archive, #1)"
 541,Charlaine Harris,"Club Dead (Sookie Stackhouse, #3)"
 542,Ned Vizzini,It's Kind of a Funny Story
 543,Brandon Sanderson,"The Well of Ascension (Mistborn, #2)"
 544,Jojo Moyes,"After You (Me Before You, #2)"
 545,Vanessa Diffenbaugh,The Language of Flowers
-546,"Frank Miller, Klaus Janson, Lynn Varley","Batman: The Dark Knight Returns (The Dark Knight Saga, #1)"
+546,Frank Miller,"Batman: The Dark Knight Returns (The Dark Knight Saga, #1)"
 547,James Patterson,"The Angel Experiment (Maximum Ride, #1)"
 548,Nick Hornby,High Fidelity
 549,Nicholas Sparks,The Guardian
@@ -562,34 +562,34 @@ book_id,authors,title
 561,Libba Bray,"A Great and Terrible Beauty (Gemma Doyle, #1)"
 562,Jonathan Safran Foer,Everything Is Illuminated
 563,Robert Ludlum,"The Bourne Supremacy (Jason Bourne, #2)"
-564,"Charles Dickens, Jeremy Tambling",David Copperfield
-565,"Sherman Alexie, Ellen Forney",The Absolutely True Diary of a Part-Time Indian
-566,"Mikhail Bulgakov, Katherine Tiernan O'Connor, Diana Burgin, Ellendea Proffer",The Master and Margarita
+564,Charles Dickens,David Copperfield
+565,Sherman Alexie,The Absolutely True Diary of a Part-Time Indian
+566,Mikhail Bulgakov,The Master and Margarita
 567,Ursula K. Le Guin,"A Wizard of Earthsea (Earthsea Cycle, #1)"
-568,"Kate DiCamillo, Chris Sheban",Because of Winn-Dixie
+568,Kate DiCamillo,Because of Winn-Dixie
 569,John Knowles,A Separate Peace
 570,John Grisham,The Rainmaker
-571,"Miguel de Cervantes Saavedra, Roberto González Echevarría, John Rutherford",Don Quixote
+571,Miguel de Cervantes Saavedra,Don Quixote
 572,Robin Hobb,"Assassin's Apprentice (Farseer Trilogy, #1)"
 573,Douglas Adams,"The Restaurant at the End of the Universe (Hitchhiker's Guide, #2)"
 574,Lauren Kate,"Torment (Fallen, #2)"
 575,Beatrix Potter,The Tale of Peter Rabbit
-576,"C.S. Lewis, Pauline Baynes","The Silver Chair (Chronicles of Narnia, #4)"
+576,C.S. Lewis,"The Silver Chair (Chronicles of Narnia, #4)"
 577,Brandon Sanderson,"The Hero of Ages (Mistborn, #3)"
 578,Susanna Kaysen,"Girl, Interrupted"
-579,"Richard Bach, Russell Munson",Jonathan Livingston Seagull
+579,Richard Bach,Jonathan Livingston Seagull
 580,Cassandra Clare,"City of Heavenly Fire (The Mortal Instruments, #6)"
-581,"Robert Munsch, Sheila McGraw",Love You Forever
+581,Robert Munsch,Love You Forever
 582,Stephen King,Cell
 583,Daniel James Brown,The Boys in the Boat: Nine Americans and Their Epic Quest for Gold at the 1936 Berlin Olympics
-584,"J.R.R. Tolkien, Christopher Tolkien, Ted Nasmith",The Silmarillion (Middle-Earth Universe)
+584,J.R.R. Tolkien,The Silmarillion (Middle-Earth Universe)
 585,Stephen King,"The Drawing of the Three (The Dark Tower, #2)"
 586,Kate Morton,The Forgotten Garden
-587,"Franz Kafka, Edwin Muir, Willa Muir, Max Brod",The Trial
+587,Franz Kafka,The Trial
 588,Sarah Dessen,This Lullaby
 589,Jodi Picoult,Plain Truth
 590,Piper Kerman,Orange Is the New Black
-591,"Arthur Conan Doyle, Anne Perry",The Hound of the Baskervilles
+591,Arthur Conan Doyle,The Hound of the Baskervilles
 592,Daniel Kahneman,"Thinking, Fast and Slow"
 593,Marion Zimmer Bradley,"The Mists of Avalon (Avalon, #1)"
 594,Judy Blume,"Are You There God? It's Me, Margaret"
@@ -598,45 +598,45 @@ book_id,authors,title
 597,Charlaine Harris,"All Together Dead (Sookie Stackhouse, #7)"
 598,Chris Bohjalian,Midwives
 599,Chris Van Allsburg,The Polar Express
-600,"Jon Scieszka, Lane Smith",The True Story of the 3 Little Pigs
+600,Jon Scieszka,The True Story of the 3 Little Pigs
 601,Tom Clancy,"Patriot Games (Jack Ryan Universe, #2)"
-602,"Sheryl Sandberg, Nell Scovell","Lean In: Women, Work, and the Will to Lead"
+602,Sheryl Sandberg,"Lean In: Women, Work, and the Will to Lead"
 603,Charlaine Harris,"Dead as a Doornail (Sookie Stackhouse, #5)"
 604,Tahereh Mafi,"Shatter Me (Shatter Me, #1)"
 605,Robert A. Heinlein,Starship Troopers
 606,Sophie Kinsella,I've Got Your Number
-607,"Jostein Gaarder, Paulette Møller",Sophie's World
+607,Jostein Gaarder,Sophie's World
 608,Ray Bradbury,The Martian Chronicles
 609,Jennifer Egan,A Visit from the Goon Squad
-610,"Johanna Spyri, Angelo  Rinaldi, Beverly Cleary",Heidi
+610,Johanna Spyri,Heidi
 611,C.S. Lewis,"The Last Battle (Chronicles of Narnia, #7)"
 612,Ken Follett,"World Without End (The Kingsbridge Series, #2)"
-613,"P.C. Cast, Kristin Cast","Chosen (House of Night, #3)"
+613,P.C. Cast,"Chosen (House of Night, #3)"
 614,Alex Flinn,"Beastly (Beastly, #1; Kendra Chronicles, #1)"
-615,"Geoffrey Chaucer, Nevill Coghill",The Canterbury Tales
+615,Geoffrey Chaucer,The Canterbury Tales
 616,Emily Giffin,Baby Proof
 617,Christopher Paolini,"Inheritance (The Inheritance Cycle, #4)"
-618,"Haruki Murakami, Jay Rubin, Philip Gabriel",1Q84
+618,Haruki Murakami,1Q84
 619,Harriet Beecher Stowe,Uncle Tom's Cabin
-620,"Gaston Leroux, Alexander Teixeira de Mattos",The Phantom of the Opera
+620,Gaston Leroux,The Phantom of the Opera
 621,Charlaine Harris,"Definitely Dead (Sookie Stackhouse, #6)"
-622,"José Saramago, Giovanni Pontiero",Blindness
+622,José Saramago,Blindness
 623,Jonathan Franzen,Freedom
 624,Ally Condie,"Crossed (Matched, #2)"
 625,Aravind Adiga,The White Tiger
 626,Jonathan Franzen,The Corrections
 627,Barack Obama,Dreams from My Father: A Story of Race and Inheritance
 628,Michael Crichton,Congo
-629,"Judith Viorst, Ray Cruz","Alexander and the Terrible, Horrible, No Good, Very Bad Day"
+629,Judith Viorst,"Alexander and the Terrible, Horrible, No Good, Very Bad Day"
 630,Jhumpa Lahiri,Interpreter of Maladies
 631,Howard Zinn,A People's History of the United States
 632,Truman Capote,Breakfast at Tiffany's
 633,Justin Cronin,"The Passage (The Passage, #1)"
 634,Neil Gaiman,Anansi Boys
 635,Celeste Ng,Everything I Never Told You
-636,"Isabel Allende, Magda Bogin",The House of the Spirits
+636,Isabel Allende,The House of the Spirits
 637,Stephen King,The Dead Zone
-638,"Agatha Christie, Ροζίτα Σώκου","The Mysterious Affair at Styles (Hercule Poirot, #1)"
+638,Agatha Christie,"The Mysterious Affair at Styles (Hercule Poirot, #1)"
 639,Agatha Christie,"Murder on the Orient Express (Hercule Poirot, #10)"
 640,Chimamanda Ngozi Adichie,Americanah
 641,James Patterson,Suzanne's Diary for Nicholas
@@ -644,7 +644,7 @@ book_id,authors,title
 643,Christopher McDougall,"Born to Run: A Hidden Tribe, Superathletes, and the Greatest Race the World Has Never Seen"
 644,Gabrielle Zevin,The Storied Life of A.J. Fikry
 645,Ludwig Bemelmans,Madeline
-646,"Laura Ingalls Wilder, Garth Williams","Little House in the Big Woods (Little House, #1)"
+646,Laura Ingalls Wilder,"Little House in the Big Woods (Little House, #1)"
 647,Susanna Clarke,Jonathan Strange & Mr Norrell
 648,Nicholas Sparks,A Bend in the Road
 649,Rick Riordan,"The House of Hades (The Heroes of Olympus, #4)"
@@ -658,18 +658,18 @@ book_id,authors,title
 657,Kristin Hannah,"Firefly Lane (Firefly Lane, #1)"
 658,Michael Crichton,Sphere
 659,Emily Giffin,Love the One You're With
-660,"Robert Galbraith, J.K. Rowling","The Silkworm (Cormoran Strike, #2)"
+660,Robert Galbraith,"The Silkworm (Cormoran Strike, #2)"
 661,Anne Rice,"The Vampire Lestat (The Vampire Chronicles, #2)"
 662,Ann Patchett,State of Wonder
 663,Matthew Quick,The Silver Linings Playbook
-664,"Jules Verne, Anthony Bonner",Twenty Thousand Leagues Under the Sea
+664,Jules Verne,Twenty Thousand Leagues Under the Sea
 665,Philippa Gregory,"The Constant Princess (The Plantagenet and Tudor Novels, #6)"
-666,"Virginia Woolf, Maureen Howard",Mrs. Dalloway
-667,"Jonas Jonasson, Rod Bradbury",The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared
+666,Virginia Woolf,Mrs. Dalloway
+667,Jonas Jonasson,The Hundred-Year-Old Man Who Climbed Out of the Window and Disappeared
 668,Stephen King,Bag of Bones
 669,John Irving,The Cider House Rules
-670,"Richard Bachman, Stephen King",Thinner
-671,"Jules Verne, Michael Glencross, Brian W. Aldiss",Around the World in Eighty Days
+670,Richard Bachman,Thinner
+671,Jules Verne,Around the World in Eighty Days
 672,Sharon Creech,Walk Two Moons
 673,J.D. Salinger,Nine Stories
 674,Julie Powell,"Julie and Julia: 365 Days, 524 Recipes, 1 Tiny Apartment Kitchen: How One Girl Risked Her Marriage, Her Job, and Her Sanity to Master the Art of Living"
@@ -684,10 +684,10 @@ book_id,authors,title
 683,Robert Jordan,"The Shadow Rising (Wheel of Time, #4)"
 684,Gregory David Roberts,Shantaram
 685,Charlaine Harris,"From Dead to Worse (Sookie Stackhouse, #8)"
-686,"Stephen King, Ned Dameron","The Waste Lands (The Dark Tower, #3)"
+686,Stephen King,"The Waste Lands (The Dark Tower, #3)"
 687,Jeffery Deaver,"The Bone Collector (Lincoln Rhyme, #1)"
-688,"Bernhard Schlink, Carol Brown Janeway",The Reader
-689,"Bill Martin Jr., Eric Carle","Brown Bear, Brown Bear, What Do You See?"
+688,Bernhard Schlink,The Reader
+689,Bill Martin Jr.,"Brown Bear, Brown Bear, What Do You See?"
 690,Dan Simmons,"Hyperion (Hyperion Cantos, #1)"
 691,John Steinbeck,The Pearl
 692,William Peter Blatty,The Exorcist
@@ -718,30 +718,30 @@ book_id,authors,title
 717,Thomas Keneally,Schindler's List
 718,Toni Morrison,The Bluest Eye
 719,Philippa Gregory,"The White Queen (The Plantagenet and Tudor Novels, #2)"
-720,"Malcolm X, Alex Haley",The Autobiography of Malcolm X
-721,"Neil Gaiman, Sam Kieth, Mike Dringenberg, Malcolm Jones III, Todd Klein, Karen  Berger",Preludes & Nocturnes (The Sandman #1)
+720,Malcolm X,The Autobiography of Malcolm X
+721,Neil Gaiman,Preludes & Nocturnes (The Sandman #1)
 722,Laura Hillenbrand,Seabiscuit: An American Legend
 723,Dennis Lehane,Shutter Island
 724,Arthur Conan Doyle,The Complete Sherlock Holmes
-725,"William Shakespeare, Roma Gill",Julius Caesar
+725,William Shakespeare,Julius Caesar
 726,Erik Larson,"In the Garden of Beasts: Love, Terror, and an American Family in Hitler's Berlin"
-727,"Plato, Desmond Lee",The Republic
+727,Plato,The Republic
 728,William Shakespeare,The Taming of the Shrew
 729,Marissa Meyer,"Cress (The Lunar Chronicles, #3)"
 730,Patti Smith,Just Kids
 731,Jane Green,Jemima J
-732,"Victor Hugo, Walter J. Cobb",The Hunchback of Notre-Dame
+732,Victor Hugo,The Hunchback of Notre-Dame
 733,Rohinton Mistry,A Fine Balance
-734,"Bill Watterson, G.B. Trudeau",Calvin and Hobbes
+734,Bill Watterson,Calvin and Hobbes
 735,Scott Westerfeld,"Specials (Uglies, #3)"
 736,Kate Chopin,The Awakening
-737,"P.C. Cast, Kristin Cast","Hunted (House of Night, #5)"
+737,P.C. Cast,"Hunted (House of Night, #5)"
 738,Mitch Albom,For One More Day
 739,Tom Clancy,"Clear and Present Danger (Jack Ryan Universe, #6)"
 740,Shel Silverstein,Falling Up
 741,Isaac Asimov,Foundation and Empire (Foundation #2)
 742,Jodi Picoult,House Rules
-743,"Jacob Grimm, Wilhelm Grimm, Josef Scharl, Padraic Colum, Joseph Campbell, Margaret Raine Hunt, James Stern",The Complete Grimm's Fairy Tales
+743,Jacob Grimm,The Complete Grimm's Fairy Tales
 744,E.L. Konigsburg,From the Mixed-Up Files of Mrs. Basil E. Frankweiler
 745,Stephen King,"Doctor Sleep (The Shining, #2)"
 746,Nick Hornby,About a Boy
@@ -749,14 +749,14 @@ book_id,authors,title
 748,Jonathan Tropper,This is Where I Leave You
 749,Seth Grahame-Smith,Abraham Lincoln: Vampire Hunter
 750,William Shakespeare,The Tempest
-751,"P.C. Cast, Kristin Cast","Burned (House of Night, #7)"
-752,"Stephen King, Dave McKean","Wizard and Glass (The Dark Tower, #4)"
+751,P.C. Cast,"Burned (House of Night, #7)"
+752,Stephen King,"Wizard and Glass (The Dark Tower, #4)"
 753,Dave Eggers,The Circle
 754,Brian Selznick,The Invention of Hugo Cabret
-755,"Aldous Huxley, Christopher Hitchens",Brave New World / Brave New World Revisited
+755,Aldous Huxley,Brave New World / Brave New World Revisited
 756,Mary Kubica,The Good Girl
 757,Rainbow Rowell,Landline
-758,"P.C. Cast, Kristin Cast","Tempted (House of Night, #6)"
+758,P.C. Cast,"Tempted (House of Night, #6)"
 759,Cormac McCarthy,No Country for Old Men
 760,Hilary Mantel,"Wolf Hall (Thomas Cromwell, #1)"
 761,Diana Wynne Jones,"Howl's Moving Castle (Howl's Moving Castle, #1)"
@@ -765,10 +765,10 @@ book_id,authors,title
 764,Nicholas Sparks,The Best of Me
 765,Julian Barnes,The Sense of an Ending
 766,Sue Grafton,"A is for Alibi (Kinsey Millhone, #1)"
-767,"Sophocles, J.E. Thomas","Oedipus Rex  (The Theban Plays, #1)"
+767,Sophocles,"Oedipus Rex  (The Theban Plays, #1)"
 768,Lisa See,Shanghai Girls (Shanghai Girls #1)
-769,"Kenneth Grahame, Gillian Avery",The Wind in the Willows
-770,"Marjane Satrapi, Mattias Ripa","Persepolis: The Story of a Childhood (Persepolis, #1)"
+769,Kenneth Grahame,The Wind in the Willows
+770,Marjane Satrapi,"Persepolis: The Story of a Childhood (Persepolis, #1)"
 771,E.M. Forster,A Room with a View
 772,J.D. Robb,"Naked in Death (In Death, #1)"
 773,John Grisham,The Chamber
@@ -776,12 +776,12 @@ book_id,authors,title
 775,Rachel Joyce,"The Unlikely Pilgrimage of Harold Fry (Harold Fry, #1)"
 776,David Levithan,"Every Day (Every Day, #1)"
 777,Orson Scott Card,"Xenocide (Ender's Saga, #3)"
-778,"William Shakespeare, Robert          Jackson, Barbara A. Mowat, Paul Werstine",The Merchant of Venice
+778,William Shakespeare,The Merchant of Venice
 779,James Clavell,"Shōgun (Asian Saga, #1)"
 780,J.R. Ward,"Lover Awakened (Black Dagger Brotherhood, #3)"
 781,Sarah J. Maas,"A Court of Thorns and Roses (A Court of Thorns and Roses, #1)"
-782,"Bill Martin Jr., John Archambault, Lois Ehlert",Chicka Chicka Boom Boom
-783,"George Orwell, Christopher Hitchens",Animal Farm / 1984
+782,Bill Martin Jr.,Chicka Chicka Boom Boom
+783,George Orwell,Animal Farm / 1984
 784,Jacquelyn Mitchard,"The Deep End of the Ocean (Cappadora Family, #1)"
 785,Amy Tan,The Bonesetter's Daughter
 786,Louise Rennison,"Angus, Thongs and Full-Frontal Snogging (Confessions of Georgia Nicolson, #1)"
@@ -796,21 +796,21 @@ book_id,authors,title
 795,Brent Weeks,"The Way of Shadows (Night Angel, #1)"
 796,Barbara Kingsolver,"The Bean Trees (Greer Family, #1)"
 797,Brandon Sanderson,"Words of Radiance (The Stormlight Archive, #2)"
-798,"Sam McBratney, Anita Jeram",Guess How Much I Love You
+798,Sam McBratney,Guess How Much I Love You
 799,Diana Gabaldon,"The Fiery Cross (Outlander, #5)"
-800,"Stephen King, John D. MacDonald",Night Shift
+800,Stephen King,Night Shift
 801,Peter Benchley,Jaws
 802,Nicole Krauss,The History of Love
-803,"Astrid Lindgren, Lauren Child, Florence Lamborn, Nancy Seligsohn",Pippi Longstocking
-804,"Muriel Barbery, Alison Anderson",The Elegance of the Hedgehog
-805,"Doris Kearns Goodwin, Suzanne Toren",Team of Rivals: The Political Genius of Abraham Lincoln
+803,Astrid Lindgren,Pippi Longstocking
+804,Muriel Barbery,The Elegance of the Hedgehog
+805,Doris Kearns Goodwin,Team of Rivals: The Political Genius of Abraham Lincoln
 806,Charlaine Harris,"Dead in the Family (Sookie Stackhouse, #10)"
-807,"Albert Camus, Stuart Gilbert",The Plague
-808,"Lemony Snicket, Brett Helquist","The Reptile Room (A Series of Unfortunate Events, #2)"
+807,Albert Camus,The Plague
+808,Lemony Snicket,"The Reptile Room (A Series of Unfortunate Events, #2)"
 809,Melissa Marr,"Wicked Lovely (Wicked Lovely, #1)"
 810,H.A. Rey,Curious George
-811,"Michael Ende, Ralph Manheim, Roswitha Quadflieg",The Neverending Story
-812,"Upton Sinclair, Earl Lee, Kathleen DeGrave",The Jungle
+811,Michael Ende,The Neverending Story
+812,Upton Sinclair,The Jungle
 813,Kelley Armstrong,"The Summoning (Darkest Powers, #1)"
 814,Oliver Sacks,The Man Who Mistook His Wife for a Hat and Other Clinical Tales
 815,Ken Follett,Eye of the Needle
@@ -828,12 +828,12 @@ book_id,authors,title
 827,Lionel Shriver,We Need to Talk About Kevin
 828,Arthur C. Clarke,"Rendezvous with Rama (Rama, #1)"
 829,Anne Rice,"The Queen of the Damned (The Vampire Chronicles, #3)"
-830,"Edith Wharton, Maureen Howard",The Age of Innocence
+830,Edith Wharton,The Age of Innocence
 831,Richard Dawkins,The Selfish Gene
 832,Geraldine Brooks,Year of Wonders
 833,Michael Connelly,"The Black Echo (Harry Bosch, #1; Harry Bosch Universe, #1)"
 834,Ayn Rand,Anthem
-835,"Judi Barrett, Ron Barrett",Cloudy With a Chance of Meatballs
+835,Judi Barrett,Cloudy With a Chance of Meatballs
 836,Helen Simonson,Major Pettigrew's Last Stand
 837,Jodi Picoult,The Tenth Circle
 838,Rick Riordan,"The Throne of Fire (Kane Chronicles, #2)"
@@ -845,21 +845,21 @@ book_id,authors,title
 844,Joe Abercrombie,"The Blade Itself (The First Law, #1)"
 845,Eoin Colfer,"The Arctic Incident (Artemis Fowl, #2)"
 846,Annie Proulx,The Shipping News
-847,"Marie Kondō, Cathy Hirano",The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing
+847,Marie Kondō,The Life-Changing Magic of Tidying Up: The Japanese Art of Decluttering and Organizing
 848,Kathy Reichs,"Déjà Dead (Temperance Brennan, #1)"
 849,Michael Scott,"The Alchemyst (The Secrets of the Immortal Nicholas Flamel, #1)"
 850,Jeffrey Eugenides,The Marriage Plot
-851,"Isabel Allende, Margaret Sayers Peden",Daughter of Fortune
+851,Isabel Allende,Daughter of Fortune
 852,Jessica Knoll,Luckiest Girl Alive
 853,Ellen Hopkins,"Crank (Crank, #1)"
 854,Maggie Stiefvater,"The Raven Boys (The Raven Cycle, #1)"
 855,Richard Matheson,I Am Legend and Other Stories
 856,Elizabeth Strout,Olive Kitteridge
-857,"Lena Dunham, Joana Avillez","Not That Kind of Girl: A Young Woman Tells You What She's ""Learned"""
+857,Lena Dunham,"Not That Kind of Girl: A Young Woman Tells You What She's ""Learned"""
 858,Kristin Cashore,"Fire (Graceling Realm, #2)"
 859,Samuel Beckett,Waiting for Godot
 860,Jack London,White Fang
-861,"Stephen King, Bernie Wrightson","Wolves of the Calla (The Dark Tower, #5)"
+861,Stephen King,"Wolves of the Calla (The Dark Tower, #5)"
 862,Philip Pullman,His Dark Materials (His Dark Materials #1-3)
 863,Kimberly McCreight,Reconstructing Amelia
 864,Jojo Moyes,One Plus One
@@ -875,26 +875,26 @@ book_id,authors,title
 874,Stephen King,"The Dark Tower (The Dark Tower, #7)"
 875,Sophie Kinsella,"Shopaholic Takes Manhattan (Shopaholic, #2)"
 876,Maggie Stiefvater,"Linger (The Wolves of Mercy Falls, #2)"
-877,"James Joyce, Seamus Deane",A Portrait of the Artist as a Young Man
-878,"Robert Jordan, Brandon Sanderson","The Gathering Storm (Wheel of Time, #12)"
-879,"George Eliot, Michel Faber",Middlemarch
+877,James Joyce,A Portrait of the Artist as a Young Man
+878,Robert Jordan,"The Gathering Storm (Wheel of Time, #12)"
+879,George Eliot,Middlemarch
 880,J.R.R. Tolkien,J.R.R. Tolkien 4-Book Boxed Set: The Hobbit and The Lord of the Rings
 881,Stephen King,The Dark Half
 882,Stacy Schiff,Cleopatra: A Life
 883,Thomas L. Friedman,The World Is Flat: A Brief History of the Twenty-first Century
 884,Brandon Sanderson,"Steelheart (The Reckoners, #1)"
-885,"Marcus Pfister, J. Alison James",The Rainbow Fish
+885,Marcus Pfister,The Rainbow Fish
 886,Jules Verne,"Journey to the Center of the Earth (Extraordinary Voyages, #3)"
 887,Gretchen Rubin,"The Happiness Project: Or Why I Spent a Year Trying to Sing in the Morning, Clean My Closets, Fight Right, Read Aristotle, and Generally Have More Fun"
 888,Philip K. Dick,The Man in the High Castle
-889,"Vincent Bugliosi, Curt Gentry",Helter Skelter: The True Story of the Manson Murders
+889,Vincent Bugliosi,Helter Skelter: The True Story of the Manson Murders
 890,Deborah Harkness,"Shadow of Night (All Souls Trilogy, #2)"
 891,Jodi Picoult,Leaving Time
 892,Patricia Briggs,"Moon Called (Mercy Thompson, #1)"
 893,Melissa de la Cruz,"Blue Bloods (Blue Bloods, #1)"
 894,Caleb Carr,"The Alienist (Dr. Laszlo Kreizler, #1)"
-895,"John Milton, John      Leonard",Paradise Lost
-896,"Robert Jordan, Brandon Sanderson","Towers of Midnight (Wheel of Time, #13)"
+895,John Milton,Paradise Lost
+896,Robert Jordan,"Towers of Midnight (Wheel of Time, #13)"
 897,Frederick Forsyth,The Day of the Jackal
 898,Rainbow Rowell,Attachments
 899,Carol Rifka Brunt,Tell the Wolves I'm Home
@@ -902,10 +902,10 @@ book_id,authors,title
 901,Michelle Hodkin,"The Unbecoming of Mara Dyer (Mara Dyer, #1)"
 902,Janet Evanovich,"Three to Get Deadly (Stephanie Plum, #3)"
 903,Emmuska Orczy,The Scarlet Pimpernel
-904,"Jon Stone, Michael J. Smollin",The Monster at the End of this Book
+904,Jon Stone,The Monster at the End of this Book
 905,Judy Blume,"Tales of a Fourth Grade Nothing (Fudge, #1)"
 906,Leigh Bardugo,"Shadow and Bone (Shadow and Bone, #1)"
-907,"Herman Koch, Sam Garrett",The Dinner
+907,Herman Koch,The Dinner
 908,Marie Lu,"Champion (Legend, #3)"
 909,Carl Sagan,Contact
 910,Zadie Smith,White Teeth
@@ -915,13 +915,13 @@ book_id,authors,title
 914,Bill Watterson,The Essential Calvin and Hobbes: A Calvin and Hobbes Treasury
 915,Geraldine Brooks,People of the Book
 916,Douglas Adams,"So Long, and Thanks for All the Fish (Hitchhiker's Guide to the Galaxy, #4)"
-917,"Hermann Hesse, Basil Creighton",Steppenwolf
+917,Hermann Hesse,Steppenwolf
 918,Tess Gerritsen,"The Surgeon (Rizzoli & Isles, #1)"
 919,Jojo Moyes,The Girl You Left Behind
 920,Robin Hobb,"Royal Assassin (Farseer Trilogy, #2)"
 921,Arthur C. Clarke,Childhood's End
-922,"Kate DiCamillo, Timothy Basil Ering",The Tale of Despereaux
-923,"Barbara Kingsolver, Steven L. Hopp, Camille Kingsolver, Richard A. Houser","Animal, Vegetable, Miracle: A Year of Food Life"
+922,Kate DiCamillo,The Tale of Despereaux
+923,Barbara Kingsolver,"Animal, Vegetable, Miracle: A Year of Food Life"
 924,Sarah J. Maas,"Heir of Fire (Throne of Glass, #3)"
 925,Robert Jordan,"Lord of Chaos (Wheel of Time, #6)"
 926,Alan Bradley,"The Sweetness at the Bottom of the Pie (Flavia de Luce, #1)"
@@ -930,12 +930,12 @@ book_id,authors,title
 929,Chad Harbach,The Art of Fielding
 930,Ernest Hemingway,A Moveable Feast
 931,Brandon Mull,"Fablehaven (Fablehaven, #1)"
-932,"Lemony Snicket, Brett Helquist","The Wide Window (A Series of Unfortunate Events, #3)"
+932,Lemony Snicket,"The Wide Window (A Series of Unfortunate Events, #3)"
 933,Jim Butcher,"Grave Peril (The Dresden Files, #3)"
 934,John Grisham,The Street Lawyer
 935,Mildred D. Taylor,"Roll of Thunder, Hear My Cry (Logans, #4)"
-936,"Seth Grahame-Smith, Jane Austen","Pride and Prejudice and Zombies (Pride and Prejudice and Zombies, #1)"
-937,"Fyodor Dostoyevsky, Constance Garnett, Alan Myers, Joseph Frank, Anna Brailovsky",The Idiot
+936,Seth Grahame-Smith,"Pride and Prejudice and Zombies (Pride and Prejudice and Zombies, #1)"
+937,Fyodor Dostoyevsky,The Idiot
 938,Douglas Adams,Dirk Gently's Holistic Detective Agency (Dirk Gently #1)
 939,Mindy Kaling,Why Not Me?
 940,Sebastian Junger,The Perfect Storm: A True Story of Men Against the Sea
@@ -943,59 +943,59 @@ book_id,authors,title
 942,Patrick Ness,"The Knife of Never Letting Go (Chaos Walking, #1)"
 943,Jim Fergus,One Thousand White Women: The Journals of May Dodd (One Thousand White Women#1)
 944,Jodi Picoult,Handle with Care
-945,"Stephen King, Darrel Anderson","Song of Susannah (The Dark Tower, #6)"
+945,Stephen King,"Song of Susannah (The Dark Tower, #6)"
 946,Salman Rushdie,Midnight's Children
 947,Max Brooks,The Zombie Survival Guide: Complete Protection from the Living Dead
 948,Margaret Peterson Haddix,"Among the Hidden (Shadow Children, #1)"
 949,Michael Pollan,In Defense of Food: An Eater's Manifesto
 950,Elizabeth George Speare,The Witch of Blackbird Pond
 951,Sophie Kinsella,"Shopaholic Ties the Knot (Shopaholic, #3)"
-952,"Wilkie Collins, Matthew Sweet",The Woman in White
-953,"Robert Galbraith, J.K. Rowling","Career of Evil (Cormoran Strike, #3)"
+952,Wilkie Collins,The Woman in White
+953,Robert Galbraith,"Career of Evil (Cormoran Strike, #3)"
 954,Janet Evanovich,"Four to Score (Stephanie Plum, #4)"
 955,James McBride,The Color of Water: A Black Man's Tribute to His White Mother
-956,"Steven D. Levitt, Stephen J. Dubner","SuperFreakonomics: Global Cooling, Patriotic Prostitutes And Why Suicide Bombers Should Buy Life Insurance"
+956,Steven D. Levitt,"SuperFreakonomics: Global Cooling, Patriotic Prostitutes And Why Suicide Bombers Should Buy Life Insurance"
 957,Karen Marie Moning,"Darkfever (Fever, #1)"
 958,Terry Goodkind,"Stone of Tears (Sword of Truth, #2)"
-959,"William Makepeace Thackeray, John Carey",Vanity Fair
+959,William Makepeace Thackeray,Vanity Fair
 960,Kurt Vonnegut Jr.,The Sirens of Titan
-961,"Bill Willingham, Lan Medina, Steve Leialoha, Craig Hamilton, James Jean","Fables, Vol. 1: Legends in Exile"
+961,Bill Willingham,"Fables, Vol. 1: Legends in Exile"
 962,James Redfield,"The Celestine Prophecy (Celestine Prophecy, #1)"
 963,Ken Follett,Winter of the World (The Century Trilogy #2)
 964,Alice Sebold,Lucky
 965,Virginia Woolf,To the Lighthouse
 966,Laurell K. Hamilton,"Guilty Pleasures (Anita Blake, Vampire Hunter, #1)"
 967,Markus Zusak,I Am the Messenger
-968,"Thomas Hardy, Rosemarie Morgan, Shannon Russell",Far from the Madding Crowd
+968,Thomas Hardy,Far from the Madding Crowd
 969,Terry Pratchett,"Equal Rites (Discworld, #3; Witches #1)"
 970,Mark Z. Danielewski,House of Leaves
 971,John Grisham,Sycamore Row
-972,"P.C. Cast, Kristin Cast","Awakened (House of Night, #8)"
+972,P.C. Cast,"Awakened (House of Night, #8)"
 973,Willa Cather,My Ántonia
 974,Susan Beth Pfeffer,"Life As We Knew It (Last Survivors, #1)"
-975,"Jon Stewart, Ben Karlin, David Javerbaum, Rich Bloomquist, Steve Bodow, Tim Carvell, Eric Drysdale, J.R. Havlan, Scott Jacobson, Tom Johnson, Rob Kutner, Chris Regan, Jason Reich, Jason Ross, Stephen Colbert, Samantha Bee, Rob Corddry, Brendan Hay, Ed Helms",America (The Book): A Citizen's Guide to Democracy Inaction
-976,"Lao Tzu, Gia-Fu Feng, Jane English, Chungliang Al Huang, Rowena Pattee Kryder, Toinette Lippe",Tao Te Ching
+975,Jon Stewart,America (The Book): A Citizen's Guide to Democracy Inaction
+976,Lao Tzu,Tao Te Ching
 977,Jeffrey Archer,"Kane and Abel (Kane and Abel, #1)"
 978,Jodi Picoult,Change of Heart
 979,Augusten Burroughs,Dry
 980,Frank Herbert,Dune Messiah (Dune Chronicles #2)
 981,C.S. Lewis,The Great Divorce
-982,"Hans Christian Andersen, Lily Owens, Arthur Rackham, Hans Richter",The Complete Fairy Tales
+982,Hans Christian Andersen,The Complete Fairy Tales
 983,Jane Green,Mr. Maybe
 984,L.M. Montgomery,"Anne of the Island (Anne of Green Gables, #3)"
-985,"Friedrich Nietzsche, Walter Kaufmann",Thus Spoke Zarathustra
-986,"Elizabeth Gaskell, Alan Shelston",North and South
+985,Friedrich Nietzsche,Thus Spoke Zarathustra
+986,Elizabeth Gaskell,North and South
 987,Michael Crichton,"The Lost World (Jurassic Park, #2)"
 988,Lauren Oliver,"Requiem (Delirium, #3)"
 989,Robert Jordan,"A Crown of Swords (Wheel of Time, #7)"
-990,"Aesop, Laura Harris, Laura Gibbs",Aesop's Fables
+990,Aesop,Aesop's Fables
 991,Cormac McCarthy,"Blood Meridian, or the Evening Redness in the West"
 992,Stephen King,Skeleton Crew
 993,Jim Butcher,"Summer Knight (The Dresden Files, #4)"
-994,"Anne McCaffrey, Teodor Panasiński","Dragonflight (Dragonriders of Pern, #1)"
+994,Anne McCaffrey,"Dragonflight (Dragonriders of Pern, #1)"
 995,Joanne Harris,"Chocolat (Chocolat, #1)"
 996,Jay Anson,The Amityville Horror
-997,"James Joyce, Jeri Johnson",Dubliners
+997,James Joyce,Dubliners
 998,Colum McCann,Let the Great World Spin
 999,Eoin Colfer,"The Eternity Code (Artemis Fowl, #3)"
 1000,Harlan Coben,Tell No One
@@ -1004,7 +1004,7 @@ book_id,authors,title
 1003,Neal Stephenson,Cryptonomicon
 1004,Barbara Kingsolver,Prodigal Summer
 1005,Joyce Carol Oates,We Were the Mulvaneys
-1006,"Kami Garcia, Margaret Stohl","Beautiful Darkness (Caster Chronicles, #2)"
+1006,Kami Garcia,"Beautiful Darkness (Caster Chronicles, #2)"
 1007,Jon Ronson,The Psychopath Test: A Journey Through the Madness Industry
 1008,Jodi Picoult,Vanishing Acts
 1009,David Baldacci,Absolute Power
@@ -1012,84 +1012,84 @@ book_id,authors,title
 1011,Mitch Albom,The Time Keeper
 1012,Christopher Moore,"A Dirty Job (Grim Reaper, #1)"
 1013,Jonathan Stroud,"The Amulet of Samarkand (Bartimaeus, #1)"
-1014,"Stephen Colbert, Richard Dahm, Paul Dinello, Allison Silverman, Michael Brumm, Eric Drydale, Rob Dubbin, Glenn Eichler, Peter Grosz, Peter Gwinn, Jay Katsir, Laura Krafft, Frank Lesser, Tom Purcell",I Am America (And So Can You!)
+1014,Stephen Colbert,I Am America (And So Can You!)
 1015,Leon Uris,Exodus
 1016,Ursula Hegi,Stones from the River
 1017,Raymond Chandler,"The Big Sleep (Philip Marlowe, #1)"
 1018,John Steinbeck,Cannery Row
 1019,Ellen DeGeneres,Seriously... I'm Kidding
-1020,"Lemony Snicket, Brett Helquist","The Miserable Mill (A Series of Unfortunate Events, #4)"
+1020,Lemony Snicket,"The Miserable Mill (A Series of Unfortunate Events, #4)"
 1021,Eowyn Ivey,The Snow Child
-1022,"Dante Alighieri, Allen Mandelbaum, Eugenio Montale",The Divine Comedy
-1023,"Benjamin Hoff, Ernest H. Shepard",The Tao of Pooh
+1022,Dante Alighieri,The Divine Comedy
+1023,Benjamin Hoff,The Tao of Pooh
 1024,Sarah Dunant,The Birth of Venus
 1025,Eoin Colfer,"The Opal Deception  (Artemis Fowl, #4)"
-1026,"David Lagercrantz, Stieg Larsson, George Goulding","The Girl in the Spider's Web (Millennium, #4)"
+1026,David Lagercrantz,"The Girl in the Spider's Web (Millennium, #4)"
 1027,Emma Cline,The Girls
 1028,Shannon Hale,"The Goose Girl (The Books of Bayern, #1)"
 1029,Dennis Lehane,Mystic River
-1030,"Mark Twain, Everett H. Emerson",The Prince and the Pauper
+1030,Mark Twain,The Prince and the Pauper
 1031,Robert A. Heinlein,The Moon is a Harsh Mistress
 1032,Janet Evanovich,"High Five (Stephanie Plum, #5)"
 1033,Stephen King,Joyland
 1034,F. Scott Fitzgerald,Tender Is the Night
 1035,Tennessee Williams,The Glass Menagerie
-1036,"Elena Ferrante, Ann Goldstein",My Brilliant Friend (The Neapolitan Novels #1)
+1036,Elena Ferrante,My Brilliant Friend (The Neapolitan Novels #1)
 1037,Amor Towles,Rules of Civility
 1038,Larry Niven,"Ringworld (Ringworld, #1)"
 1039,Ruta Sepetys,Between Shades of Gray
-1040,"Andrew Clements, Brian Selznick",Frindle
+1040,Andrew Clements,Frindle
 1041,Louise Erdrich,The Round House
 1042,Madeleine L'Engle,"A Wind in the Door (A Wrinkle in Time Quintet, #2)"
 1043,Hanya Yanagihara,A Little Life
-1044,"Brian K. Vaughan, Pia Guerra, José Marzán Jr.","Y: The Last Man, Vol. 1: Unmanned"
+1044,Brian K. Vaughan,"Y: The Last Man, Vol. 1: Unmanned"
 1045,Brandon Sanderson,"The Alloy of Law (Mistborn, #4)"
 1046,Charlaine Harris,"Dead Reckoning (Sookie Stackhouse, #11)"
-1047,"Anne Tyler, Jennifer Bassett",The Accidental Tourist
+1047,Anne Tyler,The Accidental Tourist
 1048,H.G. Wells,The Invisible Man
-1049,"Haruki Murakami, Alfred Birnbaum",Hard-Boiled Wonderland and the End of the World
-1050,"Johann David Wyss, Scott McKowen, Arthur Pober",The Swiss Family Robinson  
+1049,Haruki Murakami,Hard-Boiled Wonderland and the End of the World
+1050,Johann David Wyss,The Swiss Family Robinson  
 1051,Stephen King,Four Past Midnight 
 1052,L.M. Montgomery,"Anne of Avonlea (Anne of Green Gables, #2)"
-1053,"Watty Piper, Doris Hauman, George Hauman",The Little Engine That Could
+1053,Watty Piper,The Little Engine That Could
 1054,Karen Joy Fowler,We Are All Completely Beside Ourselves
 1055,Orson Scott Card,"Children of the Mind (Ender's Saga, #4)"
 1056,James Joyce,Ulysses
 1057,Alan Brennert,Moloka'i
 1058,Anne Rice,"The Witching Hour (Lives of the Mayfair Witches, #1)"
 1059,Lauren Groff,Fates and Furies
-1060,"E.B. White, Garth Williams",Stuart Little
+1060,E.B. White,Stuart Little
 1061,Isaac Asimov,"The Foundation Trilogy (Foundation, #1-3)"
 1062,Brian Greene,"The Elegant Universe: Superstrings, Hidden Dimensions, and the Quest for the Ultimate Theory"
-1063,"Lemony Snicket, Brett Helquist","The Austere Academy (A Series of Unfortunate Events, #5)"
+1063,Lemony Snicket,"The Austere Academy (A Series of Unfortunate Events, #5)"
 1064,Janet Evanovich,"Seven Up (Stephanie Plum, #7)"
 1065,Jim Butcher,"Death Masks (The Dresden Files, #5)"
 1066,Janell Cannon,Stellaluna
 1067,Joe Abercrombie,Before They Are Hanged (The First Law #2)
 1068,Nancy Horan,Loving Frank
-1069,"Janet Evanovich, Lorelei King","Hard Eight (Stephanie Plum, #8)"
-1070,"Lemony Snicket, Brett Helquist","The Vile Village (A Series of Unfortunate Events, #7)"
+1069,Janet Evanovich,"Hard Eight (Stephanie Plum, #8)"
+1070,Lemony Snicket,"The Vile Village (A Series of Unfortunate Events, #7)"
 1071,Flora Rheta Schreiber,Sybil: The Classic True Story of a Woman Possessed by Sixteen Personalities
 1072,Carl Sagan,Cosmos
 1073,Chuck Palahniuk,Haunted
 1074,Rosamunde Pilcher,The Shell Seekers
 1075,Dave Eggers,What Is the What
-1076,"Gabriel García Márquez, Gregory Rabassa",Chronicle of a Death Foretold
-1077,"Bill O'Reilly, Martin Dugard",Killing Lincoln: The Shocking Assassination that Changed America Forever
+1076,Gabriel García Márquez,Chronicle of a Death Foretold
+1077,Bill O'Reilly,Killing Lincoln: The Shocking Assassination that Changed America Forever
 1078,Jhumpa Lahiri,The Lowland
 1079,Robin Hobb,"Assassin's Quest (Farseer Trilogy, #3)"
 1080,Ira Levin,Rosemary's Baby
-1081,"Stephen King, Peter Straub","The Talisman (The Talisman, #1)"
+1081,Stephen King,"The Talisman (The Talisman, #1)"
 1082,Robert Jordan,"The Path of Daggers (Wheel of Time, #8)"
 1083,Jack Kerouac,The Dharma Bums
 1084,Katherine Boo,"Behind the Beautiful Forevers: Life, Death, and Hope in a Mumbai Undercity"
-1085,"P.L. Travers, Mary Shepard","Mary Poppins (Mary Poppins, #1)"
+1085,P.L. Travers,"Mary Poppins (Mary Poppins, #1)"
 1086,Scott Lynch,"Red Seas Under Red Skies (Gentleman Bastard, #2)"
 1087,Sandra Cisneros,The House on Mango Street
 1088,David Benioff,City of Thieves
-1089,"Roald Dahl, Quentin Blake",The Twits
+1089,Roald Dahl,The Twits
 1090,Garth Nix,"Abhorsen (Abhorsen, #3)"
-1091,"James Patterson, Peter de Jonge",The Beach House
+1091,James Patterson,The Beach House
 1092,Stephen King,The Eyes of the Dragon
 1093,Frank Herbert,Children of Dune (Dune Chronicles #3)
 1094,James S.A. Corey,"Leviathan Wakes (The Expanse, #1)"
@@ -1102,21 +1102,21 @@ book_id,authors,title
 1101,Elizabeth Gilbert,The Signature of All Things
 1102,Lynne Truss,"Eats, Shoots & Leaves: The Zero Tolerance Approach to Punctuation"
 1103,Kim Harrison,"Dead Witch Walking (The Hollows, #1)"
-1104,"Clement C. Moore, Jan Brett",The Night Before Christmas
+1104,Clement C. Moore,The Night Before Christmas
 1105,Diana Gabaldon,"An Echo in the Bone (Outlander, #7)"
 1106,Robert Jordan,"Knife of Dreams (Wheel of Time, #11)"
 1107,Carl Hiaasen,Hoot
-1108,"Virgil, Robert Fitzgerald",The Aeneid
+1108,Virgil,The Aeneid
 1109,Junot Díaz,This Is How You Lose Her
 1110,Daniel Quinn,Ishmael:A Novel
-1111,"Kennilworthy Whisp, J.K. Rowling",Quidditch Through the Ages
-1112,"Harry Allard, James  Marshall","Miss Nelson Is Missing! (Miss Nelson, #1)"
-1113,"Richard Bachman, Stephen King",The Long Walk
-1114,"Lemony Snicket, Brett Helquist","The Ersatz Elevator (A Series of Unfortunate Events, #6)"
+1111,Kennilworthy Whisp,Quidditch Through the Ages
+1112,Harry Allard,"Miss Nelson Is Missing! (Miss Nelson, #1)"
+1113,Richard Bachman,The Long Walk
+1114,Lemony Snicket,"The Ersatz Elevator (A Series of Unfortunate Events, #6)"
 1115,Lois Lowry,"Messenger (The Giver, #3)"
 1116,J.R. Ward,"Lover Revealed (Black Dagger Brotherhood, #4)"
-1117,"Stephen King, Jerry N. Uelsmann",'Salem's Lot
-1118,"Trenton Lee Stewart, Carson Ellis","The Mysterious Benedict Society (The Mysterious Benedict Society, #1)"
+1117,Stephen King,'Salem's Lot
+1118,Trenton Lee Stewart,"The Mysterious Benedict Society (The Mysterious Benedict Society, #1)"
 1119,Christopher Hitchens,god is Not Great: How Religion Poisons Everything
 1120,Michael Crichton,State of Fear
 1121,Jonathan Stroud,"The Golem's Eye (Bartimaeus, #2)"
@@ -1125,7 +1125,7 @@ book_id,authors,title
 1124,John Grisham,The Broker
 1125,M. Scott Peck,"The Road Less Traveled: A New Psychology of Love, Traditional Values, and Spiritual Growth"
 1126,Jim Butcher,"Blood Rites (The Dresden Files, #6)"
-1127,"Gertrude Chandler Warner, L. Kate Deal","The Boxcar Children (The Boxcar Children, #1)"
+1127,Gertrude Chandler Warner,"The Boxcar Children (The Boxcar Children, #1)"
 1128,Keith Richards,Life
 1129,Jhumpa Lahiri,Unaccustomed Earth
 1130,Anita Shreve,The Pilot's Wife
@@ -1140,13 +1140,13 @@ book_id,authors,title
 1139,Laurie Halse Anderson,Fever 1793
 1140,Tana French,"The Likeness (Dublin Murder Squad, #2)"
 1141,Rudyard Kipling,The Jungle Book
-1142,"Allen Ginsberg, William Carlos Williams",Howl and Other Poems
-1143,"Adam Mansbach, Ricardo Cortés",Go the Fuck to Sleep
+1142,Allen Ginsberg,Howl and Other Poems
+1143,Adam Mansbach,Go the Fuck to Sleep
 1144,Douglas Adams,"Mostly Harmless (Hitchhiker's Guide to the Galaxy, #5)"
 1145,Téa Obreht,The Tiger's Wife
 1146,Maria V. Snyder,"Poison Study (Study, #1)"
 1147,Terry Pratchett,"Going Postal (Discworld, #33; Moist von Lipwig, #1)"
-1148,"Anonymous, Joseph Smith Jr.",The Book of Mormon: Another Testament of Jesus Christ
+1148,Anonymous,The Book of Mormon: Another Testament of Jesus Christ
 1149,Stephen King,The Mist
 1150,Jim Butcher,"Dead Beat (The Dresden Files, #7)"
 1151,Pierce Brown,"Golden Son (Red Rising, #2)"
@@ -1159,7 +1159,7 @@ book_id,authors,title
 1158,Michael   Lewis,The Blind Side: Evolution of a Game
 1159,Garth Nix,"Lirael (Abhorsen, #2)"
 1160,James Patterson,"School's Out—Forever (Maximum Ride, #2)"
-1161,"Robert Louis Stevenson, Robert Mighall",The Strange Case of Dr. Jekyll and Mr. Hyde and Other Tales of Terror
+1161,Robert Louis Stevenson,The Strange Case of Dr. Jekyll and Mr. Hyde and Other Tales of Terror
 1162,Peter V. Brett,"The Warded Man (Demon Cycle, #1)"
 1163,Lee Child,"One Shot (Jack Reacher, #9)"
 1164,Rick Riordan,"The Serpent's Shadow (Kane Chronicles, #3)"
@@ -1167,33 +1167,33 @@ book_id,authors,title
 1166,Kate Morton,The House at Riverton
 1167,Robert Jordan,"Winter's Heart (Wheel of Time, #9)"
 1168,Jim Butcher,"Proven Guilty (The Dresden Files, #8)"
-1169,"Fyodor Dostoyevsky, Andrew R. MacAndrew, Ben Marcus","Notes from Underground, White Nights, The Dream of a Ridiculous Man, and Selections from The House of the Dead"
+1169,Fyodor Dostoyevsky,"Notes from Underground, White Nights, The Dream of a Ridiculous Man, and Selections from The House of the Dead"
 1170,Carson McCullers,The Heart is a Lonely Hunter
 1171,T.H. White,The Once and Future King (The Once and Future King #1-4)
 1172,Terry Pratchett,"Small Gods (Discworld, #13)"
 1173,Lynne Reid Banks,"The Indian in the Cupboard (The Indian in the Cupboard, #1)"
-1174,"Robert Jordan, Brandon Sanderson","A Memory of Light (Wheel of Time, #14)"
+1174,Robert Jordan,"A Memory of Light (Wheel of Time, #14)"
 1175,Simon Winchester,"The Professor and the Madman: A Tale of Murder, Insanity and the Making of the Oxford English Dictionary"
-1176,"James Patterson, Andrew Gross","2nd Chance (Women's Murder Club, #2)"
+1176,James Patterson,"2nd Chance (Women's Murder Club, #2)"
 1177,Art Spiegelman,"The Complete Maus (Maus, #1-2)"
 1178,Jasper Fforde,"The Eyre Affair (Thursday Next, #1)"
-1179,"Faye Perozich, Anne Rice, John Bolton, Daerick Gröss",Anne Rice's The Vampire Lestat: A Graphic Novel
-1180,"Louis Sachar, Adam McCauley",Sideways Stories from Wayside School (Wayside School #1)
-1181,"Dalai Lama XIV, Howard C. Cutler",The Art of Happiness
+1179,Faye Perozich,Anne Rice's The Vampire Lestat: A Graphic Novel
+1180,Louis Sachar,Sideways Stories from Wayside School (Wayside School #1)
+1181,Dalai Lama XIV,The Art of Happiness
 1182,David Mitchell,The Bone Clocks
 1183,Anna Quindlen,Black and Blue
 1184,John Grisham,The Last Juror
 1185,Janet Evanovich,"Eleven on Top (Stephanie Plum, #11)"
-1186,"Cornelia Funke, Anthea Bell","Inkspell (Inkworld, #2)"
+1186,Cornelia Funke,"Inkspell (Inkworld, #2)"
 1187,Chuck Klosterman,"Sex, Drugs, and Cocoa Puffs: A Low Culture Manifesto"
 1188,Evelyn Waugh,Brideshead Revisited: The Sacred and Profane Memories of Captain Charles Ryder
 1189,Jim Butcher,"White Night (The Dresden Files, #9)"
-1190,"Margaret Weis, Tracy Hickman","Dragons of Autumn Twilight  (Dragonlance: Chronicles, #1)"
+1190,Margaret Weis,"Dragons of Autumn Twilight  (Dragonlance: Chronicles, #1)"
 1191,Eoin Colfer,"The Lost Colony (Artemis Fowl, #5)"
 1192,Scott Westerfeld,"Extras (Uglies, #4)"
 1193,Deborah Harkness,"The Book of Life (All Souls Trilogy, #3)"
 1194,Julia Cameron,The Artist's Way: A Spiritual Path to Higher Creativity
-1195,"Jon Scieszka, Lane Smith",The Stinky Cheese Man and Other Fairly Stupid Tales
+1195,Jon Scieszka,The Stinky Cheese Man and Other Fairly Stupid Tales
 1196,Joe Hill,Horns
 1197,Margaret Atwood,"The Year of the Flood  (MaddAddam, #2)"
 1198,Kristin Hannah,Winter Garden
@@ -1203,26 +1203,26 @@ book_id,authors,title
 1202,Brent Weeks,"Shadow's Edge (Night Angel, #2)"
 1203,Veronica Rossi,"Under the Never Sky (Under the Never Sky, #1)"
 1204,Richelle Mead,"The Golden Lily (Bloodlines, #2)"
-1205,"Roberto Aguirre-Sacasa, Stephen King, Mike Perkins, Laura       Martin",The Stand: Captain Trips
+1205,Roberto Aguirre-Sacasa,The Stand: Captain Trips
 1206,William L. Shirer,The Rise and Fall of the Third Reich: A History of Nazi Germany
 1207,Nick Hornby,A Long Way Down
 1208,Stephen King,Rose Madder
 1209,Lee Child,"Die Trying (Jack Reacher, #2)"
-1210,"Kami Garcia, Margaret Stohl, Paz Pruneda","Beautiful Chaos (Caster Chronicles, #3)"
+1210,Kami Garcia,"Beautiful Chaos (Caster Chronicles, #3)"
 1211,Joe Hill,Heart-Shaped Box
 1212,Brent Weeks,"Beyond the Shadows (Night Angel, #3)"
 1213,Lauren Weisberger,Everyone Worth Knowing
 1214,Brian Jacques,"Redwall (Redwall, #1)"
-1215,"Karl Marx, Friedrich Engels, Gareth Stedman Jones",The Communist Manifesto
+1215,Karl Marx,The Communist Manifesto
 1216,James Fenimore Cooper,The Last of the Mohicans (The Leatherstocking Tales #2)
 1217,William Styron,Sophie's Choice
 1218,Sophie Kinsella,"Shopaholic and Sister (Shopaholic, #4)"
 1219,Julie Kagawa,The Iron Daughter
 1220,Karen Thompson Walker,The Age of Miracles
 1221,Mitch Albom,Have a Little Faith: a True Story
-1222,"Julia Child, Alex Prud'Homme",My Life in France
+1222,Julia Child,My Life in France
 1223,Wendelin Van Draanen,Flipped
-1224,"Douglas Preston, Lincoln Child","Relic (Pendergast, #1)"
+1224,Douglas Preston,"Relic (Pendergast, #1)"
 1225,Bill Bryson,Notes from a Small Island
 1226,Jim Butcher,"Small Favor (The Dresden Files, #10)"
 1227,Shannon Hale,"Princess Academy (Princess Academy, #1)"
@@ -1233,41 +1233,41 @@ book_id,authors,title
 1232,Bill Bryson,In a Sunburned Country
 1233,Adam Johnson,The Orphan Master's Son
 1234,David Eddings,"Enchanters' End Game (The Belgariad, #5)"
-1235,"Marjane Satrapi, Mattias Ripa, Blake Ferris, Anjali Singh",The Complete Persepolis
+1235,Marjane Satrapi,The Complete Persepolis
 1236,Chaim Potok,The Chosen
-1237,"Irving Stone, שמואל שניצר",The Agony and the Ecstasy
-1238,"Carlos Ruiz Zafón, Lucia Graves","The Angel's Game (The Cemetery of Forgotten Books, #2)"
-1239,"Peggy Parish, Fritz Siebel",Amelia Bedelia  (Amelia Bedelia #1)
+1237,Irving Stone,The Agony and the Ecstasy
+1238,Carlos Ruiz Zafón,"The Angel's Game (The Cemetery of Forgotten Books, #2)"
+1239,Peggy Parish,Amelia Bedelia  (Amelia Bedelia #1)
 1240,W. Bruce Cameron,"A Dog's Purpose (A Dog's Purpose, #1)"
 1241,Helene Wecker,"The Golem and the Jinni (The Golem and the Jinni, #1)"
-1242,"Lemony Snicket, Brett Helquist","The Slippery Slope (A Series of Unfortunate Events, #10)"
-1243,"Charles Dickens, Nicola Bradbury, Hablot Knight Browne",Bleak House
+1242,Lemony Snicket,"The Slippery Slope (A Series of Unfortunate Events, #10)"
+1243,Charles Dickens,Bleak House
 1244,Esphyr Slobodkina,"Caps for Sale: A Tale of a Peddler, Some Monkeys and Their Monkey Business"
 1245,Jim Butcher,"Furies of Calderon (Codex Alera, #1)"
 1246,Tamora Pierce,"Alanna: The First Adventure (Song of the Lioness, #1)"
 1247,Audrey Niffenegger,Her Fearful Symmetry
 1248,Dan Simmons,"The Fall of Hyperion (Hyperion Cantos, #2)"
 1249,James Ellroy,"The Black Dahlia (L.A. Quartet, #1)"
-1250,"Lewis Carroll, John Tenniel, Peter Glassman","Through the Looking-Glass, and What Alice Found There"
+1250,Lewis Carroll,"Through the Looking-Glass, and What Alice Found There"
 1251,Jung Chang,Wild Swans: Three Daughters of China
 1252,P.D. Eastman,"Go, Dog. Go!"
 1253,Stephen King,"Finders Keepers (Bill Hodges Trilogy, #2)"
-1254,"Guillermo del Toro, Chuck Hogan","The Strain (The Strain Trilogy, #1)"
-1255,"Emily Dickinson, Thomas H. Johnson",The Complete Poems of Emily Dickinson
+1254,Guillermo del Toro,"The Strain (The Strain Trilogy, #1)"
+1255,Emily Dickinson,The Complete Poems of Emily Dickinson
 1256,Fred Gipson,"Old Yeller (Old Yeller, #1)"
 1257,Stephen King,Hearts in Atlantis
 1258,Philippa Gregory,"The Queen's Fool (The Plantagenet and Tudor Novels, #12)"
 1259,Laini Taylor,"Days of Blood & Starlight (Daughter of Smoke & Bone, #2)"
 1260,Tom Robbins,Jitterbug Perfume
-1261,"Edith Wharton, Nina Bawden",The House of Mirth
-1262,"Patrick Rothfuss, Nate  Taylor",The Slow Regard of Silent Things (The Kingkiller Chronicle #2.5)
+1261,Edith Wharton,The House of Mirth
+1262,Patrick Rothfuss,The Slow Regard of Silent Things (The Kingkiller Chronicle #2.5)
 1263,Nathaniel Philbrick,In the Heart of the Sea: The Tragedy of the Whaleship Essex
 1264,Ayaan Hirsi Ali,Infidel
 1265,Justin Cronin,"The Twelve (The Passage, #2)"
-1266,"Aleksandr Solzhenitsyn, H.T. Willetts",One Day in the Life of Ivan Denisovich
+1266,Aleksandr Solzhenitsyn,One Day in the Life of Ivan Denisovich
 1267,Neal Stephenson,"The Diamond Age: or, A Young Lady's Illustrated Primer"
 1268,Walter M. Miller Jr.,A Canticle for Leibowitz
-1269,"Sophocles, J.E. Thomas","Antigone (The Theban Plays, #3)"
+1269,Sophocles,"Antigone (The Theban Plays, #3)"
 1270,Lauren DeStefano,"Wither (The Chemical Garden, #1)"
 1271,Robert Jordan,"Crossroads of Twilight (Wheel of Time, #10)"
 1272,Stephen Crane,The Red Badge of Courage
@@ -1285,32 +1285,32 @@ book_id,authors,title
 1284,Colson Whitehead,The Underground Railroad
 1285,Melissa de la Cruz,"Masquerade (Blue Bloods, #2)"
 1286,J.M. Coetzee,Disgrace
-1287,"A.A. Milne, Ernest H. Shepard","The House at Pooh Corner (Winnie-the-Pooh, #2)"
+1287,A.A. Milne,"The House at Pooh Corner (Winnie-the-Pooh, #2)"
 1288,Brent Weeks,"The Black Prism (Lightbringer, #1)"
 1289,Sue Monk Kidd,The Mermaid Chair
 1290,Arnold Lobel,"Frog and Toad Are Friends (Frog and Toad, #1)"
-1291,"Lemony Snicket, Brett Helquist","The Carnivorous Carnival (A Series of Unfortunate Events, #9)"
+1291,Lemony Snicket,"The Carnivorous Carnival (A Series of Unfortunate Events, #9)"
 1292,Michael Shaara,"The Killer Angels (The Civil War Trilogy, #2)"
 1293,Laurell K. Hamilton,"Circus of the Damned (Anita Blake, Vampire Hunter, #3)"
 1294,Jonathan Stroud,"Ptolemy's Gate (Bartimaeus, #3)"
 1295,H.G. Wells,The Island of Dr. Moreau
-1296,"Boris Pasternak, Max Hayward, Manya Harari, John Bayley",Doctor Zhivago
+1296,Boris Pasternak,Doctor Zhivago
 1297,P.D. James,Death Comes to Pemberley
 1298,Edith Wharton,Ethan Frome
-1299,"Jane Hamilton, Frank  Muller, C.J. Critt",A Map of the World
-1300,"O. Henry, Lisbeth Zwerger",The Gift of the Magi
+1299,Jane Hamilton,A Map of the World
+1300,O. Henry,The Gift of the Magi
 1301,Tom Wolfe,The Electric Kool-Aid Acid Test
-1302,"William S. Burroughs, James Grauerholz, Barry  Miles",Naked Lunch
-1303,"Neil Gaiman, Kelley Jones, Charles Vess, Colleen Doran, Malcolm Jones III, Steve Erickson",Dream Country (The Sandman #3)
+1302,William S. Burroughs,Naked Lunch
+1303,Neil Gaiman,Dream Country (The Sandman #3)
 1304,John Grisham,A Painted House
-1305,"Ursula K. Le Guin, Lech Jęczmyk",The Left Hand of Darkness
+1305,Ursula K. Le Guin,The Left Hand of Darkness
 1306,Stephen King,"Full Dark, No Stars"
 1307,Dean Koontz,Intensity
-1308,"Henrik Ibsen, Michael   Meyer",A Doll's House
+1308,Henrik Ibsen,A Doll's House
 1309,James A. Michener,Hawaii
 1310,Richard Yates,Revolutionary Road
-1311,"Rachel Cohn, David Levithan",Nick & Norah's Infinite Playlist
-1312,"Tom Stoppard, Henry Popkin",Rosencrantz and Guildenstern Are Dead
+1311,Rachel Cohn,Nick & Norah's Infinite Playlist
+1312,Tom Stoppard,Rosencrantz and Guildenstern Are Dead
 1313,Alex Garland,The Beach
 1314,Charlaine Harris,"Deadlocked (Sookie Stackhouse, #12)"
 1315,Stephen King,Everything's Eventual: 14 Dark Tales
@@ -1326,7 +1326,7 @@ book_id,authors,title
 1325,Adriana Trigiani,The Shoemaker's Wife
 1326,Philip K. Dick,A Scanner Darkly
 1327,Mark Twain,A Connecticut Yankee in King Arthur's Court
-1328,"Jean-Paul Sartre, Lloyd Alexander, Hayden Carruth",Nausea
+1328,Jean-Paul Sartre,Nausea
 1329,Janet Evanovich,"Twelve Sharp (Stephanie Plum, #12)"
 1330,Hugh Howey,"Wool (Wool, #1)"
 1331,Ursula K. Le Guin,"The Tombs of Atuan (Earthsea Cycle, #2)"
@@ -1340,7 +1340,7 @@ book_id,authors,title
 1339,Leif Enger,Peace Like a River
 1340,Chuck Palahniuk,Rant
 1341,Orson Scott Card,"Shadow of the Hegemon (Ender's Shadow, #2)"
-1342,"Janette Sebring Lowrey, Gustaf Tenggren",The Poky Little Puppy (A Little Golden Book)
+1342,Janette Sebring Lowrey,The Poky Little Puppy (A Little Golden Book)
 1343,Maeve Binchy,Tara Road
 1344,Jack London,The Call of the Wild/White Fang
 1345,Jim Butcher,"Cold Days (The Dresden Files, #14)"
@@ -1348,32 +1348,32 @@ book_id,authors,title
 1347,James Herriot,All Things Bright and Beautiful (All Creatures Great and Small)
 1348,David Foster Wallace,Infinite Jest
 1349,John Wyndham,The Day of the Triffids
-1350,"Patrick deWitt, Marcelo Barbão",The Sisters Brothers
+1350,Patrick deWitt,The Sisters Brothers
 1351,Shilpi Somaya Gowda,Secret Daughter
-1352,"Roald Dahl, Quentin Blake",Fantastic Mr. Fox
+1352,Roald Dahl,Fantastic Mr. Fox
 1353,Virginia Woolf,A Room of One's Own
 1354,Brandon Sanderson,"Warbreaker (Warbreaker, #1)"
-1355,"William Shakespeare, Katherine Duncan-Jones",Shakespeare's Sonnets
-1356,"Ron Hall, Denver Moore, Lynn Vincent",Same Kind of Different as Me
+1355,William Shakespeare,Shakespeare's Sonnets
+1356,Ron Hall,Same Kind of Different as Me
 1357,Tracy Kidder,"Mountains Beyond Mountains: The Quest of Dr. Paul Farmer, A Man Who Would Cure the World"
 1358,Mark  Lawrence,"Prince of Thorns (The Broken Empire, #1)"
 1359,Jane Hamilton,The Book of Ruth
 1360,Michael Crichton,Next
 1361,Nancy Farmer,"The House of the Scorpion (Matteo Alacran, #1)"
 1362,Walt Whitman,Leaves of Grass
-1363,"D.H. Lawrence, Doris Lessing, Chester Brown",Lady Chatterley's Lover
+1363,D.H. Lawrence,Lady Chatterley's Lover
 1364,Lev Grossman,"The Magician King (The Magicians, #2)"
 1365,Jodi Picoult,Salem Falls
-1366,"David Eddings, Leigh Eddings",Belgarath the Sorcerer
+1366,David Eddings,Belgarath the Sorcerer
 1367,Frank Herbert,The Great Dune Trilogy  
 1368,Sarah Addison Allen,"Garden Spells (Waverley Family, #1)"
 1369,Jim Butcher,"Ghost Story (The Dresden Files,  #13)"
 1370,Frederick Douglass,Narrative of the Life of Frederick Douglass
-1371,"Greg Behrendt, Liz Tuccillo",He's Just Not That Into You: The No-Excuses Truth to Understanding Guys
+1371,Greg Behrendt,He's Just Not That Into You: The No-Excuses Truth to Understanding Guys
 1372,David Eddings,"Pawn of Prophecy (The Belgariad, #1)"
 1373,Janet Evanovich,"Lean Mean Thirteen (Stephanie Plum, #13)"
-1374,"Rudyard Kipling, Alev Lytle Croutier",The Jungle Books
-1375,"Peter David, Robin Furth, Jae Lee, Richard Isanove, Stephen King",The Dark Tower: The Gunslinger Born
+1374,Rudyard Kipling,The Jungle Books
+1375,Peter David,The Dark Tower: The Gunslinger Born
 1376,Ruth Ozeki,A Tale for the Time Being
 1377,Kurt Vonnegut Jr.,Mother Night
 1378,Louise Fitzhugh,Harriet the Spy (Harriet the Spy #1)
@@ -1383,11 +1383,11 @@ book_id,authors,title
 1382,Louise Penny,"Still Life (Chief Inspector Armand Gamache, #1)"
 1383,Amy Tan,The Kitchen God's Wife
 1384,John Ajvide Lindqvist,Let the Right One In
-1385,"Edgar Allan Poe, Benjamin F. Fisher",Essential Tales and Poems
+1385,Edgar Allan Poe,Essential Tales and Poems
 1386,Ann Brashares,"The Second Summer of the Sisterhood (Sisterhood, #2)"
 1387,Dean Koontz,Phantoms
 1388,Terry Pratchett,"The Wee Free Men (Discworld, #30; Tiffany Aching, #1)"
-1389,"Lewis Carroll, John Tenniel",Alice's Adventures in Wonderland
+1389,Lewis Carroll,Alice's Adventures in Wonderland
 1390,Douglas Adams,"The Long Dark Tea-Time of the Soul (Dirk Gently, #2)"
 1391,Neal Stephenson,Seveneves
 1392,Peter V. Brett,"The Desert Spear (Demon Cycle, #2)"
@@ -1404,20 +1404,20 @@ book_id,authors,title
 1403,Sebastian Faulks,Birdsong
 1404,Terry Goodkind,"Faith of the Fallen (Sword of Truth, #6)"
 1405,Sue Miller,While I Was Gone
-1406,"James Patterson, Maxine Paetro","4th of July (Women's Murder Club, #4)"
+1406,James Patterson,"4th of July (Women's Murder Club, #4)"
 1407,Eoin Colfer,"The Time Paradox (Artemis Fowl, #6)"
 1408,Kristin Cashore,"Bitterblue (Graceling Realm, #3)"
 1409,Terry Pratchett,"Wyrd Sisters (Discworld, #6; Witches #2)"
 1410,Joe Hill,NOS4A2
-1411,"Anne Brontë, Stevie Davies",The Tenant of Wildfell Hall
-1412,"Walter Farley, Keith Ward","The Black Stallion (The Black Stallion, #1)"
-1413,"Lemony Snicket, Brett Helquist","The Grim Grotto (A Series of Unfortunate Events, #11)"
+1411,Anne Brontë,The Tenant of Wildfell Hall
+1412,Walter Farley,"The Black Stallion (The Black Stallion, #1)"
+1413,Lemony Snicket,"The Grim Grotto (A Series of Unfortunate Events, #11)"
 1414,Tomie dePaola,Strega Nona
 1415,Kelley Armstrong,"Bitten (Women of the Otherworld, #1)"
-1416,"Henry James, Patricia Crick",The Portrait of a Lady
+1416,Henry James,The Portrait of a Lady
 1417,Charlotte Perkins Gilman,The Yellow Wallpaper and Other Stories
 1418,Chimamanda Ngozi Adichie,Half of a Yellow Sun
-1419,"Richard Bachman, Stephen King",The Running Man
+1419,Richard Bachman,The Running Man
 1420,Marilynne Robinson,"Gilead (Gilead, #1)"
 1421,Thomas Pynchon,The Crying of Lot 49
 1422,Terry Brooks,"The Sword of Shannara (The Original Shannara Trilogy, #1)"
@@ -1427,11 +1427,11 @@ book_id,authors,title
 1426,Maggie Stiefvater,The Scorpio Races
 1427,Pierce Brown,"Morning Star (Red Rising, #3)"
 1428,Janet Evanovich,"Visions of Sugar Plums (Stephanie Plum, #8.5)"
-1429,"Miep Gies, Alison Leslie Gold",Anne Frank Remembered: The Story of the Woman Who Helped to Hide the Frank Family
+1429,Miep Gies,Anne Frank Remembered: The Story of the Woman Who Helped to Hide the Frank Family
 1430,Janet Evanovich,"Fearless Fourteen (Stephanie Plum, #14)"
-1431,"Michael Bond, Peggy Fortnum","A Bear Called Paddington (Paddington, #1)"
+1431,Michael Bond,"A Bear Called Paddington (Paddington, #1)"
 1432,Beverly Cleary,"Ramona Quimby, Age 8 (Ramona, #6)"
-1433,"Lemony Snicket, Brett Helquist","The Hostile Hospital (A Series of Unfortunate Events, #8)"
+1433,Lemony Snicket,"The Hostile Hospital (A Series of Unfortunate Events, #8)"
 1434,David Seltzer,The Omen
 1435,Tom Rob Smith,"Child 44 (Leo Demidov, #1)"
 1436,Nancy E. Turner,"These Is My Words: The Diary of Sarah Agnes Prine, 1881-1901, Arizona Territories (Sarah Agnes Prine, #1)"
@@ -1444,32 +1444,32 @@ book_id,authors,title
 1443,Tamora Pierce,"In the Hand of the Goddess (Song of the Lioness, #2)"
 1444,Tamora Pierce,"Lioness Rampant (Song of the Lioness, #4)"
 1445,Robin Cook,"Outbreak (Dr. Marissa Blumenthal, #1)"
-1446,"Oliver Pötzsch, Lee Chadeayne","The Hangman's Daughter (The Hangman's Daughter, #1)"
-1447,"Patricia C. Wrede, Peter de Sève","Dealing with Dragons (Enchanted Forest Chronicles, #1)"
+1446,Oliver Pötzsch,"The Hangman's Daughter (The Hangman's Daughter, #1)"
+1447,Patricia C. Wrede,"Dealing with Dragons (Enchanted Forest Chronicles, #1)"
 1448,Lee Child,"Running Blind (Jack Reacher, #4)"
 1449,John Sandford,"Rules of Prey (Lucas Davenport, #1)"
 1450,Michael Chabon,The Yiddish Policemen's Union
-1451,"William Strunk Jr., E.B. White",The Elements of Style
+1451,William Strunk Jr.,The Elements of Style
 1452,Henry James,The Turn of the Screw
 1453,R.A. Salvatore,"Homeland (Forgotten Realms: The Dark Elf Trilogy, #1; Legend of Drizzt, #1)"
-1454,"Larry Niven, Jerry Pournelle",The Mote in God's Eye
-1455,"David Cote, Stephen Schwartz, Joan Marcus, Winnie Holzman",Wicked: The Grimmerie
+1454,Larry Niven,The Mote in God's Eye
+1455,David Cote,Wicked: The Grimmerie
 1456,William Shakespeare,As You Like It
-1457,"Edmond Rostand, Eteel Lawson, Lowell Bair",Cyrano de Bergerac
+1457,Edmond Rostand,Cyrano de Bergerac
 1458,Anne Fadiman,"The Spirit Catches You and You Fall Down: A Hmong Child, Her American Doctors, and the Collision of Two Cultures"
 1459,Karen Marie Moning,"Dreamfever (Fever, #4)"
 1460,Kate Atkinson,Case Histories (Jackson Brodie #1)
-1461,"Neil Gaiman, Steve Parkhouse, Chris Bachalo, Michael Zulli, Mike Dringenberg, Malcolm Jones III, Todd Klein, Clive Barker",The Doll's House (The Sandman #2)
+1461,Neil Gaiman,The Doll's House (The Sandman #2)
 1462,Eleanor H. Porter,"Pollyanna (Pollyanna, #1)"
 1463,Stephen King,Nightmares and Dreamscapes
 1464,Karen Marie Moning,"Shadowfever (Fever, #5)"
 1465,John Grisham,The Associate
 1466,Anthony  Ryan,"Blood Song (Raven's Shadow, #1)"
 1467,Bret Easton Ellis,Less Than Zero
-1468,"Anonymous, Richard Francis Burton, A.S. Byatt",The Arabian Nights
+1468,Anonymous,The Arabian Nights
 1469,Tana French,"Faithful Place (Dublin Murder Squad, #3)"
 1470,Isaac Asimov,The Caves of Steel (Robot #1)
-1471,"Beverly Cleary, Louis Darling, Tracy Dockray","The Mouse and the Motorcycle (Ralph S. Mouse, #1)"
+1471,Beverly Cleary,"The Mouse and the Motorcycle (Ralph S. Mouse, #1)"
 1472,Carrie Ryan,"The Forest of Hands and Teeth (The Forest of Hands and Teeth, #1)"
 1473,Terry Brooks,"The Elfstones of Shannara  (The Original Shannara Trilogy, #2)"
 1474,David Sedaris,Barrel Fever: Stories and Essays
@@ -1482,34 +1482,34 @@ book_id,authors,title
 1481,Karen Marie Moning,"Bloodfever (Fever, #2)"
 1482,Karen Marie Moning,"Faefever (Fever, #3)"
 1483,E.M. Forster,Howards End
-1484,"Alexandre Dumas, Francine du Plessix Gray, Joachim Neugroschel","The Man in the Iron Mask (The D'Artagnan Romances, #3.3)"
-1485,"Shirley Jackson, Laura   Miller",The Haunting of Hill House
-1486,"Laura Ingalls Wilder, Garth Williams","Little Town on the Prairie  (Little House, #7)"
+1484,Alexandre Dumas,"The Man in the Iron Mask (The D'Artagnan Romances, #3.3)"
+1485,Shirley Jackson,The Haunting of Hill House
+1486,Laura Ingalls Wilder,"Little Town on the Prairie  (Little House, #7)"
 1487,Dodie Smith,I Capture the Castle
 1488,Janet Evanovich,"Finger Lickin' Fifteen (Stephanie Plum, #15)"
 1489,John Jakes,"North and South (North and South, #1)"
 1490,Robert Ludlum,"The Bourne Ultimatum (Jason Bourne, #3)"
 1491,Robin Hobb,"Fool's Errand (Tawny Man, #1)"
-1492,"Marcus Aurelius, Martin Hammond, Diskin Clay",Meditations
-1493,"Dave Barry, Ridley Pearson, Greg Call","Peter and the Starcatchers (Peter and the Starcatchers, #1)"
+1492,Marcus Aurelius,Meditations
+1493,Dave Barry,"Peter and the Starcatchers (Peter and the Starcatchers, #1)"
 1494,A.S. Byatt,Possession
 1495,Peter Straub,Ghost Story
-1496,"Lemony Snicket, Brett Helquist","The Penultimate Peril (A Series of Unfortunate Events, #12)"
+1496,Lemony Snicket,"The Penultimate Peril (A Series of Unfortunate Events, #12)"
 1497,Bill Bryson,I'm a Stranger Here Myself: Notes on Returning to America after Twenty Years Away
-1498,"Lemony Snicket, Brett Helquist","The End (A Series of Unfortunate Events, #13)"
+1498,Lemony Snicket,"The End (A Series of Unfortunate Events, #13)"
 1499,Mary Karr,The Liars' Club
 1500,Charlaine Harris,"Dead Ever After (Sookie Stackhouse, #13)"
 1501,Ray Bradbury,The Illustrated Man
-1502,"Margaret Wise Brown, Clement Hurd",The Runaway Bunny
-1503,"Richard Bachman, Stephen King",The Bachman Books
+1502,Margaret Wise Brown,The Runaway Bunny
+1503,Richard Bachman,The Bachman Books
 1504,Terry Goodkind,"Soul of the Fire (Sword of Truth, #5)"
-1505,"Jan-Philipp Sendker, Kevin Wiliarty",The Art of Hearing Heartbeats
+1505,Jan-Philipp Sendker,The Art of Hearing Heartbeats
 1506,Iain M. Banks,"Consider Phlebas (Culture, #1)"
 1507,Anne Rice,"The Vampire Armand (The Vampire Chronicles, #6)"
-1508,"Carlo Collodi, John Boyne, Monteiro Lobato, Unknown",Pinocchio
+1508,Carlo Collodi,Pinocchio
 1509,Henry Miller,Tropic of Cancer
 1510,Wally Lamb,The Hour I First Believed
-1511,"Leo Tolstoy, Aylmer Maude",The Death of Ivan Ilych
+1511,Leo Tolstoy,The Death of Ivan Ilych
 1512,John Steinbeck,Travels with Charley: In Search of America
 1513,Alice Hoffman,The Dovekeepers
 1514,Scott Lynch,"The Republic of Thieves (Gentleman Bastard, #3)"
@@ -1522,13 +1522,13 @@ book_id,authors,title
 1521,Stephenie Meyer,"The Twilight Collection (Twilight, #1-3)"
 1522,Winston Groom,"Forrest Gump (Forrest Gump, #1)"
 1523,Tom Robbins,Even Cowgirls Get the Blues
-1524,"Wilkie Collins, Carolyn G. Heilbrun",The Moonstone
-1525,"Italo Calvino, William Weaver",If on a Winter's Night a Traveler
-1526,"Gregory Maguire, Douglas Smith","Son of a Witch (The Wicked Years, #2)"
+1524,Wilkie Collins,The Moonstone
+1525,Italo Calvino,If on a Winter's Night a Traveler
+1526,Gregory Maguire,"Son of a Witch (The Wicked Years, #2)"
 1527,Patricia Cornwell,"Point of Origin (Kay Scarpetta, #9)"
 1528,Patricia MacLachlan,"Sarah, Plain and Tall (Sarah, Plain and Tall, #1)"
 1529,Christopher Moore,"Bloodsucking Fiends (A Love Story, #1)"
-1530,"David Sedaris, Ian Falconer",Squirrel Seeks Chipmunk: A Modest Bestiary
+1530,David Sedaris,Squirrel Seeks Chipmunk: A Modest Bestiary
 1531,Robert McCloskey,Blueberries for Sal
 1532,Stephen King,Lisey's Story
 1533,Terry Pratchett,"Men at Arms (Discworld, #15; City Watch #2)"
@@ -1536,16 +1536,16 @@ book_id,authors,title
 1535,Frank Herbert,God Emperor of Dune (Dune Chronicles #4)
 1536,Jean M. Auel,"The Valley of Horses (Earth's Children, #2)"
 1537,Katherine Dunn,Geek Love
-1538,"Sophocles, Dudley Fitts, Elena Bono, Robert Fitzgerald","The Oedipus Cycle: Oedipus Rex/Oedipus at Colonus/Antigone (The Theban Plays, #1–3)"
+1538,Sophocles,"The Oedipus Cycle: Oedipus Rex/Oedipus at Colonus/Antigone (The Theban Plays, #1–3)"
 1539,Robert Penn Warren,All the King's Men
 1540,Robert Jordan,"New Spring (Wheel of Time, #0)"
 1541,John Grisham,The Litigators
 1542,Sarah Waters,Fingersmith
 1543,Peter Mayle,A Year in Provence
-1544,"Kate DiCamillo, Bagram Ibatoulline",The Miraculous Journey of Edward Tulane
+1544,Kate DiCamillo,The Miraculous Journey of Edward Tulane
 1545,Martin Cruz Smith,"Gorky Park (Arkady Renko, #1)"
 1546,Patricia Cornwell,"The Body Farm (Kay Scarpetta, #5)"
-1547,"Anonymous, N.K. Sandars",The Epic of Gilgamesh
+1547,Anonymous,The Epic of Gilgamesh
 1548,Philip Roth,"American Pastoral (The American Trilogy, #1)"
 1549,Jim Butcher,"Skin Game (The Dresden Files, #15)"
 1550,Neal Stephenson,Anathem
@@ -1553,12 +1553,12 @@ book_id,authors,title
 1552,Terry Pratchett,"Hogfather (Discworld, #20; Death, #4)"
 1553,Elizabeth Berg,Open House
 1554,John Irving,The Hotel New Hampshire
-1555,"Janet Evanovich, Lorelei King","Smokin' Seventeen (Stephanie Plum, #17)"
+1555,Janet Evanovich,"Smokin' Seventeen (Stephanie Plum, #17)"
 1556,Dr. Seuss,The Sneetches and Other Stories
 1557,Kurt Vonnegut Jr.,"God Bless You, Mr. Rosewater"
-1558,"J.K. Rowling, Mary GrandPré","The Harry Potter Collection 1-4 (Harry Potter, #1-4)"
+1558,J.K. Rowling,"The Harry Potter Collection 1-4 (Harry Potter, #1-4)"
 1559,Paolo Bacigalupi,The Windup Girl
-1560,"Oscar Wilde, Richard Allen Cave",The Importance of Being Earnest and Other Plays
+1560,Oscar Wilde,The Importance of Being Earnest and Other Plays
 1561,Terry Pratchett,"Sourcery (Discworld, #5; Rincewind #3)"
 1562,Hillary Jordan,Mudbound
 1563,David Grann,The Lost City of Z: A Tale of Deadly Obsession in the Amazon
@@ -1571,12 +1571,12 @@ book_id,authors,title
 1570,Lee Child,"Bad Luck and Trouble (Jack Reacher, #11)"
 1571,Karen Joy Fowler,The Jane Austen Book Club
 1572,Janet Evanovich,"Sizzling Sixteen (Stephanie Plum, #16)"
-1573,"Homer, Robert Fagles, Bernard Knox",The Iliad/The Odyssey
+1573,Homer,The Iliad/The Odyssey
 1574,David Ebershoff,The 19th Wife
 1575,Patricia Cornwell,"Body of Evidence (Kay Scarpetta, #2)"
 1576,Stephen King,From a Buick 8
 1577,Kim Stanley Robinson,"Red Mars (Mars Trilogy, #1)"
-1578,"Charlotte Perkins Gilman, Elaine Hedges",The Yellow Wall-Paper
+1578,Charlotte Perkins Gilman,The Yellow Wall-Paper
 1579,Brent Weeks,"The Blinding Knife (Lightbringer, #2)"
 1580,Neil Gaiman,Smoke and Mirrors: Short Fiction and Illusions
 1581,Kurt Vonnegut Jr.,Welcome to the Monkey House
@@ -1600,14 +1600,14 @@ book_id,authors,title
 1599,Stanisław Lem,Solaris
 1600,Elizabeth Wurtzel,Prozac Nation
 1601,Lloyd Alexander,The Black Cauldron (The Chronicles of Prydain #2)
-1602,"Jean-Dominique Bauby, Jeremy Leggatt",The Diving Bell and the Butterfly
+1602,Jean-Dominique Bauby,The Diving Bell and the Butterfly
 1603,Frank McCourt,"'Tis (Frank McCourt, #2)"
 1604,Edward Albee,Who's Afraid of Virginia Woolf?
-1605,"Umberto Eco, William Weaver",Foucault's Pendulum
+1605,Umberto Eco,Foucault's Pendulum
 1606,Janet Evanovich,"Explosive Eighteen (Stephanie Plum, #18)"
 1607,Raymond E. Feist,"Magician (The Riftwar Saga, #1-2)"
 1608,Ann Brashares,"Forever in Blue: The Fourth Summer of the Sisterhood (Sisterhood, #4)"
-1609,"Stieg Larsson, Reg Keeland","The Millennium Trilogy (Millennium Trilogy, #1-3)"
+1609,Stieg Larsson,"The Millennium Trilogy (Millennium Trilogy, #1-3)"
 1610,Bill Bryson,Neither Here nor There: Travels in Europe
 1611,Wally Lamb,We Are Water
 1612,James Patterson,"Max (Maximum Ride, #5)"
@@ -1615,32 +1615,32 @@ book_id,authors,title
 1614,Raymond E. Feist,"A Darkness At Sethanon (The Riftwar Saga, #4)"
 1615,Alexandra Fuller,Don't Let's Go to the Dogs Tonight
 1616,Robin McKinley,Beauty: A Retelling of the Story of Beauty and the Beast
-1617,"Johann Wolfgang von Goethe, Peter Salm",Faust: First Part
+1617,Johann Wolfgang von Goethe,Faust: First Part
 1618,James W. Loewen,Lies My Teacher Told Me
 1619,F. Scott Fitzgerald,This Side of Paradise
 1620,Lev Grossman,"The Magician's Land (The Magicians, #3)"
 1621,William Faulkner,Light in August
-1622,"E.B. White, Fred Marcellino",The Trumpet of the Swan
+1622,E.B. White,The Trumpet of the Swan
 1623,Bill Bryson,The Lost Continent: Travels in Small Town America
 1624,Lisa See,Dreams of Joy (Shanghai Girls #2)
 1625,Iain M. Banks,"The Player of Games (Culture, #2)"
-1626,"George Selden, Garth Williams",The Cricket in Times Square
-1627,"Krishna-Dwaipayana Vyasa, Simon Brodbeck, Juan Mascaró",The Bhagavad Gita
+1626,George Selden,The Cricket in Times Square
+1627,Krishna-Dwaipayana Vyasa,The Bhagavad Gita
 1628,J.D. Salinger,"Raise High the Roof Beam, Carpenters & Seymour: An Introduction"
-1629,"Friedrich Nietzsche, R.J. Hollingdale, Michael Tanner",Beyond Good and Evil
+1629,Friedrich Nietzsche,Beyond Good and Evil
 1630,Dave Cullen,Columbine
 1631,Anne Rice,"Lasher (Lives of the Mayfair Witches, #2)"
 1632,Patricia Cornwell,"All That Remains (Kay Scarpetta, #3)"
-1633,"Richard Bachman, Stephen King",The Regulators
-1634,"Neil Gaiman, Matt Wagner, George Pratt, Dick Giordano, Kelley Jones, P. Craig Russell, Mike Dringenberg, Malcolm Jones III, Todd Klein, Harlan Ellison",Season of Mists (The Sandman #4)
+1633,Richard Bachman,The Regulators
+1634,Neil Gaiman,Season of Mists (The Sandman #4)
 1635,Michael Pollan,The Botany of Desire: A Plant's-Eye View of the World
 1636,Kate Morton,The Distant Hours
 1637,David Sheff,Beautiful Boy: A Father's Journey Through His Son's Addiction
 1638,Edgar Allan Poe,The Cask of Amontillado
-1639,"Ovid, David Raeburn, Denis Feeney",Metamorphoses
+1639,Ovid,Metamorphoses
 1640,Julia Alvarez,In the Time of the Butterflies
 1641,Robert Morgan,Gap Creek
-1642,"Bo Hampton, Tracey Hampton, Washington Irving",The Legend of Sleepy Hollow (Graphic Novel)
+1642,Bo Hampton,The Legend of Sleepy Hollow (Graphic Novel)
 1643,Wallace Stegner,Angle of Repose
 1644,Tennessee Williams,Cat on a Hot Tin Roof
 1645,James Patterson,"The Final Warning (Maximum Ride, #4)"
@@ -1648,27 +1648,27 @@ book_id,authors,title
 1647,Jan Karon,"At Home in Mitford (Mitford Years, #1)"
 1648,Holly Black,"Tithe (Modern Faerie Tales, #1)"
 1649,Terry Goodkind,"Naked Empire (Sword of Truth, #8)"
-1650,"E.M. Forster, Oliver Stallybrass, Pankaj Mishra",A Passage to India
+1650,E.M. Forster,A Passage to India
 1651,Jean M. Auel,"The Mammoth Hunters (Earth's Children, #3)"
 1652,Jim Butcher,"Princeps' Fury (Codex Alera, #5)"
 1653,Herman Wouk,"The Winds of War (The Henry Family, #1)"
-1654,"Stephen King, Jae Lee","The Wind Through the Keyhole (The Dark Tower, #4.5)"
-1655,"James Howe, Deborah Howe, Alan Daniel","Bunnicula (Bunnicula, #1)"
+1654,Stephen King,"The Wind Through the Keyhole (The Dark Tower, #4.5)"
+1655,James Howe,"Bunnicula (Bunnicula, #1)"
 1656,John Connolly,The Book of Lost Things
 1657,Charlaine Harris,"Grave Sight (Harper Connelly, #1)"
 1658,Jodi Picoult,Picture Perfect
 1659,Salman Rushdie,The Satanic Verses
 1660,Laurie R. King,"The Beekeeper's Apprentice (Mary Russell, #1)"
-1661,"Jean de Brunhoff, Merle S. Haas",The Story of Babar
+1661,Jean de Brunhoff,The Story of Babar
 1662,Jim Butcher,"First Lord's Fury (Codex Alera, #6)"
 1663,Tom Rachman,The Imperfectionists
 1664,Terry Pratchett,"Pyramids (Discworld, #7)"
 1665,Terry Goodkind,"Chainfire (Sword of Truth, #9)"
-1666,"Julia Child, Simone Beck, Louisette Bertholle",Mastering the Art of French Cooking
+1666,Julia Child,Mastering the Art of French Cooking
 1667,Terry Goodkind,"Confessor (Sword of Truth, #11)"
 1668,John Updike,"Rabbit, Run (Rabbit Angstrom #1)"
 1669,T.S. Eliot,The Waste Land and Other Poems
-1670,"Else Holmelund Minarik, Maurice Sendak",Little Bear
+1670,Else Holmelund Minarik,Little Bear
 1671,Edgar Allan Poe,The Pit and the Pendulum
 1672,Terry Pratchett,"Lords and Ladies (Discworld, #14; Witches #4)"
 1673,Terry Pratchett,"Thud! (Discworld, #34; City Watch #7)"
@@ -1681,11 +1681,11 @@ book_id,authors,title
 1680,Jim Butcher,"Captain's Fury (Codex Alera, #4)"
 1681,Karen Russell,Swamplandia!
 1682,Mark Kurlansky,Salt: A World History
-1683,"Charlotte Brontë, A.S. Byatt, Μαρία Λαϊνά, Ignes Sodre",Villette
+1683,Charlotte Brontë,Villette
 1684,Neal Stephenson,Reamde
 1685,Terry Pratchett,"Soul Music (Discworld, #16; Death, #3)"
 1686,Toni Morrison,Sula
-1687,"Stephen King, Peter Straub","Black House (The Talisman, #2)"
+1687,Stephen King,"Black House (The Talisman, #2)"
 1688,John le Carré,The Spy Who Came In from the Cold
 1689,Jim Butcher,"Academ's Fury (Codex Alera, #2)"
 1690,Geraldine Brooks,March
@@ -1696,7 +1696,7 @@ book_id,authors,title
 1695,Terry Pratchett,"Monstrous Regiment (Discworld, #31; Industrial Revolution, #3)"
 1696,Margaret Atwood,Cat's Eye
 1697,Orson Scott Card,"Shadow of the Giant (Ender's Shadow, #4)"
-1698,"Laura Ingalls Wilder, Garth Williams","These Happy Golden Years (Little House, #8)"
+1698,Laura Ingalls Wilder,"These Happy Golden Years (Little House, #8)"
 1699,John Grisham,Skipping Christmas
 1700,Libba Bray,"The Sweet Far Thing (Gemma Doyle, #3)"
 1701,Ernest J. Gaines,A Lesson Before Dying
@@ -1704,22 +1704,22 @@ book_id,authors,title
 1703,Jennifer Weiner,Certain Girls (Cannie Shapiro #2)
 1704,Ann Rule,The Stranger Beside Me: Ted Bundy The Shocking Inside Story
 1705,Michael Crichton,Rising Sun
-1706,"Louis Sachar, Joel Schick",Wayside School Is Falling Down (Wayside School #2)
-1707,"Julie Orringer, Arthur Morey",The Invisible Bridge
-1708,"Thomas Hardy, Keith Wilson",The Mayor of Casterbridge
+1706,Louis Sachar,Wayside School Is Falling Down (Wayside School #2)
+1707,Julie Orringer,The Invisible Bridge
+1708,Thomas Hardy,The Mayor of Casterbridge
 1709,Alice Hoffman,Here on Earth
 1710,Peter V. Brett,"The Daylight War (Demon Cycle, #3)"
 1711,John Grisham,The Appeal
 1712,Terry Pratchett,"A Hat Full of Sky (Discworld, #32; Tiffany Aching, #2)"
 1713,Vikram Seth,"A Suitable Boy (A Suitable Boy, #1)"
-1714,"Roald Dahl, Quentin Blake",Boy: Tales of Childhood
+1714,Roald Dahl,Boy: Tales of Childhood
 1715,Isaac Asimov,Prelude to Foundation
 1716,Curtis Sittenfeld,American Wife
 1717,Jim Butcher,"Cursor's Fury (Codex Alera, #3)"
 1718,Mary Doria Russell,"The Sparrow (The Sparrow, #1)"
-1719,"Shirley Jackson, Jonathan Lethem",We Have Always Lived in the Castle
+1719,Shirley Jackson,We Have Always Lived in the Castle
 1720,Gail Carson Levine,The Two Princesses of Bamarre
-1721,"Richard Wright, Jerry W. Ward Jr.",Black Boy
+1721,Richard Wright,Black Boy
 1722,Lalita Tademy,Cane River
 1723,Isaac Asimov,Foundation and Earth (Foundation #5)
 1724,Terry Pratchett,"Moving Pictures (Discworld, #10; Industrial Revolution, #1)"
@@ -1733,14 +1733,14 @@ book_id,authors,title
 1732,N.H. Kleinbaum,Dead Poets Society
 1733,Terry Pratchett,"The Fifth Elephant (Discworld, #24; City Watch, #5)"
 1734,John Hersey,Hiroshima
-1735,"Thomas More, Paul Turner",Utopia
-1736,"Dai Sijie, Ina Rilke",Balzac and the Little Chinese Seamstress
+1735,Thomas More,Utopia
+1736,Dai Sijie,Balzac and the Little Chinese Seamstress
 1737,V.C. Andrews,"Petals on the Wind (Dollanganger, #2)"
 1738,Patricia Cornwell,"From Potter's Field (Kay Scarpetta, #6)"
-1739,"Betty MacDonald, Alexandra Boiger","Mrs. Piggle-Wiggle (Mrs. Piggle Wiggle, #1)"
+1739,Betty MacDonald,"Mrs. Piggle-Wiggle (Mrs. Piggle Wiggle, #1)"
 1740,Sena Jeter Naslund,"Ahab's Wife, or The Star-Gazer"
-1741,"Euripides, Rex Warner",Medea
-1742,"Jean Craighead George, John Schoenherr","Julie of the Wolves (Julie of the Wolves, #1)"
+1741,Euripides,Medea
+1742,Jean Craighead George,"Julie of the Wolves (Julie of the Wolves, #1)"
 1743,Judy Blume,Forever . . .
 1744,Robert Graves,"I, Claudius (Claudius, #1)"
 1745,Jean Rhys,Wide Sargasso Sea
@@ -1752,60 +1752,60 @@ book_id,authors,title
 1751,Steven Erikson,"Deadhouse Gates (The Malazan Book of the Fallen, #2)"
 1752,Charles Dickens,Hard Times
 1753,Nevil Shute,A Town Like Alice
-1754,"Larry Niven, Jerry Pournelle",Lucifer's Hammer
-1755,"W. Somerset Maugham, Benjamin DeMott, Maeve Binchy",Of Human Bondage
-1756,"A.A. Milne, Ernest H. Shepard","The Complete Tales and Poems of Winnie-the-Pooh (Winnie-the-Pooh, #1-4)"
+1754,Larry Niven,Lucifer's Hammer
+1755,W. Somerset Maugham,Of Human Bondage
+1756,A.A. Milne,"The Complete Tales and Poems of Winnie-the-Pooh (Winnie-the-Pooh, #1-4)"
 1757,Terry Pratchett,"Making Money (Discworld, #36; Moist Von Lipwig, #2)"
 1758,Jodi Picoult,Harvesting the Heart
 1759,Sarah Vowell,Assassination Vacation
 1760,Roger Zelazny,Nine Princes in Amber (The Chronicles of Amber #1)
 1761,Orson Scott Card,"Ender in Exile (Ender's Saga, #1.2)"
-1762,"Joseph Campbell, Bill Moyers",The Power of Myth
+1762,Joseph Campbell,The Power of Myth
 1763,Marisha Pessl,Special Topics in Calamity Physics
 1764,Nicholas Evans,The Horse Whisperer
-1765,"Edwin A. Abbott, Banesh Hoffmann",Flatland: A Romance of Many Dimensions
+1765,Edwin A. Abbott,Flatland: A Romance of Many Dimensions
 1766,Terry Pratchett,"Eric (Discworld, #9; Rincewind #4)"
-1767,"Neil Gaiman, Shawn McManus, Colleen Doran, Bryan Talbot, George Pratt, Stan Woch, Dick Giordano, Todd Klein",A Game of You (The Sandman #5)
+1767,Neil Gaiman,A Game of You (The Sandman #5)
 1768,Pat Conroy,Beach Music
 1769,James Clavell,"Tai-Pan (Asian Saga, #2)"
 1770,Eleanor Brown,The Weird Sisters
 1771,Terry Pratchett,"The Truth (Discworld, #25; Industrial Revolution, #2)"
 1772,Tom Perrotta,The Leftovers
-1773,"Carl Bernstein, Bob Woodward",All the President's Men
-1774,"George Eliot, A.S. Byatt",The Mill on the Floss
+1773,Carl Bernstein,All the President's Men
+1774,George Eliot,The Mill on the Floss
 1775,Tamora Pierce,"Trickster's Queen (Daughter of the Lioness, #2)"
-1776,"Robert Frost, Edward Connery Lathem","The Poetry of Robert Frost (Collected Poems, Complete & Unabridged)"
+1776,Robert Frost,"The Poetry of Robert Frost (Collected Poems, Complete & Unabridged)"
 1777,Jean M. Auel,"The Plains of Passage (Earth's Children, #4)"
-1778,"Åsne Seierstad, Ingrid Christopherson",The Bookseller of Kabul
+1778,Åsne Seierstad,The Bookseller of Kabul
 1779,China Miéville,The City & the City
-1780,"Beverly Cleary, Alan Tiegreen","Ramona the Brave (Ramona, #3)"
+1780,Beverly Cleary,"Ramona the Brave (Ramona, #3)"
 1781,Brandon Sanderson,The Emperor's Soul
-1782,"Carolyn Keene, Russell H. Tandy, Sara Paretsky","The Secret of the Old Clock (Nancy Drew, #1)"
+1782,Carolyn Keene,"The Secret of the Old Clock (Nancy Drew, #1)"
 1783,Shirley Jackson,The Lottery
 1784,Adriana Trigiani,"Big Stone Gap (Big Stone Gap, #1)"
 1785,Terry Pratchett,"Jingo (Discworld, #21; City Watch, #4)"
-1786,"D.H. Lawrence, Geoff Dyer",Sons and Lovers
+1786,D.H. Lawrence,Sons and Lovers
 1787,Lisa See,Peony in Love
-1788,"Franz Kafka, Jason Baker, Donna Freed",The Metamorphosis and Other Stories
+1788,Franz Kafka,The Metamorphosis and Other Stories
 1789,Tom Robbins,Another Roadside Attraction
 1790,Edward Rutherfurd,Sarum: The Novel of England
 1791,Tom Wolfe,The Right Stuff
-1792,"Edgar Allan Poe, Byron Glaser, Bill D. Fountain",The Tell-Tale Heart
+1792,Edgar Allan Poe,The Tell-Tale Heart
 1793,Jean Kwok,Girl in Translation
 1794,Dr. Seuss,Fox in Socks
 1795,Kate Mosse,"Labyrinth (Languedoc, #1)"
 1796,Isaac Asimov,Forward the Foundation (Foundation: Prequel #2)
 1797,John Fowles,The French Lieutenant's Woman
-1798,"Samuel Taylor Coleridge, Gustave Doré",The Rime of the Ancient Mariner
-1799,"Robert Munsch, Michael Martchenko",The Paper Bag Princess
+1798,Samuel Taylor Coleridge,The Rime of the Ancient Mariner
+1799,Robert Munsch,The Paper Bag Princess
 1800,John Steinbeck,Tortilla Flat
-1801,"Neil Gaiman, Jill Thompson, Vince Locke, Peter Straub",Brief Lives (The Sandman #7)
-1802,"Neil Gaiman, Bryan Talbot, Stan Woch, P. Craig Russell, Shawn McManus, John Watkiss, Jill Thompson, Duncan Eagleson, Kent Williams, Todd Klein",Fables and Reflections (The Sandman #6)
+1801,Neil Gaiman,Brief Lives (The Sandman #7)
+1802,Neil Gaiman,Fables and Reflections (The Sandman #6)
 1803,Jacqueline Susann,Valley of the Dolls
 1804,James A. Michener,The Source
 1805,Thomas Rockwell,How to Eat Fried Worms
-1806,"Edgar Allan Poe, Philip Pullman",The Raven and other poems
-1807,"Graham Greene, Robert  Stone",The Quiet American
+1806,Edgar Allan Poe,The Raven and other poems
+1807,Graham Greene,The Quiet American
 1808,Lloyd Alexander,The High King (The Chronicles of Prydain #5)
 1809,Ernest Hemingway,The Complete Short Stories
 1810,Ray Bradbury,"Dandelion Wine (Green Town, #1)"
@@ -1833,20 +1833,20 @@ book_id,authors,title
 1832,Neal Stephenson,"Quicksilver (The Baroque Cycle, #1)"
 1833,Vladimir Nabokov,Pale Fire
 1834,Tracy Chevalier,The Lady and the Unicorn
-1835,"Charles Dickens, Michael Slater",A Christmas Carol and Other Christmas Writings
-1836,"Elizabeth Gaskell, Pam Morris",Wives and Daughters
+1835,Charles Dickens,A Christmas Carol and Other Christmas Writings
+1836,Elizabeth Gaskell,Wives and Daughters
 1837,William Steig,Sylvester and the Magic Pebble
 1838,Terry Pratchett,"Maskerade (Discworld, #18; Witches #5)"
 1839,Terry Pratchett,"The Last Continent (Discworld, #22; Rincewind #6)"
-1840,"Thornton Wilder, Donald Margulies, Tappan Wilder",Our Town
+1840,Thornton Wilder,Our Town
 1841,David Baldacci,The Winner
-1842,"John Steinbeck, Susan Shillinglaw",The Winter of Our Discontent
+1842,John Steinbeck,The Winter of Our Discontent
 1843,William Faulkner,"Absalom, Absalom!"
 1844,Carol Ryrie Brink,Caddie Woodlawn  (Caddie Woodlawn #1)
-1845,"Neil Gaiman, Marc Hempel, Richard Case, D'Israeli, Teddy Kristiansen, Glyn Dillon, Charles Vess, Dean Ormston, Kevin Nowlan, Todd Klein, Frank McConnell",The Kindly Ones (The Sandman #9)
-1846,"Neil Gaiman, Mike Allred, Gary Amaro, Mark Buckingham, David Giordano, Tony Harris, Steve Leialoha, Vince Locke, Shea Anton Pensa, Alec Stevens, Bryan Talbot, John Watkiss, Todd Klein, Michael Zulli, Stephen King",Worlds' End (The Sandman #8)
+1845,Neil Gaiman,The Kindly Ones (The Sandman #9)
+1846,Neil Gaiman,Worlds' End (The Sandman #8)
 1847,John Wyndham,The Chrysalids
-1848,"Graham Greene, Monica Ali",The End of the Affair
+1848,Graham Greene,The End of the Affair
 1849,Ursula K. Le Guin,The Lathe of Heaven
 1850,Matthew Pearl,The Dante Club
 1851,James A. Michener,Centennial
@@ -1854,7 +1854,7 @@ book_id,authors,title
 1853,Jonathan Lethem,Motherless Brooklyn
 1854,Julie Otsuka,The Buddha in the Attic
 1855,Ann Patchett,Run
-1856,"Pierre-Ambroise Choderlos de Laclos, Douglas Parmée",Les Liaisons dangereuses
+1856,Pierre-Ambroise Choderlos de Laclos,Les Liaisons dangereuses
 1857,Terry Pratchett,"Snuff (Discworld, #39; City Watch #8)"
 1858,Sheri Reynolds,The Rapture of Canaan
 1859,Flannery O'Connor,The Complete Stories
@@ -1867,13 +1867,13 @@ book_id,authors,title
 1866,P.D. James,The Children of Men
 1867,Philip Roth,The Plot Against America
 1868,J.R. Moehringer,The Tender Bar
-1869,"Marguerite Henry, Wesley Dennis","Misty of Chincoteague (Misty, #1)"
+1869,Marguerite Henry,"Misty of Chincoteague (Misty, #1)"
 1870,Nora Ephron,I Feel Bad about My Neck: And Other Thoughts on Being a Woman
 1871,Louisa May Alcott,"Little Men (Little Women, #2)"
 1872,Thomas Pynchon,Gravity's Rainbow
 1873,Willa Cather,O Pioneers!
 1874,Günter Grass,The Tin Drum
-1875,"Edith Hamilton, Steele Savage",Mythology: Timeless Tales of Gods and Heroes
+1875,Edith Hamilton,Mythology: Timeless Tales of Gods and Heroes
 1876,Al Franken,Lies & the Lying Liars Who Tell Them: A Fair & Balanced Look at the Right
 1877,Steven Erikson,"House of Chains (The Malazan Book of the Fallen, #4)"
 1878,Charlaine Harris,"A Touch of Dead (Sookie Stackhouse, #4.1, #4.3, #5.1, #7.1, #8.1)"
@@ -1884,16 +1884,16 @@ book_id,authors,title
 1883,E.L. Doctorow,Ragtime
 1884,Terry Pratchett,"Unseen Academicals (Discworld, #37; Rincewind #8)"
 1885,Robert Cormier,"The Chocolate War (Chocolate War, #1)"
-1886,"Neil Gaiman, Michael Zulli, Jon J. Muth, Charles Vess, Mikal Gilmore",The Wake (The Sandman #10)
+1886,Neil Gaiman,The Wake (The Sandman #10)
 1887,Theodore Dreiser,Sister Carrie
 1888,Wallace Stegner,Crossing to Safety
 1889,Oscar Wilde,An Ideal Husband
 1890,Philip Roth,"The Human Stain (The American Trilogy, #3)"
-1891,"Charles Dickens, Mark Ford",Nicholas Nickleby
-1892,"Sarah Blake, Orlagh Cassidy",The Postmistress
+1891,Charles Dickens,Nicholas Nickleby
+1892,Sarah Blake,The Postmistress
 1893,Philippa Gregory,"The Other Queen (The Plantagenet and Tudor Novels, #15)"
 1894,Jeff Shaara,"Gods and Generals (The Civil War Trilogy, #1)"
-1895,"Theodore Dreiser, Richard R. Lingeman",An American Tragedy
+1895,Theodore Dreiser,An American Tragedy
 1896,Alice Hoffman,Practical Magic
 1897,Herman Wouk,"War and Remembrance (The Henry Family, #2)"
 1898,James Clavell,"King Rat (Asian Saga, #4)"
@@ -1906,16 +1906,16 @@ book_id,authors,title
 1905,Margaret Atwood,The Robber Bride
 1906,Terry Pratchett,"Interesting Times (Discworld, #17; Rincewind #5)"
 1907,D.B.C. Pierre,Vernon God Little
-1908,"Stella Gibbons, Lynne Truss, Roz Chast",Cold Comfort Farm
+1908,Stella Gibbons,Cold Comfort Farm
 1909,Carol Shields,The Stone Diaries
-1910,"Peter Høeg, Tiina Nunnally",Smilla's Sense of Snow
-1911,"T.S. Eliot, Michael North",The Waste Land
+1910,Peter Høeg,Smilla's Sense of Snow
+1911,T.S. Eliot,The Waste Land
 1912,Eugene O'Neill,Long Day's Journey Into Night
-1913,"William Shakespeare, Barbara A. Mowat, Paul Werstine",Henry V
+1913,William Shakespeare,Henry V
 1914,Pat Conroy,The Great Santini
 1915,Dalton Trumbo,Johnny Got His Gun
 1916,James Dickey,Deliverance
-1917,"Ian Caldwell, Dustin Thomason",The Rule of Four
+1917,Ian Caldwell,The Rule of Four
 1918,John Gardner,Grendel
 1919,Alexander McCall Smith,"Morality for Beautiful Girls (No. 1 Ladies' Detective Agency, #3)"
 1920,Amy Tan,Saving Fish from Drowning
@@ -1924,29 +1924,29 @@ book_id,authors,title
 1923,John Irving,The Fourth Hand
 1924,Orson Scott Card,"Seventh Son (Tales of Alvin Maker, #1)"
 1925,Michael Chabon,The Mysteries of Pittsburgh
-1926,"Esther Forbes, Lynd Ward",Johnny Tremain
-1927,"Mary O'Hara, Dave Blossom","My Friend Flicka (Flicka, #1)"
+1926,Esther Forbes,Johnny Tremain
+1927,Mary O'Hara,"My Friend Flicka (Flicka, #1)"
 1928,W. Somerset Maugham,The Painted Veil
-1929,"Thomas Malory, Keith Baines, Robert Graves",Le Morte d'Arthur: King Arthur and the Legends of the Round Table
+1929,Thomas Malory,Le Morte d'Arthur: King Arthur and the Legends of the Round Table
 1930,Gregory Maguire,Mirror Mirror
-1931,"Stephen Crane, George Stade, Richard Fusco",The Red Badge of Courage and Selected Short Fiction  
+1931,Stephen Crane,The Red Badge of Courage and Selected Short Fiction  
 1932,D.H. Lawrence,"Women in Love (Brangwen Family, #2)"
 1933,Nevil Shute,On the Beach
 1934,John Irving,Until I Find You
-1935,"William H. Armstrong, James Barkley",Sounder
-1936,"Rachel Carson, Linda Lear, Edward O. Wilson",Silent Spring
-1937,"Henry Fielding, Thomas Keymer, Alice Wakely","The History of Tom Jones, a Foundling"
+1935,William H. Armstrong,Sounder
+1936,Rachel Carson,Silent Spring
+1937,Henry Fielding,"The History of Tom Jones, a Foundling"
 1938,Sherwood Anderson,"Winesburg, Ohio"
 1939,Rick Bragg,All Over But the Shoutin'
-1940,"Aristophanes, Sarah Ruden",Lysistrata
+1940,Aristophanes,Lysistrata
 1941,Steven Erikson,"Midnight Tides (The Malazan Book of the Fallen, #5)"
-1942,"Nathaniel Hawthorne, Robert S. Levine",The House of the Seven Gables
-1943,"Hannah  Green, Joanne Greenberg",I Never Promised You a Rose Garden
-1944,"David Fishelson, Aaron Leichter, Max Brod, Franz Kafka",Franz Kafka's The Castle (Dramatization)
+1942,Nathaniel Hawthorne,The House of the Seven Gables
+1943,Hannah  Green,I Never Promised You a Rose Garden
+1944,David Fishelson,Franz Kafka's The Castle (Dramatization)
 1945,Jane Austen,The Complete Novels
 1946,Jasper Fforde,The Well of Lost Plots (Thursday Next #3)
 1947,Beryl Markham,West with the Night
-1948,"Rudyard Kipling, Edward Said",Kim
+1948,Rudyard Kipling,Kim
 1949,Mark Helprin,Winter's Tale
 1950,Myla Goldberg,Bee Season
 1951,Norman Mailer,The Naked and the Dead
@@ -1956,7 +1956,7 @@ book_id,authors,title
 1955,S.E. Hinton,"That Was Then, This Is Now"
 1956,Willa Cather,Death Comes for the Archbishop
 1957,Leon Uris,Mila 18
-1958,"Frank B. Gilbreth Jr., Ernestine Gilbreth Carey",Cheaper by the Dozen
+1958,Frank B. Gilbreth Jr.,Cheaper by the Dozen
 1959,Marjorie Kinnan Rawlings,The Yearling
 1960,Kaye Gibbons,A Virtuous Woman
 1961,Elisabeth Kübler-Ross,On Death and Dying
@@ -1967,13 +1967,13 @@ book_id,authors,title
 1966,Dr. Seuss,Yertle the Turtle and Other Stories
 1967,Louisa May Alcott,"Jo's Boys (Little Women, #3)"
 1968,Katherine Paterson,Jacob Have I Loved
-1969,"Isak Dinesen, Karen Blixen",Out of Africa
+1969,Isak Dinesen,Out of Africa
 1970,Norman Maclean,A River Runs Through It and Other Stories
 1971,Pearl Cleage,"What Looks Like Crazy on an Ordinary Day (Idlewild, #1)"
 1972,Melinda Haynes,Mother of Pearl
 1973,Jack London,"The Call of the Wild, White Fang and Other Stories"
 1974,Anne Tyler,Dinner at the Homesick Restaurant
-1975,"Brian Herbert, Kevin J. Anderson",House Atreides (Prelude to Dune #1)
+1975,Brian Herbert,House Atreides (Prelude to Dune #1)
 1976,Keri Hulme,The Bone People
 1977,Dr. Seuss,The Cat in the Hat Comes Back
 1978,Robert Fulghum,All I Really Need to Know I Learned in Kindergarten
@@ -1982,6 +1982,6 @@ book_id,authors,title
 1981,Joseph Conrad,Heart of Darkness and The Secret Sharer
 1982,P.G. Wodehouse,"The Code of the Woosters (Jeeves, #7)"
 1983,Norman Mailer,The Executioner's Song
-1984,"Edith Wharton, Mary Gordon",Ethan Frome and Other Short Fiction
+1984,Edith Wharton,Ethan Frome and Other Short Fiction
 1985,Jonathan Swift,A Modest Proposal and Other Satirical Works
 1986,Richard Llewellyn,How Green Was My Valley

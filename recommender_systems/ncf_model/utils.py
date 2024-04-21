@@ -86,4 +86,30 @@ def get_NCF_dataset(train_file):
     return NCFDataset(train_file=train_file, seed=42, col_item="book_id", col_user="user_id")
 
 
-get_ratings_from_db()
+def keep_first_author(books_csv):
+    df = pd.read_csv(books_csv)
+    
+    # Keep only the first author from the 'authors' column
+    df['authors'] = df['authors'].apply(lambda x: x.split(',')[0].strip())
+
+    df.rename(columns={'authors': 'author'}, inplace=True)
+
+    # Save the updated DataFrame to the same CSV file
+    df.to_csv(books_csv, index=False)
+    print("CSV updated and saved.")
+
+    # Connect to MongoDB
+    client = MongoClient('mongodb://localhost:27017/')
+    db = client['database']
+    collection = db['books']
+
+    # Drop the existing collection if it exists
+    db.drop_collection('books')
+    print(f"Dropped existing collection '{'books'}'.")
+
+    # Load the DataFrame into MongoDB
+    data = df.to_dict('records')  # Convert DataFrame to dictionary format
+    collection.insert_many(data)
+    print(f"Data loaded into MongoDB collection '{'books'}' successfully.")
+
+

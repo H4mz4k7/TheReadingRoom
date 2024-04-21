@@ -28,7 +28,7 @@
         <% if (isAuthenticated) { %>
           <!-- Show this when the user is authenticated -->
           <li class="nav-item dropdown">
-            <a class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><%= username %></a>
+            <a id="username" class="dropdown-toggle nav-link" aria-expanded="false" data-bs-toggle="dropdown" href="#"><%= username %></a>
             <div class="dropdown-menu" data-bs-popper="none">
               <a class="dropdown-item" href="/profile">Profile</a>
               <a class="dropdown-item" href="/signout">Sign out</a>
