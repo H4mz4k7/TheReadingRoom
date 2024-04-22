@@ -4,7 +4,6 @@ let cacheName = 'cache';
 let filesToCache = [
     '/',
     '/create_review',
-    '/profile',
     '/view_review',
     '/offline',
     '/javascripts/baguetteBox.min.js',
@@ -31,12 +30,14 @@ let filesToCache = [
 self.addEventListener('install', function (e) {
     console.log('[ServiceWorker] Install');
     e.waitUntil(
-        caches.open(cacheName).then(function (cacheX) {
+        caches.open(cacheName).then(async function (cacheX) {
             console.log('[ServiceWorker] Caching app shell');
             cache= cacheX;
-            return cache.addAll(filesToCache).catch(function(error) {
+            try {
+                return await cache.addAll(filesToCache);
+            } catch (error) {
                 console.error('Failed to add one or more requests to the cache:', error);
-            });
+            }
         })
     );
 });
@@ -85,6 +86,33 @@ self.addEventListener('fetch', function(event) {
         return;
     }
 
+    if (event.request.url.includes('/profile')) {
+        event.respondWith(
+            fetch(event.request).catch(function() {
+                // Network request failed, user is probably offline
+                return caches.open('cache').then(function(cache) {
+                    return cache.match('/offline').then(function(matching) {
+                        return matching || Promise.reject('no-match');
+                    });
+                });
+            })
+        );
+        return;
+    }
+
+    if (event.request.url.includes('/login')) {
+        event.respondWith(
+            fetch(event.request).catch(function() {
+                // Network request failed, user is probably offline
+                return caches.open('cache').then(function(cache) {
+                    return cache.match('/offline').then(function(matching) {
+                        return matching || Promise.reject('no-match');
+                    });
+                });
+            })
+        );
+        return;
+    }
 
 
 
@@ -233,4 +261,5 @@ function pushReviewsToDB(title, author, username, rating, review, room_number) {
             });
     });
 }
+
 

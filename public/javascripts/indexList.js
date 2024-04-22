@@ -13,30 +13,32 @@ if ('serviceWorker' in navigator) {
 }
 
 let db;
-let dbUser
+let dbUser;
+let ratingDB;
 
 $(document).ready(function () {
 
     let user = $("#username").text() || null;
 
-    isOnline(
-        function () {
-            console.log("offline");
-        },
-        function () {
-            console.log("online");
-            if (user){
-                checkUserByUsername(user, (exists, userData) => {
-                    if (exists) {
-                        console.log('User exists with data:', userData);
-                    } else {
-                        console.log('User does not exist');
-                        addUserToIDB(user, dbUser)
-                    }
-                });
-            }
+
+    const ratingDBRequest = indexedDB.open('ratingsDatabase', 1);
+    ratingDBRequest.onupgradeneeded = function(event) {
+        let db = event.target.result;
+        if (!db.objectStoreNames.contains('ratingsStore')) {
+            const ratingsStore = db.createObjectStore('ratingsStore', { keyPath: 'id', autoIncrement: true });
+            ratingsStore.createIndex('user_id', 'user_id', { unique: false });
+            ratingsStore.createIndex('title', 'title', { unique: false });
+            ratingsStore.createIndex('author', 'author', { unique: false });
+            ratingsStore.createIndex('rating', 'rating', { unique: false });
         }
-    );
+    };
+    ratingDBRequest.onsuccess = function(event) {
+        ratingDB = event.target.result;
+    };
+    ratingDBRequest.onerror = function(event) {
+        console.error('Error opening ratingsDatabase:', event.target.error);
+    };
+    
     
 
 
@@ -101,6 +103,7 @@ $(document).ready(function () {
                 console.log("online");
 
                 syncReview(showReviewsOnline);
+                syncRatingsWithServer()
 
 
             }
@@ -114,6 +117,24 @@ $(document).ready(function () {
     };
 
 
+    isOnline(
+        function () {
+            console.log("offline");
+        },
+        function () {
+            console.log("online");
+            if (user){
+                checkUserByUsername(user, (exists, userData) => {
+                    if (exists) {
+                        console.log('User exists with data:', userData);
+                    } else {
+                        console.log('User does not exist');
+                        addUserToIDB(user, dbUser)
+                    }
+                });
+            }
+        }
+    );
 
 
     $("#findBook").click(function() {
@@ -219,3 +240,41 @@ function checkUserByUsername(username, callback) {
     };
 }
 
+
+function syncRatingsWithServer() {
+    // Start the transaction and get the object store
+    const transaction = ratingDB.transaction('ratingsStore', 'readwrite');
+    const store = transaction.objectStore('ratingsStore');
+    const getAllRequest = store.getAll();
+
+    getAllRequest.onsuccess = () => {
+        const ratings = getAllRequest.result;
+        if (ratings.length > 0) {
+            console.log("Syncing ratings with server...", ratings);
+            // Post the ratings to the server
+            $.ajax({
+                url: '/ratings', 
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(ratings),
+                success: function(response) {
+                    if (response.errors && response.errors.length > 0) {
+                        console.error("Some ratings failed to sync:", response.errors);
+                    } else {
+                        console.log("Ratings synced successfully:", response.results);
+                        // Delete each synced rating from IndexedDB
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error("Failed to sync ratings:", error);
+                }
+            });
+        } else {
+            console.log("No ratings to sync.");
+        }
+    };
+
+    getAllRequest.onerror = () => {
+        console.error("Failed to retrieve ratings:", getAllRequest.error);
+    };
+}

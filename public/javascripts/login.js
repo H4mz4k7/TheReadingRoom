@@ -121,7 +121,7 @@ async function registerUser(username, email, password) {
             throw new Error("Username or email is already in use");
         }
 
-        const userResponse = await $.ajax({
+        await $.ajax({
             url: '/users',
             type: 'POST',
             contentType: 'application/json',

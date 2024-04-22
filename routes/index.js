@@ -84,6 +84,11 @@ router.get('/profile', function(req, res, next) {
 
 });
 
+router.get('/add-book', function(req, res, next) {
+    res.render('add-rating', {username : req.session.username});
+
+});
+
 
 router.get('/offline', function(req, res, next) {
 
@@ -134,7 +139,6 @@ router.post('/create_review', async (req, res) => {
             return res.status(404).send('User not found');
         }
         
-        console.log(user.user_id)
         // Find or create the book
         let book = await Books.findOne({ title: title, author: author });
         if (!book) {
@@ -352,19 +356,82 @@ router.get('/getBookInfo', async (req, res) => {
 // Route to get top books for a user by username
 router.get('/top-books', async (req, res) => {
     try {
-        // First find the user to get the user_id
-        const user = await User.findOne({ username: req.query.username});
+        // Retrieve the user based on the username
+        const user = await User.findOne({ username: req.query.username });
         if (!user) {
             return res.status(404).send('User not found');
         }
-        userId = user.user_id;
-        const topBooks = await getTopBooksForUser(userId);
-        res.json(topBooks);
+        
+        const userId = user.user_id;
+
+        // Count how many entries the user_id has in the ratings database
+        const ratingsCount = await Ratings.countDocuments({ user_id: userId });
+
+        // Decide whether to get top books for the user or popular books
+        if (ratingsCount > 5) {
+            const topBooks = await getTopBooksForUser(userId);
+            res.json(topBooks);
+        } else {
+            const popularBooks = await getPopularBooks();
+            res.json(popularBooks);
+        }
     } catch (error) {
-        console.error('Failed to fetch top books:', error);
+        console.error('Failed to fetch books:', error);
         res.status(500).send('Server error');
     }
 });
+
+
+async function getPopularBooks() {
+    try {
+        const popularBooks = await Ratings.aggregate([
+            {
+                $group: {
+                    _id: "$book_id",
+                    count: { $sum: 1 }
+                }
+            },
+            {
+                $sort: { count: -1 }
+            },
+            {
+                $limit: 10
+            },
+            {
+                $lookup: {
+                    from: "books", // This should match the MongoDB collection name
+                    localField: "_id",
+                    foreignField: "book_id",
+                    as: "bookDetails"
+                }
+            },
+            {
+                $unwind: "$bookDetails"
+            },
+            {
+                $project: {
+                    _id: 0,
+                    book_id: "$_id",
+                    count: 1,
+                    title: "$bookDetails.title",
+                    author: "$bookDetails.author"
+                }
+            }
+        ]);
+
+
+        const booksWithImages = await Promise.all(popularBooks.map(book =>
+            getBookImage(book.title, book.author)
+        ));
+
+        return booksWithImages.filter(book => book !== null); 
+
+        
+    } catch (error) {
+        console.error('Error fetching popular books:', error);
+        throw new Error('Error fetching popular books');
+    }
+}
 
 async function getBookImage(title, author) {
     try {
@@ -502,6 +569,75 @@ router.get('/user', async (req, res) => {
         console.error('Failed to fetch top books:', error);
         res.status(500).send('Server error');
     }
+});
+
+
+// Assume this route receives ratings and may need to create books
+router.post('/ratings', async (req, res) => {
+    const all_ratings = req.body;
+
+    for (const rating of all_ratings) {
+        try {
+            let book = await Books.findOne({ title: rating.title, author: rating.author });
+
+            if (!book) {
+                // Create a book if it doesn't exist
+                const bookData = {
+                    title: rating.title,
+                    author: rating.author
+                };
+
+                // Call the create function directly with constructed book data
+                books.create({ body: bookData }, {
+                    send: (data) => {
+                        // handle response
+                        console.log(data);
+                        // After creating the book, create the rating
+                        ratings.create({
+                            user_id: rating.user_id,
+                            book_id: data.book.book_id,  // Assuming book ID is returned
+                            rating: rating.rating
+                        }, res);
+                    },
+                    status: function(statusCode) {
+                        return this;  // Mimic Express' status handling
+                    }
+                });
+            } else {
+                // Book exists, proceed to create rating
+                ratings.create({
+                    user_id: rating.user_id,
+                    book_id: book.book_id,
+                    rating: rating.rating
+                }, res);
+            }
+        } catch (error) {
+            console.error('Error processing rating:', error);
+            res.status(500).json({ message: "Error processing rating", error: error.toString() });
+        }
+    }
+});
+
+
+
+router.post('/add-book', async (req, res) => {
+    const {title, author, username, rating} = req.body;
+
+    const user = await User.findOne({ username: username });
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+        
+        // Find or create the book
+        let book = await Books.findOne({ title: title, author: author });
+        if (!book) {
+            return books.create(req, res, async (createdBook) => { 
+                ratings.create({book_id: createdBook.book_id, user_id: user.user_id, rating},res)
+            });
+        }
+        else {
+            return ratings.create({book_id: book.book_id, user_id: user.user_id, rating},res)
+        }
 });
 
 
