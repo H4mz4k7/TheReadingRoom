@@ -1,4 +1,4 @@
-import {appendToTable, makeRowsClickable, isOnline, syncReview, addUserToIDB} from './utility.js';
+import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
 
 
 //register service worker
@@ -277,4 +277,26 @@ function syncRatingsWithServer() {
     getAllRequest.onerror = () => {
         console.error("Failed to retrieve ratings:", getAllRequest.error);
     };
+}
+
+
+/**
+ * Add user data to IndexedDB.
+ * @param {string} user - The username to fetch and store.
+ * @param {IDBDatabase} db - The IndexedDB database instance.
+ */
+function addUserToIDB(user, db) {
+    sendRequest('/user', { username: user }, 'GET', userData => {
+        const userObject = {
+            email: userData.email,
+            username: user,
+            user_id: userData.user_id
+        };
+        const transaction = db.transaction('users', 'readwrite');
+        const usersStore = transaction.objectStore('users');
+        const request = usersStore.add(userObject);
+
+        request.onsuccess = () => console.log("User saved to IndexedDB");
+        request.onerror = event => console.error('Error adding item to IndexedDB:', event.target.error);
+    });
 }

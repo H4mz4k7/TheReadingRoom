@@ -1,5 +1,3 @@
-
-import {addUserToIDB} from './utility.js';
 let db;
 
 $(document).ready(function () {
