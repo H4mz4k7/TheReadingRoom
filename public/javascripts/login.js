@@ -1,111 +1,77 @@
 let db;
 
 $(document).ready(function () {
-
-
-    //open indexeddb for reviews db to use later
-
-    const request = indexedDB.open('userDatabase', 1);
-
-
-    request.onsuccess = function(event) {
-        // Get the reference to the database
-        db = event.target.result;
-    };
-
-    request.onerror = function(event) {
-        // Handle errors
-        console.error('IndexedDB error:', event.target.error);
-    };
-
-    // Toggle between login and registration forms
-    $("#toggleFormButton").click(function () {
-        $("#loginForm").hide()
-        $("#registerForm").show()
-
-    });
-
-    $("#toggleFormButton2").click(function () {
-        $("#loginForm").show()
-        $("#registerForm").hide()
-
-    });
-
-    let $alert = $("#alert");
-
-    $alert.hide();
-
-
-    //retrieve error param from url (if it is there) and display relevant alert
-    const urlParams = new URLSearchParams(window.location.search);
-
-    const isError = urlParams.get("isError");
-
-    const $registerForm = $("#registerForm");
-
-    if (isError){
-        $("#loginForm").hide()
-        $registerForm.show()
-        $alert.show();
-        $alert.text("Username or email is already in use");
-    }
-
-
-
-
-
-
-    const $registerBtn = $("#registerBtn");
-
-
-
-    $registerForm.submit(function (event) {
-        // Disable the button to prevent multiple clicks
-        $registerBtn.prop('disabled', true);
-
-
-        //extract data from form
-        let email = $("#email").val();
-        let username = $("#username").val();
-        let $password = $("#password");
-        let password = $password.val();
-
-
-        //check passwords match
-        function validateForm() {
-
-            const confirmPassword = $("#confirmPassword").val();
-
-            if (password !== confirmPassword) {
-                return false; // Prevent form submission
-            }
-
-            // Continue with form submission if passwords match
-            return true;
-        }
-
-
-        if (validateForm()){
-            registerUser(username, email, password);
-        }
-        else{
-            //alert if passwords do not match
-            event.preventDefault();
-            $("#confirmPassword").val("");
-            $password.val("");
-            $alert.show();
-            $alert.text("Passwords do not match");
-            $("#registerBtn").prop('disabled', false);
-        }
-
-
-
-    });
-
+    initializeDatabase();
+    configureFormToggle();
+    handleURLParameters();
+    handleRegistrationForm();
 });
 
+function initializeDatabase() {
+    const request = indexedDB.open('userDatabase', 1);
+    request.onsuccess = event => {
+        db = event.target.result;
+    };
+    request.onerror = event => {
+        console.error('IndexedDB error:', event.target.error);
+    };
+}
 
+function configureFormToggle() {
+    $("#toggleFormButton").click(() => {
+        $("#loginForm").hide();
+        $("#registerForm").show();
+    });
 
+    $("#toggleFormButton2").click(() => {
+        $("#loginForm").show();
+        $("#registerForm").hide();
+    });
+}
+
+function handleURLParameters() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const isError = urlParams.get("isError");
+    if (isError) {
+        $("#loginForm").hide();
+        $("#registerForm").show();
+        $("#alert").show().text("Username or email is already in use");
+    }
+}
+
+function handleRegistrationForm() {
+    const $registerForm = $("#registerForm");
+    const $alert = $("#alert").hide();
+    const $registerBtn = $("#registerBtn");
+
+    $registerForm.submit(event => {
+        $registerBtn.prop('disabled', true);
+        if (!validateForm()) {
+            event.preventDefault();
+            showPasswordMismatchError($alert, $registerBtn);
+            return;
+        }
+
+        const email = $("#email").val();
+        const username = $("#username").val();
+        const password = $("#password").val();
+
+        registerUser(username, email, password, $alert, $registerBtn);
+    });
+}
+
+function validateForm() {
+    const password = $("#password").val();
+    const confirmPassword = $("#confirmPassword").val();
+    return password === confirmPassword;
+}
+
+function showPasswordMismatchError($alert, $registerBtn) {
+    $("#confirmPassword").val("");
+    $("#password").val("");
+    $alert.show().text("Passwords do not match");
+    $registerBtn.prop('disabled', false);
+}
 
 async function registerUser(username, email, password) {
     try {
@@ -126,7 +92,6 @@ async function registerUser(username, email, password) {
             data: JSON.stringify({ email, username, password })
         });
 
-        
         $("#registerBtn").prop('disabled', false);
 
     } catch (error) {
