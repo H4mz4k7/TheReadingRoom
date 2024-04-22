@@ -146,5 +146,19 @@ function addUserToIDB(user,db){
 }
 
 
+function sendRequest(url, data, type, onSuccess) {
+    $.ajax({
+        url: url,
+        data: data,
+        type: type,
+        dataType: 'json',
+        success: onSuccess,
+        error: function(xhr, status, error) {
+            console.error(`Error fetching data from ${url}:`, error);
+        }
+    });
+}
 
-export { appendToTable, makeRowsClickable, isOnline, syncReview, addUserToIDB };
+
+
+export { appendToTable, makeRowsClickable, isOnline, syncReview, addUserToIDB, sendRequest };
