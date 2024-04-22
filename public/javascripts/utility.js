@@ -75,16 +75,28 @@ function syncReview(displayFunc, param) {
  * @param {object} data - Data to be sent with the request.
  * @param {string} type - The type of HTTP request (GET, POST, etc.).
  * @param {Function} onSuccess - Callback function on success.
+ * @param {boolean} useJsonContentType - If true, sets the 'Content-Type' header to 'application/json' and stringifies the 'data' parameter. Use this parameter to indicate whether the data should be sent as JSON.
  */
-function sendRequest(url, data, type, onSuccess) {
-    $.ajax({
+function sendRequest(url, data, type, onSuccess, useJsonContentType = false) {
+    const settings = {
         url: url,
         data: data,
         type: type,
-        dataType: 'json',
         success: onSuccess,
         error: (xhr, status, error) => console.error(`Error fetching data from ${url}:`, error)
-    });
+    };
+
+    // Conditionally set the content type to 'application/json'
+    if (useJsonContentType) {
+        settings.contentType = 'application/json';
+        // Ensure the data is a JSON string if we are setting content type to JSON
+        if (typeof data === 'object') {
+            settings.data = JSON.stringify(data);
+        }
+    }
+
+    $.ajax(settings);
 }
+
 
 export { appendToTable, makeRowsClickable, isOnline, syncReview, sendRequest };

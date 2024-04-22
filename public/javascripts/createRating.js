@@ -1,103 +1,54 @@
-import {isOnline } from './utility.js';
-
-let db;
-
+import { sendRequest } from './utility.js';
+let rating = null;
 
 $(document).ready(function () {
+    const $alert = $("#alert").hide();
 
-
-    let rating = null;
-
-    const $alert = $("#alert");
-    $alert.hide();
-
-
-
-    //styling for selecting number of stars
+    // Event handling for selecting star ratings
     $(".star").click(function () {
-        $(".star").css("color", "black");
-        rating = $(this).data("rating");
-
-
-
-        for (let i = 1; i < rating + 1; i++){
-            $("#star" + i).css("color", "#f0ad4e")
-        }
-
-
+        const selectedRating = $(this).data("rating");
+        rating = selectedRating; // Update the global rating variable
+        updateStars(selectedRating);
     });
 
-
-    //on form submit
-    $("#createReview").submit(function (event) {
-
+    // Form submission handling
+    $("#createRating").submit(function (event) {
         event.preventDefault();
+        const $postBtn = $("#postBtn").prop('disabled', true);
 
-        // Disable the button to prevent multiple clicks
-        const $postBtn = $("#postBtn");
-        $postBtn.prop('disabled', true);
+        const title = $("#title").val();
+        const author = $("#author").val();
+        const username = $("#username").text();
 
-
-        //extract review data from form
-        let title = $("#title").val();
-        let author = $("#author").val();
-        let review = $("#review").val();
-        let username = $("#username").text();
-
-
-
-
-
-        //if data has not all been entered, return alert
-        if (!title || !author || !rating || !username){
-
-
-            $alert.show()
-            $alert.text("Please fill out all fields.");
+        // Validate form data
+        if (!title || !author || !rating || !username) {
+            $alert.text("Please fill out all fields.").show();
             $postBtn.prop('disabled', false);
+        } else {
+            const ratingData = {
+                title, 
+                author, 
+                username, 
+                rating
+            };
+            postRating(ratingData);
         }
-        else{
-
-
-            let ratingObject = {
-                title : title,
-                author : author,
-                rating : rating,
-                username : username,
-            }
-
-            $.ajax({
-                url: '/add-book',
-                type: 'POST',
-                data: JSON.stringify(ratingObject),
-                contentType: 'application/json',
-                success: function () {
-                    console.log('Review saved successfully!');
-
-                    window.location.href = '/profile'
-
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error saving review:', error);
-                    $("#postBtn").prop('disabled', false);
-
-                    window.location.href = `/profile`;
-
-
-                }
-            });
-
-
-
-
-        }
-
-
-
     });
-
-
 });
+
+function updateStars(selectedRating) {
+    $(".star").css("color", "black"); // Reset all stars
+    for (let i = 1; i <= selectedRating; i++) {
+        $("#star" + i).css("color", "#f0ad4e");
+    }
+}
+
+function postRating(data) {
+    sendRequest('/add-book', data, 'POST', () => {
+        console.log('rating saved successfully!');
+        window.location.href = '/profile';
+    }, true); 
+}
 
 
 
