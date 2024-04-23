@@ -1,4 +1,4 @@
-import {appendToTable, makeRowsClickable, isOnline, syncReview} from './utility.js';
+import {appendToTable, makeRowsClickable, isOnline, sync} from './utility.js';
 
 
 //register service worker
@@ -101,9 +101,19 @@ $(document).ready(function () {
             },
             function () {
                 console.log("online");
+                sync('sync-reviews', showReviewsOnline);
+                
 
-                syncReview(showReviewsOnline);
-                syncRatingsWithServer()
+                if (user){
+                    checkUserByUsername(user, (exists, userData) => {
+                        if (exists) {
+                            console.log('User exists with data:', userData);
+                        } else {
+                            console.log('User does not exist');
+                            addUserToIDB(user, dbUser)
+                        }
+                    });
+                }
 
 
             }
@@ -116,25 +126,6 @@ $(document).ready(function () {
         console.error('IndexedDB error:', event.target.error);
     };
 
-
-    isOnline(
-        function () {
-            console.log("offline");
-        },
-        function () {
-            console.log("online");
-            if (user){
-                checkUserByUsername(user, (exists, userData) => {
-                    if (exists) {
-                        console.log('User exists with data:', userData);
-                    } else {
-                        console.log('User does not exist');
-                        addUserToIDB(user, dbUser)
-                    }
-                });
-            }
-        }
-    );
 
 
     $("#findBook").click(function() {
@@ -241,43 +232,7 @@ function checkUserByUsername(username, callback) {
 }
 
 
-function syncRatingsWithServer() {
-    // Start the transaction and get the object store
-    const transaction = ratingDB.transaction('ratingsStore', 'readwrite');
-    const store = transaction.objectStore('ratingsStore');
-    const getAllRequest = store.getAll();
 
-    getAllRequest.onsuccess = () => {
-        const ratings = getAllRequest.result;
-        if (ratings.length > 0) {
-            console.log("Syncing ratings with server...", ratings);
-            // Post the ratings to the server
-            $.ajax({
-                url: '/ratings', 
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(ratings),
-                success: function(response) {
-                    if (response.errors && response.errors.length > 0) {
-                        console.error("Some ratings failed to sync:", response.errors);
-                    } else {
-                        console.log("Ratings synced successfully:", response.results);
-                        // Delete each synced rating from IndexedDB
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.error("Failed to sync ratings:", error);
-                }
-            });
-        } else {
-            console.log("No ratings to sync.");
-        }
-    };
-
-    getAllRequest.onerror = () => {
-        console.error("Failed to retrieve ratings:", getAllRequest.error);
-    };
-}
 
 
 /**

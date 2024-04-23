@@ -27,7 +27,7 @@ function handleConnectivity(user) {
         showReviewsOffline(user);
     }, () => {
         console.log("online");
-        syncReview(() => showReviews(user), user);
+        syncReview('sync-reviews', () => showReviews(user), user);
         fetchTopBooks(user);
         getRead(user);
     });

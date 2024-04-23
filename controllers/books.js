@@ -15,7 +15,7 @@ exports.create = async function(req, res, callback) {
         const nextBookId = lastBook ? lastBook.book_id + 1 : 1;
 
         // Extract user data from the request body
-        const userData = req.cls;
+        const userData = req.body;
 
         // Create a new Book object with the extracted data and new book_id
         const book = new Book({

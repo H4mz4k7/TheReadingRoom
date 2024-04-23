@@ -574,48 +574,46 @@ router.get('/user', async (req, res) => {
 
 // Assume this route receives ratings and may need to create books
 router.post('/ratings', async (req, res) => {
-    const all_ratings = req.body;
+    const rating_data = req.body;
+    try {
+        let book = await Books.findOne({ title: rating_data.title, author: rating_data.author });
 
-    for (const rating of all_ratings) {
-        try {
-            let book = await Books.findOne({ title: rating.title, author: rating.author });
+        if (!book) {
+            // Create a book if it doesn't exist
+            const bookData = {
+                title: rating_data.title,
+                author: rating_data.author
+            };
 
-            if (!book) {
-                // Create a book if it doesn't exist
-                const bookData = {
-                    title: rating.title,
-                    author: rating.author
-                };
-
-                // Call the create function directly with constructed book data
-                books.create({ body: bookData }, {
-                    send: (data) => {
-                        // handle response
-                        console.log(data);
-                        // After creating the book, create the rating
-                        ratings.create({
-                            user_id: rating.user_id,
-                            book_id: data.book.book_id,  // Assuming book ID is returned
-                            rating: rating.rating
-                        }, res);
-                    },
-                    status: function(statusCode) {
-                        return this;  // Mimic Express' status handling
-                    }
-                });
-            } else {
-                // Book exists, proceed to create rating
-                ratings.create({
-                    user_id: rating.user_id,
-                    book_id: book.book_id,
-                    rating: rating.rating
-                }, res);
-            }
-        } catch (error) {
-            console.error('Error processing rating:', error);
-            res.status(500).json({ message: "Error processing rating", error: error.toString() });
+            // Call the create function directly with constructed book data
+            books.create({ body: bookData }, {
+                send: (data) => {
+                    // handle response
+                    console.log(data);
+                    // After creating the book, create the rating
+                    ratings.create({
+                        user_id: rating_data.user_id,
+                        book_id: data.book.book_id,  // Assuming book ID is returned
+                        rating: rating_data.rating
+                    }, res);
+                },
+                status: function(statusCode) {
+                    return this;  // Mimic Express' status handling
+                }
+            });
+        } else {
+            // Book exists, proceed to create rating
+            ratings.create({
+                user_id: rating_data.user_id,
+                book_id: book.book_id,
+                rating: rating_data.rating
+            }, res);
         }
+    } catch (error) {
+        console.error('Error processing rating:', error);
+        res.status(500).json({ message: "Error processing rating", error: error.toString() });
     }
+    
 });
 
 
