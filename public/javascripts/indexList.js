@@ -31,11 +31,9 @@ async function openDatabase(name, setupFunction) {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(name, 1);
         request.onupgradeneeded = event => {
-            console.log(`Upgrading ${name}`);
             setupFunction(event.target.result);
         };
         request.onsuccess = event => {
-            console.log(`${name} opened successfully`);
             resolve(event.target.result);
         };
         request.onerror = event => {
@@ -62,7 +60,6 @@ function setupReviewsDB(db) {
 
 function handleOnlineOfflineReviews() {
     isOnline(() => showReviewsOffline(), () => {
-        console.log("online");
         syncReviews(showReviewsOnline);
         const user = $("#username").text();
         if (user) {
@@ -110,10 +107,7 @@ function checkUserByUsername(username) {
     const index = store.index('username');
     const request = index.get(username);
     request.onsuccess = () => {
-        if (request.result) {
-            console.log('User found:', request.result);
-        } else {
-            console.log('User not found');
+        if (!request.result) {
             addUserToIDB(username);
         }
     };
@@ -124,7 +118,7 @@ function addUserToIDB(username) {
     sendRequest('/user', { username: username }, 'GET', userData => {
         const transaction = dbUser.transaction('users', 'readwrite');
         const store = transaction.objectStore('users');
-        const request = store.add({ ...userData, username });
+        const request = store.add({ email : userData.email, user_id: userData.user_id , username });
         request.onsuccess = () => console.log("User saved to IndexedDB");
         request.onerror = event => console.error('Error adding user to IndexedDB:', event.target.error);
     });
