@@ -370,11 +370,14 @@ router.get('/top-books', async (req, res) => {
         // Decide whether to get top books for the user or popular books
         if (ratingsCount > 5) {
             const topBooks = await getTopBooksForUser(userId);
-            res.json(topBooks);
-        } else {
-            const popularBooks = await getPopularBooks();
-            res.json(popularBooks);
+            if (topBooks.length >= 5) {
+                return res.json(topBooks);
+            }
         }
+
+        const popularBooks = await getPopularBooks();
+        res.json(popularBooks);
+        
     } catch (error) {
         console.error('Failed to fetch books:', error);
         res.status(500).send('Server error');

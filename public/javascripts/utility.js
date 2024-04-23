@@ -53,9 +53,9 @@ function isOnline(offlineCallback, onlineCallback) {
  * @param {Function} displayFunc - Function to display the reviews.
  * @param {string} [param] - Parameter for the display function, if necessary.
  */
-function sync(tag, displayFunc = null, param = null) {
+function syncReviews(displayFunc, param = null) {
     navigator.serviceWorker.ready.then(registration => {
-        registration.sync.register(tag)
+        registration.sync.register('sync-reviews')
             .then(() => {
                 console.log('Sync event registered successfully.');
             })
@@ -63,13 +63,13 @@ function sync(tag, displayFunc = null, param = null) {
 
         navigator.serviceWorker.addEventListener('message', event => {
             if (event.data.syncCompleted) {
-                if (displayFunc) {
-                    if (param) {
-                        displayFunc(param);
-                    } else {
-                        displayFunc();
-                    }
+                
+                if (param) {
+                    displayFunc(param);
+                } else {
+                    displayFunc();
                 }
+            
             }
         });
     });
@@ -109,4 +109,4 @@ function sendRequest(url, data, type, onSuccess, useJsonContentType = false) {
 }
 
 
-export { appendToTable, makeRowsClickable, isOnline, sync, sendRequest };
+export { appendToTable, makeRowsClickable, isOnline, syncReviews, sendRequest };

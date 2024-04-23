@@ -83,7 +83,9 @@ function isFormDataComplete(data) {
 function submitReviewOffline(data, $postBtn) {
     console.log("Offline adding");
     data.status = "offline";
-    storeReview(data, $postBtn);
+    storeReview(data, $postBtn, () =>{
+        window.location.href = '/'
+    });
 }
 
 function submitReviewOnline(data, $postBtn) {

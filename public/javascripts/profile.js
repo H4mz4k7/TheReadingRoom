@@ -1,4 +1,4 @@
-import { appendToTable, makeRowsClickable, isOnline, syncReview, sendRequest } from './utility.js';
+import { appendToTable, makeRowsClickable, isOnline, syncReviews, sendRequest } from './utility.js';
 
 // Initialize global variables
 let db, mySwiper;
@@ -27,7 +27,7 @@ function handleConnectivity(user) {
         showReviewsOffline(user);
     }, () => {
         console.log("online");
-        syncReview('sync-reviews', () => showReviews(user), user);
+        syncReviews(() => showReviews(user), user);
         fetchTopBooks(user);
         getRead(user);
     });

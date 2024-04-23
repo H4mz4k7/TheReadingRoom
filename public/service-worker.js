@@ -196,19 +196,11 @@ function syncReviews() {
                     }
                     cursor.continue();
                 } else {
-                    // When no more entries in reviewsStore, resolve all syncRequests
                     Promise.all(syncRequests).then(() => {
-                        clearRatingsStore()
-                          .then(() => {
-                            self.clients.matchAll().then(clients => {
-                                clients.forEach(client => client.postMessage({syncCompleted: true}));
-                            });
-                            resolve();
-                          })
-                          .catch(error => {
-                            console.error('Error clearing ratingsStore:', error);
-                            reject(error);
-                          });
+                        self.clients.matchAll().then(clients => {
+                            clients.forEach(client => client.postMessage({syncCompleted: true}));
+                        });
+                        resolve();
                     }).catch(error => reject(error));
                 }
             };
@@ -221,34 +213,6 @@ function syncReviews() {
 
         request.onerror = function(event) {
             console.error('IndexedDB open request error:', event.target.error);
-            reject(event.target.error);
-        };
-    });
-}
-
-function clearRatingsStore() {
-    return new Promise((resolve, reject) => {
-        const request = indexedDB.open('ratingsDatabase', 1);
-
-        request.onsuccess = function(event) {
-            const db = event.target.result;
-            const transaction = db.transaction('ratingsStore', 'readwrite');
-            const ratingsStore = transaction.objectStore('ratingsStore');
-            const clearRequest = ratingsStore.clear();
-
-            clearRequest.onsuccess = function() {
-                console.log('ratingsStore successfully cleared');
-                resolve();
-            };
-
-            clearRequest.onerror = function(error) {
-                console.error('Failed to clear ratingsStore:', error);
-                reject(error);
-            };
-        };
-
-        request.onerror = function(event) {
-            console.error('Failed to open ratingsDatabase:', event.target.error);
             reject(event.target.error);
         };
     });
@@ -288,6 +252,11 @@ function pushReviewsToDB(title, author, username, rating, review, room_number) {
             });
     });
 }
+
+
+
+
+
 
 
 

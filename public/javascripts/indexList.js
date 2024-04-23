@@ -1,4 +1,4 @@
-import {appendToTable, makeRowsClickable, isOnline, sync} from './utility.js';
+import {appendToTable, makeRowsClickable, isOnline, syncReviews} from './utility.js';
 
 
 //register service worker
@@ -14,31 +14,11 @@ if ('serviceWorker' in navigator) {
 
 let db;
 let dbUser;
-let ratingDB;
+
 
 $(document).ready(function () {
 
     let user = $("#username").text() || null;
-
-
-    const ratingDBRequest = indexedDB.open('ratingsDatabase', 1);
-    ratingDBRequest.onupgradeneeded = function(event) {
-        let db = event.target.result;
-        if (!db.objectStoreNames.contains('ratingsStore')) {
-            const ratingsStore = db.createObjectStore('ratingsStore', { keyPath: 'id', autoIncrement: true });
-            ratingsStore.createIndex('user_id', 'user_id', { unique: false });
-            ratingsStore.createIndex('title', 'title', { unique: false });
-            ratingsStore.createIndex('author', 'author', { unique: false });
-            ratingsStore.createIndex('rating', 'rating', { unique: false });
-        }
-    };
-    ratingDBRequest.onsuccess = function(event) {
-        ratingDB = event.target.result;
-    };
-    ratingDBRequest.onerror = function(event) {
-        console.error('Error opening ratingsDatabase:', event.target.error);
-    };
-    
     
 
 
@@ -101,7 +81,7 @@ $(document).ready(function () {
             },
             function () {
                 console.log("online");
-                sync('sync-reviews', showReviewsOnline);
+                syncReviews(showReviewsOnline);
                 
 
                 if (user){
