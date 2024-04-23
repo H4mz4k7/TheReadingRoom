@@ -1,237 +1,131 @@
-import {appendToTable, makeRowsClickable, isOnline, syncReviews} from './utility.js';
+import { appendToTable, makeRowsClickable, isOnline, syncReviews, sendRequest } from './utility.js';
 
-
-//register service worker
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/service-worker.js')
-        .then(function(registration) {
+// Register service worker succinctly with async/await
+async function registerServiceWorker() {
+    if ('serviceWorker' in navigator) {
+        try {
+            const registration = await navigator.serviceWorker.register('/service-worker.js');
             console.log('Service Worker registered with scope:', registration.scope);
-        })
-        .catch(function(error) {
+        } catch (error) {
             console.error('Service Worker registration failed:', error);
-        });
-}
-
-let db;
-let dbUser;
-
-
-$(document).ready(function () {
-
-    let user = $("#username").text() || null;
-    
-
-
-    const requestUser = indexedDB.open('UserDatabase', 1);
-
-    requestUser.onupgradeneeded = function(event) {
-        dbUser = event.target.result;
-        if (!dbUser.objectStoreNames.contains('users')) {
-            const store = dbUser.createObjectStore('users', { keyPath: 'user_id' });
-            store.createIndex('username', 'username', { unique: true });
-            store.createIndex('email', 'email', { unique: true });
-
         }
-    };
-
-    requestUser.onsuccess = function(event) {
-        dbUser = event.target.result;
-    };
-
-    requestUser.onerror = function(event) {
-        console.error('IndexedDB error:', event.target.error);
-    };
-    
-    
-
-    //create indexeddb for reviews
-    const request = indexedDB.open('reviewsDatabase', 1);
-
-
-    request.onupgradeneeded = function(event) {
-        // Get the reference to the database
-        db = event.target.result;
-
-
-        const reviewsStore = db.createObjectStore('reviewsStore', { keyPath: 'id', autoIncrement: true });
-
-        // Define the structure of the object store
-
-        reviewsStore.createIndex('status', 'status', { unique: false });
-        reviewsStore.createIndex('title', 'title', { unique: false });
-        reviewsStore.createIndex('author', 'author', { unique: false });
-        reviewsStore.createIndex('rating', 'rating', { unique: false });
-        reviewsStore.createIndex('review', 'review', { unique: false });
-        reviewsStore.createIndex('username', 'username', { unique: false });
-        reviewsStore.createIndex('room_number', 'room_number', { unique: true });
-
-    };
-
-
-    request.onsuccess = function(event) {
-        // Get the reference to the database
-        db = event.target.result;
-
-        //if user is online show latest updated version of reviews from mongoDB and sync offline added reviews to mongoDB
-        //if offline then show stored indexeddb version of reviews
-        isOnline(
-            function () {
-                console.log("offline");
-                showReviewsOffline();
-            },
-            function () {
-                console.log("online");
-                syncReviews(showReviewsOnline);
-                
-
-                if (user){
-                    checkUserByUsername(user, (exists, userData) => {
-                        if (exists) {
-                            console.log('User exists with data:', userData);
-                        } else {
-                            console.log('User does not exist');
-                            addUserToIDB(user, dbUser)
-                        }
-                    });
-                }
-
-
-            }
-        );
-
     }
+}
+registerServiceWorker();
 
-    request.onerror = function(event) {
-        // Log any errors that occur during the request
-        console.error('IndexedDB error:', event.target.error);
-    };
+let db, dbUser;
 
-
-
-    $("#findBook").click(function() {
-        $("html, body").animate({
-            scrollTop: $("#listSection").offset().top
-        }, 50); // 1000 milliseconds for smooth scrolling, adjust as needed
-    });
-
+// Using jQuery's shorter ready function
+$(function () {
+    initializeDatabases();
+    $("#findBook").click(() => $("html, body").animate({ scrollTop: $("#listSection").offset().top }, 50));
 });
 
+async function initializeDatabases() {
+    dbUser = await openDatabase('UserDatabase', setupUserDB);
+    db = await openDatabase('reviewsDatabase', setupReviewsDB);
+    handleOnlineOfflineReviews();
+}
 
-/**
- * retrieve all reviews from mongoDB and display in table, add review to indexeddb
- */
+async function openDatabase(name, setupFunction) {
+    return new Promise((resolve, reject) => {
+        const request = indexedDB.open(name, 1);
+        request.onupgradeneeded = event => {
+            console.log(`Upgrading ${name}`);
+            setupFunction(event.target.result);
+        };
+        request.onsuccess = event => {
+            console.log(`${name} opened successfully`);
+            resolve(event.target.result);
+        };
+        request.onerror = event => {
+            console.error(`Error opening ${name}:`, event.target.error);
+            reject(event.target.error);
+        };
+    });
+}
+
+function setupUserDB(db) {
+    if (!db.objectStoreNames.contains('users')) {
+        const store = db.createObjectStore('users', { keyPath: 'user_id' });
+        ['username', 'email'].forEach(index => store.createIndex(index, index, { unique: true }));
+    }
+}
+
+function setupReviewsDB(db) {
+    if (!db.objectStoreNames.contains('reviewsStore')) {
+        const store = db.createObjectStore('reviewsStore', { keyPath: 'id', autoIncrement: true });
+        ['status', 'title', 'author', 'rating', 'review', 'username', 'room_number'].forEach(index =>
+            store.createIndex(index, index, { unique: index === 'room_number' }));
+    }
+}
+
+function handleOnlineOfflineReviews() {
+    isOnline(() => showReviewsOffline(), () => {
+        console.log("online");
+        syncReviews(showReviewsOnline);
+        const user = $("#username").text();
+        if (user) {
+            checkUserByUsername(user);
+        }
+    });
+}
+
 function showReviewsOnline() {
-    $.ajax({
-        url: '/getReviews',
-        type: 'GET',
-        success: function (data) {
-
-            const transaction = db.transaction('reviewsStore', 'readwrite');
-            const reviewsStore = transaction.objectStore('reviewsStore')
-            reviewsStore.clear() //delete
-
-            data.forEach(function(item) {
-
-                const { title, author, rating, username} = item;
-
-
-                const request = reviewsStore.add(item); // add to indexeddb
-                appendToTable(title, author, rating, username); //add to table
-
-
-                request.onerror = function(event) {
-                    console.error('Error adding item to IndexedDB:', event.target.error);
-                };
-
-            });
-
-            makeRowsClickable();
-
-        },
-        error: function (xhr, status, error) {
-            console.error('Error fetching data from MongoDB:', error);
-
-        }
-    })
+    sendRequest('/getReviews', {}, 'GET', updateReviewsInDB, (error) => console.error('Error fetching data from MongoDB:', error));
 }
 
-/**
- * retrieve all reviews from indexeddb and display in table
- */
-function showReviewsOffline(){
+function updateReviewsInDB(data) {
+    const transaction = db.transaction('reviewsStore', 'readwrite');
+    const store = transaction.objectStore('reviewsStore');
+    store.clear();
+    data.forEach(item => {
+        const request = store.add(item);
+        appendToTable(item.title, item.author, item.rating, item.username);
+        request.onerror = event => console.error('Error adding item to IndexedDB:', event.target.error);
+    });
+    makeRowsClickable();
+}
 
-
+function showReviewsOffline() {
     const transaction = db.transaction('reviewsStore', 'readonly');
-    const reviewsStore = transaction.objectStore('reviewsStore');
-
-    // Open a cursor to iterate over the data in the object store
-    const cursorRequest = reviewsStore.openCursor();
-
-    cursorRequest.onsuccess = function(event) {
+    const store = transaction.objectStore('reviewsStore');
+    const cursorRequest = store.openCursor();
+    cursorRequest.onsuccess = event => {
         const cursor = event.target.result;
-
         if (cursor) {
-            const { title ,author, rating, username } = cursor.value;
-
-            appendToTable(title,author,rating,username);
-
-            // Move to the next cursor item
+            const { title, author, rating, username } = cursor.value;
+            appendToTable(title, author, rating, username);
             cursor.continue();
+        } else {
+            makeRowsClickable();
         }
-
-        makeRowsClickable();
     };
-
-    cursorRequest.onerror = function(event) {
-        console.error('Error retrieving data from IndexedDB:', event.target.error);
-    };
-
+    cursorRequest.onerror = event => console.error('Error retrieving data from IndexedDB:', event.target.error);
 }
 
-
-function checkUserByUsername(username, callback) {
+function checkUserByUsername(username) {
     const transaction = dbUser.transaction(['users'], 'readonly');
     const store = transaction.objectStore('users');
     const index = store.index('username');
     const request = index.get(username);
-
-    request.onsuccess = function() {
+    request.onsuccess = () => {
         if (request.result) {
             console.log('User found:', request.result);
-            callback(true, request.result); // User found, return true and the user data
         } else {
             console.log('User not found');
-            callback(false, null); // User not found, return false
+            addUserToIDB(username);
         }
     };
-
-    request.onerror = function(event) {
-        console.error('Error searching for user:', event.target.error);
-        callback(false, null); // Error occurred, return false
-    };
+    request.onerror = event => console.error('Error searching for user:', event.target.error);
 }
 
-
-
-
-
-/**
- * Add user data to IndexedDB.
- * @param {string} user - The username to fetch and store.
- * @param {IDBDatabase} db - The IndexedDB database instance.
- */
-function addUserToIDB(user, db) {
-    sendRequest('/user', { username: user }, 'GET', userData => {
-        const userObject = {
-            email: userData.email,
-            username: user,
-            user_id: userData.user_id
-        };
-        const transaction = db.transaction('users', 'readwrite');
-        const usersStore = transaction.objectStore('users');
-        const request = usersStore.add(userObject);
-
+function addUserToIDB(username) {
+    sendRequest('/user', { username: username }, 'GET', userData => {
+        const transaction = dbUser.transaction('users', 'readwrite');
+        const store = transaction.objectStore('users');
+        const request = store.add({ ...userData, username });
         request.onsuccess = () => console.log("User saved to IndexedDB");
-        request.onerror = event => console.error('Error adding item to IndexedDB:', event.target.error);
+        request.onerror = event => console.error('Error adding user to IndexedDB:', event.target.error);
     });
 }
