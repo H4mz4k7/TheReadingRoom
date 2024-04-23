@@ -24,140 +24,53 @@ let filesToCache = [
 ];
 
 
-/**
- * install necessary caches
- */
-self.addEventListener('install', function (e) {
+self.addEventListener('install', e => {
     console.log('[ServiceWorker] Install');
     e.waitUntil(
-        caches.open(cacheName).then(async function (cacheX) {
+        caches.open(cacheName).then(cache => {
             console.log('[ServiceWorker] Caching app shell');
-            cache= cacheX;
-            try {
-                return await cache.addAll(filesToCache);
-            } catch (error) {
+            return cache.addAll(filesToCache).catch(error => {
                 console.error('Failed to add one or more requests to the cache:', error);
-            }
+            });
         })
     );
 });
 
-
-/**
- * activation of service worker: it removes all cashed files if necessary
- */
-self.addEventListener('activate', function (e) {
+self.addEventListener('activate', e => {
     console.log('[ServiceWorker] Activate');
     e.waitUntil(
-        caches.keys().then(function (keyList) {
-            return Promise.all(keyList.map(function (key) {
+        caches.keys().then(keyList => {
+            return Promise.all(keyList.map(key => {
                 if (key !== cacheName && key !== dataCacheName) {
                     console.log('[ServiceWorker] Removing old cache', key);
                     return caches.delete(key);
                 }
             }));
-        })
+        }).then(() => self.clients.claim())
     );
-    return self.clients.claim();
 });
 
-
-
-/**
- * caches page if online, returns cached page if user is offline and cache page is available. If cached page is not available then display offline page
- */
-self.addEventListener('fetch', function(event) {
-
-    //filter out urls that are not needed to cache
-    if (event.request.method === 'POST') {
+self.addEventListener('fetch', event => {
+    if (event.request.method !== 'GET' || !event.request.url.startsWith('http') || event.request.url.startsWith('http://localhost:3000/socket.io/') || event.request.url.startsWith('https://dns.google.com/resolve?')) {
         return;
     }
 
-    if (!event.request.url.startsWith('http')) {
-
-        return;
-    }
-
-    if (event.request.url.startsWith('http://localhost:3000/socket.io/')) {
-        return;
-    }
-
-    if (event.request.url.startsWith('https://dns.google.com/resolve?')) {
-        return;
-    }
-
-    if (event.request.url.includes('/profile')) {
-        event.respondWith(
-            fetch(event.request).catch(function() {
-                // Network request failed, user is probably offline
-                return caches.open('cache').then(function(cache) {
-                    return cache.match('/offline').then(function(matching) {
-                        return matching || Promise.reject('no-match');
-                    });
-                });
-            })
-        );
-        return;
-    }
-
-    if (event.request.url.includes('/login')) {
-        event.respondWith(
-            fetch(event.request).catch(function() {
-                // Network request failed, user is probably offline
-                return caches.open('cache').then(function(cache) {
-                    return cache.match('/offline').then(function(matching) {
-                        return matching || Promise.reject('no-match');
-                    });
-                });
-            })
-        );
-        return;
-    }
-
-
+    const handleOfflineRequest = async () => {
+        const response = await caches.match(event.request);
+        return response || caches.match('/offline');
+    };
 
     event.respondWith(
-        fetch(event.request)
-            .then(function (response) { //if online
-                // Check if response is valid
-                if (response.status === 200) {
-                    // Clone the response as it can only be consumed once
-                    const responseClone = response.clone();
-
-                    // Store the response in the cache
-                    if (event.request.method === 'GET') {
-                        caches.open('cache')
-                            .then(function (cache) {
-                                cache.put(event.request, responseClone);
-                            });
-                    }
-                }
-
-                // Return the response
-                return response;
-            })
-            .catch(function () { //if offline
-                // Serve the request from the cache if available
-                return caches.open('cache')
-                    .then(function (cache) {
-                        if (event.request.url.includes('/login')) {
-                            return cache.match('/offline'); //need to be online to login so display offline page if offline
-                        }
-                        else{
-                            return cache.match(event.request)
-                                .then(function (cachedResponse) {
-                                    if (cachedResponse) {
-                                        return cachedResponse;
-                                    } else {
-                                        return cache.match('/offline') //display offline page if no cached page available
-                                    }
-                                });
-                        }
-
-                    });
-            })
+        fetch(event.request).then(response => {
+            if (response && response.status === 200) {
+                const responseClone = response.clone();
+                caches.open(cacheName).then(cache => {
+                    cache.put(event.request, responseClone);
+                });
+            }
+            return response;
+        }).catch(handleOfflineRequest)
     );
-
 });
 
 
