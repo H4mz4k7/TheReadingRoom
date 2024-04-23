@@ -23,10 +23,8 @@ function initializeIndexedDB(user) {
 
 function handleConnectivity(user) {
     isOnline(() => {
-        console.log("offline");
         showReviewsOffline(user);
     }, () => {
-        console.log("online");
         syncReviews(() => showReviews(user), user);
         fetchTopBooks(user);
         getRead(user);
