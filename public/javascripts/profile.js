@@ -1,12 +1,11 @@
 import { appendToTable, makeRowsClickable, isOnline, syncReviews, sendRequest } from './utility.js';
 
-// Initialize global variables
 let db, mySwiper;
 
 jQuery(function() {
     const user = $("#username").text();
     initializeIndexedDB(user);
-    mySwiper = initializeSwiper();
+    mySwiper = initializeSwiper(); //swiper allows for horizontal swiping through recommendations
 });
 
 function initializeIndexedDB(user) {
@@ -20,7 +19,6 @@ function initializeIndexedDB(user) {
     };
 }
 
-
 function handleConnectivity(user) {
     isOnline(() => {
         showReviewsOffline(user);
@@ -30,11 +28,7 @@ function handleConnectivity(user) {
         getRead(user);
     });
 }
-
-/**
- * Retrieve user's reviews from MongoDB and display them in a table
- * @param {string} user - The logged-in user
- */
+ 
 function showReviews(user) {
     sendRequest('/getProfileReviews', {username: user}, 'GET', data => {
         data.forEach(item => {
@@ -45,10 +39,6 @@ function showReviews(user) {
     });
 }
 
-/**
- * Retrieve user's reviews from IndexedDB and display them in a table
- * @param {string} user - The logged-in user
- */
 function showReviewsOffline(user) {
     const transaction = db.transaction('reviewsStore', 'readonly');
     const reviewsStore = transaction.objectStore('reviewsStore');
@@ -68,8 +58,6 @@ function showReviewsOffline(user) {
     };
 }
 
-
-
 function initializeSwiper() {
     return new Swiper('.mySwiper', {
         slidesPerView: 5,
@@ -87,6 +75,7 @@ function initializeSwiper() {
     });
 }
 
+//get recommendations
 function fetchTopBooks(user) {
     sendRequest('/top-books', { username: user }, 'GET', books => {
         addSlides(books);
@@ -94,6 +83,7 @@ function fetchTopBooks(user) {
     });
 }
 
+//display recommendations on swiper
 function addSlides(books) {
     const defaultImagePath = '/images/blank_cover.jpg';
     books.forEach(book => {

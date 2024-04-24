@@ -3,11 +3,11 @@ import { isOnline, sendRequest } from './utility.js';
 let db, dbUser;
 let rating = null
 
-$(document).ready(function () {
+jQuery(() => {
 
-    $(".star").click(function () {
+    $(".star").on("click", () => {
         const selectedRating = $(this).data("rating");
-        rating = selectedRating; // Update the global rating variable
+        rating = selectedRating; 
         updateStars(selectedRating);
     });
 
@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 
 function updateStars(selectedRating) {
-    $(".star").css("color", "black"); // Reset all stars
+    $(".star").css("color", "black");
     for (let i = 1; i <= selectedRating; i++) {
         $("#star" + i).css("color", "#f0ad4e");
     }
@@ -37,7 +37,7 @@ function openDatabase(name, onSuccess, onUpgradeNeeded) {
 
 
 function handleReviewSubmission() {
-    $("#createReview").submit(function (event) {
+    $("#createReview").on("click", (event) => {
         event.preventDefault();
         const $postBtn = $("#postBtn").prop('disabled', true);
         const reviewData = collectFormData();
@@ -89,6 +89,7 @@ function submitReviewOnline(data, $postBtn) {
     });
 }
 
+//store review locally
 function storeReview(data, $postBtn, callback) {
     const transaction = db.transaction('reviewsStore', 'readwrite');
     const reviewsStore = transaction.objectStore('reviewsStore');

@@ -6,13 +6,14 @@ $(document).ready(function () {
     handleRegistrationForm();
 });
 
+//toggle between register or login
 function configureFormToggle() {
-    $("#toggleFormButton").click(() => {
+    $("#toggleFormButton").on("click", () => {
         $("#loginForm").hide();
         $("#registerForm").show();
     });
 
-    $("#toggleFormButton2").click(() => {
+    $("#toggleFormButton2").on("click", () => {
         $("#loginForm").show();
         $("#registerForm").hide();
     });
@@ -28,6 +29,7 @@ function handleURLParameters() {
     }
 }
 
+//check passwords are the same
 function validateForm() {
     const password = $("#password").val();
     const confirmPassword = $("#confirmPassword").val();
@@ -94,6 +96,6 @@ async function registerUser(username, email, password, $alert, $registerBtn) {
 
         console.log("Registration successful");
     } catch (error) {
-        throw error;  // Rethrow the error to be handled in the .catch block of the submit handler
+        throw error; 
     }
 }

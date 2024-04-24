@@ -1,6 +1,5 @@
 import { appendToTable, makeRowsClickable, isOnline, syncReviews, sendRequest } from './utility.js';
 
-// Register service worker succinctly with async/await
 async function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         try {
@@ -15,11 +14,11 @@ async function registerServiceWorker() {
 
 let db, dbUser;
 
-// Using jQuery's shorter ready function
+
 $(function () {
     registerServiceWorker();
     initializeDatabases();
-    $("#findBook").click(() => $("html, body").animate({ scrollTop: $("#listSection").offset().top }, 50));
+    $("#findBook").on('click', () => $("html, body").animate({ scrollTop: $("#listSection").offset().top }, 50));
 });
 
 async function initializeDatabases() {
@@ -60,7 +59,8 @@ function setupReviewsDB(db) {
 }
 
 function handleOnlineOfflineReviews() {
-    isOnline(() => showReviewsOffline(), () => {
+    isOnline(() => showReviewsOffline(), 
+    () => {
         syncReviews(showReviewsOnline);
         const user = $("#username").text();
         if (user) {

@@ -86,9 +86,8 @@ self.addEventListener('sync', function(event) {
 });
 
 
-/**
- * Add any offline added reviews to mongoDB
- */
+
+//Add any offline added reviews to mongoDB\
 function syncReviews() {
     const request = indexedDB.open('reviewsDatabase', 1);
 
@@ -134,15 +133,6 @@ function syncReviews() {
 }
 
 
-/**
- * add review to mongoDB
- * @param title
- * @param author
- * @param username
- * @param rating
- * @param review
- * @param room_number
- */
 function pushReviewsToDB(title, author, username, rating, review, room_number) {
     return new Promise(function(resolve, reject) {
 

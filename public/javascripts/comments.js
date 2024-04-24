@@ -1,13 +1,14 @@
-import {appendToTable, isOnline, sendRequest} from "./utility.js";
+import {isOnline, sendRequest} from "./utility.js";
 
 let socket = io();
 let db;
 
-$(document).ready(function () {
+jQuery(() => {
     let room_number = null;
     let chatName = $("#chatName").text();
     let $chat_input = $("#chat_input");
 
+    //Disable chat features if offline 
     window.addEventListener('offline', () => disableChat());
     window.addEventListener('online', () => enableChat());
 
@@ -25,6 +26,7 @@ $(document).ready(function () {
 
     fetchReviewAndSetupDB();
 
+    //extract params from URL, get relevant room number and set up local DB
     function fetchReviewAndSetupDB() {
         const urlParams = new URLSearchParams(window.location.search);
         const title = urlParams.get("title");
@@ -37,6 +39,7 @@ $(document).ready(function () {
         });
     }
 
+    //DB set up for locally storing comments so that they can be viewed while offline
     function setupIndexedDB() {
         const request = indexedDB.open('commentsDatabase', 1);
 
@@ -63,6 +66,7 @@ $(document).ready(function () {
         };
     }
 
+    // Initialize chat functionalities such as sending and receiving messages
     function initChatFeatures(db, room_number) {
         socket.emit('create or join', room_number, chatName);
         socket.on('joined', (room, userId) => console.log("joined room"));
@@ -82,11 +86,7 @@ $(document).ready(function () {
 });
 
 
-/**
- * post the comment to indexeddb and mongoDB
- * @param chatName username
- * @param room_number room_number of the review currently being viewed
- */
+
 function postComment(chatName, room_number) {
     let commentObject = {
         username: chatName,
@@ -114,10 +114,6 @@ function postComment(chatName, room_number) {
 }
 
 
-/**
- * Shows comments if the user is connected to the internet and updates the local IndexedDB
- * @param room_number The room number of the review currently being viewed
- */
 async function showCommentsOnline(room_number) {
     sendRequest('/comments', { room_number: room_number }, 'GET', async function(data) {
         data.sort((a, b) => new Date(a.time) - new Date(b.time));
@@ -137,11 +133,7 @@ async function showCommentsOnline(room_number) {
     });
 }
 
-/**
- * Clears all comments associated with a room number in IndexedDB
- * @param commentsStore The IndexedDB object store
- * @param room_number The room number
- */
+//Clear comments from local DB 
 async function clearRoomComments(commentsStore, room_number) {
     const cursorRequest = commentsStore.openCursor();
     return new Promise((resolve, reject) => {
@@ -164,11 +156,7 @@ async function clearRoomComments(commentsStore, room_number) {
     });
 }
 
-/**
- * Adds a comment to the IndexedDB store
- * @param commentsStore The IndexedDB object store
- * @param item The comment data
- */
+
 async function addComment(commentsStore, item) {
     return new Promise((resolve, reject) => {
         const request = commentsStore.add(item);
@@ -178,11 +166,6 @@ async function addComment(commentsStore, item) {
 }
 
 
-
-/**
- * showing comments if the user is not connected to the internet
- * @param room_number room_number of the review currently being viewed
- */
 function showCommentsOffline(room_number) {
     const transaction = db.transaction('commentsStore', 'readonly');
     const commentsStore = transaction.objectStore('commentsStore');
@@ -207,21 +190,14 @@ function showCommentsOffline(room_number) {
     };
 }
 
-/**
- * Display comment in comment history section
- * @param text The message to display
- */
+
 function writeOnHistory(text) {
     let $history = $('#history');
     $history.val($history.val() + text + '\n');
     $("#chat_input").val('');
 }
 
-/**
- * Allows user to chat if they are logged in
- * @param chatName The username (if logged in)
- * @param $chat_input Element with id "chat_input"
- */
+
 function chatDisplayOnline(chatName, $chat_input) {
     if (!chatName) {
         $("#sendMsg").prop('disabled', true);

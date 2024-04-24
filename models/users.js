@@ -1,10 +1,6 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
-/**
- * users schema for mongoDB
- */
 var UsersSchema = new Schema(
     {
         email: {type: String, required: true},

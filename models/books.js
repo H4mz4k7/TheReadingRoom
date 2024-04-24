@@ -1,10 +1,7 @@
 var mongoose = require('mongoose');
-
 var Schema = mongoose.Schema;
 
-/**
- * books schema for mongoDB
- */
+
 var BooksSchema = new Schema(
     {
         book_id: { type: Number, required: true, index: true },

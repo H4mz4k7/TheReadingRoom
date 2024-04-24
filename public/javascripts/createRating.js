@@ -1,18 +1,18 @@
 import { sendRequest } from './utility.js';
 let rating = null;
 
-$(document).ready(function () {
+jQuery(() => {
     const $alert = $("#alert").hide();
 
-    // Event handling for selecting star ratings
-    $(".star").click(function () {
+
+    $(".star").on("click", () => {
         const selectedRating = $(this).data("rating");
-        rating = selectedRating; // Update the global rating variable
+        rating = selectedRating;
         updateStars(selectedRating);
     });
 
-    // Form submission handling
-    $("#createRating").submit(function (event) {
+    
+    $("#createRating").on("submit", event => {
         event.preventDefault();
         const $postBtn = $("#postBtn").prop('disabled', true);
 
@@ -20,7 +20,7 @@ $(document).ready(function () {
         const author = $("#author").val();
         const username = $("#username").text();
 
-        // Validate form data
+        
         if (!title || !author || !rating || !username) {
             $alert.text("Please fill out all fields.").show();
             $postBtn.prop('disabled', false);
@@ -36,8 +36,9 @@ $(document).ready(function () {
     });
 });
 
+//colour in stars depending on rating clicked
 function updateStars(selectedRating) {
-    $(".star").css("color", "black"); // Reset all stars
+    $(".star").css("color", "black"); 
     for (let i = 1; i <= selectedRating; i++) {
         $("#star" + i).css("color", "#f0ad4e");
     }
