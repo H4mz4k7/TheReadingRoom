@@ -1,6 +1,6 @@
 import { isOnline, sendRequest } from './utility.js';
 
-let db, ratingDB, dbUser;
+let db, dbUser;
 let rating = null
 
 $(document).ready(function () {
@@ -10,7 +10,6 @@ $(document).ready(function () {
         rating = selectedRating; // Update the global rating variable
         updateStars(selectedRating);
     });
-
 
     initializeDatabases();
     handleReviewSubmission();
@@ -26,7 +25,6 @@ function updateStars(selectedRating) {
 
 function initializeDatabases() {
     openDatabase('UserDatabase', result => dbUser = result);
-    openDatabase('ratingsDatabase', result => ratingDB = result, setupRatingDB);
     openDatabase('reviewsDatabase', result => db = result);
 }
 
@@ -37,14 +35,6 @@ function openDatabase(name, onSuccess, onUpgradeNeeded) {
     request.onerror = event => console.error(`Error opening ${name}:`, event.target.error);
 }
 
-function setupRatingDB(db) {
-    if (!db.objectStoreNames.contains('ratingsStore')) {
-        const store = db.createObjectStore('ratingsStore', { keyPath: 'id', autoIncrement: true });
-        ['user_id', 'title', 'author', 'rating'].forEach(index =>
-            store.createIndex(index, index, { unique: false })
-        );
-    }
-}
 
 function handleReviewSubmission() {
     $("#createReview").submit(function (event) {

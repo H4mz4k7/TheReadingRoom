@@ -11,12 +11,13 @@ async function registerServiceWorker() {
         }
     }
 }
-registerServiceWorker();
+
 
 let db, dbUser;
 
 // Using jQuery's shorter ready function
 $(function () {
+    registerServiceWorker();
     initializeDatabases();
     $("#findBook").click(() => $("html, body").animate({ scrollTop: $("#listSection").offset().top }, 50));
 });

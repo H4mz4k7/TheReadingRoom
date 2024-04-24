@@ -9,9 +9,6 @@ const displayRoutes = require('./routes/displayRoutes');
 const commentsRoutes = require('./routes/commentsRoutes');
 const booksRoutes = require('./routes/booksRoutes');
 
-var indexRouter = require('./routes/index');
-
-
 var app = express();
 
 // view engine setup

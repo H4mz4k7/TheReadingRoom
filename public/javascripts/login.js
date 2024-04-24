@@ -1,21 +1,10 @@
 let db;
 
 $(document).ready(function () {
-    initializeDatabase();
     configureFormToggle();
     handleURLParameters();
     handleRegistrationForm();
 });
-
-function initializeDatabase() {
-    const request = indexedDB.open('userDatabase', 1);
-    request.onsuccess = event => {
-        db = event.target.result;
-    };
-    request.onerror = event => {
-        console.error('IndexedDB error:', event.target.error);
-    };
-}
 
 function configureFormToggle() {
     $("#toggleFormButton").click(() => {
@@ -39,27 +28,6 @@ function handleURLParameters() {
     }
 }
 
-function handleRegistrationForm() {
-    const $registerForm = $("#registerForm");
-    const $alert = $("#alert").hide();
-    const $registerBtn = $("#registerBtn");
-
-    $registerForm.submit(event => {
-        $registerBtn.prop('disabled', true);
-        if (!validateForm()) {
-            event.preventDefault();
-            showPasswordMismatchError($alert, $registerBtn);
-            return;
-        }
-
-        const email = $("#email").val();
-        const username = $("#username").val();
-        const password = $("#password").val();
-
-        registerUser(username, email, password, $alert, $registerBtn);
-    });
-}
-
 function validateForm() {
     const password = $("#password").val();
     const confirmPassword = $("#confirmPassword").val();
@@ -73,7 +41,39 @@ function showPasswordMismatchError($alert, $registerBtn) {
     $registerBtn.prop('disabled', false);
 }
 
-async function registerUser(username, email, password) {
+function handleRegistrationForm() {
+    const $registerForm = $("#registerForm");
+    const $alert = $("#alert").hide();
+    const $registerBtn = $("#registerBtn");
+
+    $registerForm.submit(event => {
+        event.preventDefault(); 
+        $registerBtn.prop('disabled', true);
+        
+        if (!validateForm()) {
+            showPasswordMismatchError($alert, $registerBtn);
+            return;
+        }
+
+        const email = $("#email").val();
+        const username = $("#username").val();
+        const password = $("#password").val();
+
+        registerUser(username, email, password, $alert, $registerBtn)
+            .then(() => {
+                window.location.href = '/login';  
+            })
+            .catch(error => {
+                console.error('Registration failed:', error);
+                $alert.text(error.message || "Registration failed").show();
+            })
+            .finally(() => {
+                $registerBtn.prop('disabled', false);
+            });
+    });
+}
+
+async function registerUser(username, email, password, $alert, $registerBtn) {
     try {
         const response = await $.ajax({
             url: '/getUsersAndEmails',
@@ -92,11 +92,8 @@ async function registerUser(username, email, password) {
             data: JSON.stringify({ email, username, password })
         });
 
-        $("#registerBtn").prop('disabled', false);
-
+        console.log("Registration successful");
     } catch (error) {
-        console.error('Error:', error);
-        window.location.href = `/login?isError=true`;
-        $("#registerBtn").prop('disabled', false);
+        throw error;  // Rethrow the error to be handled in the .catch block of the submit handler
     }
 }

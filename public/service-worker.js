@@ -27,11 +27,13 @@ let filesToCache = [
 self.addEventListener('install', e => {
     console.log('[ServiceWorker] Install');
     e.waitUntil(
-        caches.open(cacheName).then(cache => {
+        caches.open(cacheName).then(async cache => {
             console.log('[ServiceWorker] Caching app shell');
-            return cache.addAll(filesToCache).catch(error => {
+            try {
+                return await cache.addAll(filesToCache);
+            } catch (error) {
                 console.error('Failed to add one or more requests to the cache:', error);
-            });
+            }
         })
     );
 });
