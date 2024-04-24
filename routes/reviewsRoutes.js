@@ -88,22 +88,19 @@ router.post('/ratings', async (req, res) => {
                 author: rating_data.author
             };
             booksController.create({ body: bookData }, {
-                send: (data) => {
-                    // handle response
-                    console.log(data);
-                    // After creating the book, create the rating
+                send: (data) => {                   
                     ratingsController.create({
                         user_id: rating_data.user_id,
-                        book_id: data.book.book_id,  // Assuming book ID is returned
+                        book_id: data.book.book_id,  
                         rating: rating_data.rating
                     }, res);
                 },
                 status: function(statusCode) {
-                    return this;  // Mimic Express' status handling
+                    return this;  
                 }
             });
         } else {
-            // Book exists, proceed to create rating
+            // Book already exists, reate rating
             ratingsController.create({
                 user_id: rating_data.user_id,
                 book_id: book.book_id,

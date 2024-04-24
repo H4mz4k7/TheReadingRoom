@@ -92,7 +92,7 @@ async function getPopularBooks() {
             },
             {
                 $lookup: {
-                    from: "books", // This should match the MongoDB collection name
+                    from: "books",
                     localField: "_id",
                     foreignField: "book_id",
                     as: "bookDetails"

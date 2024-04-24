@@ -35,7 +35,6 @@ router.post('/login', async (req, res) => {
   }
 });
 
-// User signout
 router.get('/signout', (req, res) => {
     req.session.destroy(err => {
         if (err) {
@@ -48,15 +47,13 @@ router.get('/signout', (req, res) => {
 // User registration and creation
 router.post('/users', function (req, res) {
     const password  = req.body.password;
-    //hash password using bcrypt before storing it in db (security)
+    //hash password using bcrypt before storing it in db 
     bcrypt.hash(password, 10, (err, hash) => {
         if (err) {
             console.error('Error hashing password:', err);
             res.status(500).json({ message: 'Internal server error' });
         } else {
-            // Update the password in the req.body object with the hashed value
             req.body.password = hash;
-
             usersController.create(req, res);
         }
     });
@@ -68,7 +65,7 @@ router.post('/register', (req, res) => {
 
 router.get('/getUsersAndEmails', function (req, res, next) {
     const { username, email } = req.query;
-
+    
     User.find({
         $or: [
             { username: username },
