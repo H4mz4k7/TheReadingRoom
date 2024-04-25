@@ -5,9 +5,9 @@ let rating = null
 
 jQuery(() => {
 
-    $(".star").on("click", () => {
+    $(".star").on("click", function () {
         const selectedRating = $(this).data("rating");
-        rating = selectedRating; 
+        rating = selectedRating; // Update the global rating variable
         updateStars(selectedRating);
     });
 
@@ -37,7 +37,7 @@ function openDatabase(name, onSuccess, onUpgradeNeeded) {
 
 
 function handleReviewSubmission() {
-    $("#createReview").on("click", (event) => {
+    $("#createReview").on("submit", (event) => {
         event.preventDefault();
         const $postBtn = $("#postBtn").prop('disabled', true);
         const reviewData = collectFormData();

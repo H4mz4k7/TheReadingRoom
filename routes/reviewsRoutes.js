@@ -15,29 +15,21 @@ router.use(handlePostState);
 
 router.post('/create_review', async (req, res) => {
     try {
-        const { title, author, rating, username} = req.body;
+        const { title, author, rating, username } = req.body;
 
-        reviewsController.create(req,res);
-        if (req.wantToPost){
-            req.setWantToPost(false);
-        }
-
+        const reviewResult = await reviewsController.create(req); // Assume this returns something or throws
         const user = await Users.findOne({ username: username });
         if (!user) {
             return res.status(404).send('User not found');
         }
-        
-        // Find or create the book
+
         let book = await Books.findOne({ title: title, author: author });
         if (!book) {
-            return booksController.create(req, res, async (createdBook) => { 
-                ratingsController.create({book_id: createdBook.book_id, user_id: user.user_id, rating},res)
-            });
-        }
-        else {
-            return ratingsController.create({book_id: book.book_id, user_id: user.user_id, rating},res)
+            book = await booksController.create(req);
         }
         
+        const ratingResult = await ratingsController.create({book_id: book.book_id, user_id: user.user_id, rating});
+        res.json({ success: true, book, reviewResult, ratingResult });
     } catch (error) {
         console.error('Failed to create review:', error);
         res.status(500).send('Server error');
@@ -78,40 +70,5 @@ router.get('/getSingleReview', (req, res) =>{
         });
 })
 
-router.post('/ratings', async (req, res) => {
-    const rating_data = req.body;
-    try {
-        let book = await Books.findOne({ title: rating_data.title, author: rating_data.author });
-        if (!book) {
-            const bookData = {
-                title: rating_data.title,
-                author: rating_data.author
-            };
-            booksController.create({ body: bookData }, {
-                send: (data) => {                   
-                    ratingsController.create({
-                        user_id: rating_data.user_id,
-                        book_id: data.book.book_id,  
-                        rating: rating_data.rating
-                    }, res);
-                },
-                status: function(statusCode) {
-                    return this;  
-                }
-            });
-        } else {
-            // Book already exists, reate rating
-            ratingsController.create({
-                user_id: rating_data.user_id,
-                book_id: book.book_id,
-                rating: rating_data.rating
-            }, res);
-        }
-    } catch (error) {
-        console.error('Error processing rating:', error);
-        res.status(500).json({ message: "Error processing rating", error: error.toString() });
-    }
-    
-});
 
 module.exports = router;

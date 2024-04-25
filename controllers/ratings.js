@@ -4,20 +4,26 @@ var path = require('path');
 
 
 
-exports.create = function(req, res) {
-    var userData = req;
-    let rating = new Rating ({
-        user_id : userData.user_id,
-        book_id : userData.book_id,
-        rating : userData.rating
-    })
+exports.create = async function(req, res) {
+    try{
+        var userData = req;
 
-    rating.save()
-        .then((savedRating) => {
-            console.log('rating saved successfully:', savedRating);
-
-        })
-        .catch((error) => {
-            console.error('Error saving rating:', error);
+        let rating = new Rating({
+            user_id: userData.user_id,
+            book_id: userData.book_id,
+            rating: userData.rating
         });
-}
+
+        const savedRating = await rating.save();
+        console.log('Rating saved successfully:');
+
+        return savedRating;
+    }
+    catch {
+        console.error('Error in creating rating:', error);
+        res.status(500).send({ message: 'Error saving rating' });
+    }
+    
+};
+
+

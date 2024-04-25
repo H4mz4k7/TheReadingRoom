@@ -17,12 +17,11 @@ exports.create = async function(req, res, callback) {
         });
 
         const savedBook = await book.save();
-        console.log('Book saved successfully:', savedBook);
+        console.log('Book saved successfully:');
 
         if (callback) callback(savedBook);
 
-        
-        res.send({ message: 'Book saved successfully', book: savedBook });
+        return savedBook;        
 
     } catch (error) {
         console.error('Error in creating book:', error);

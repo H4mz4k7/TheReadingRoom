@@ -5,7 +5,7 @@ jQuery(() => {
     const $alert = $("#alert").hide();
 
 
-    $(".star").on("click", () => {
+    $(".star").on("click", function() {
         const selectedRating = $(this).data("rating");
         rating = selectedRating;
         updateStars(selectedRating);

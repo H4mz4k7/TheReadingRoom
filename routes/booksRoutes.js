@@ -247,23 +247,22 @@ router.get('/read-books', async (req, res) => {
 });
 
 router.post('/add-book', async (req, res) => {
-    const {title, author, username, rating} = req.body;
-
-    const user = await Users.findOne({ username: username });
-        if (!user) {
-            return res.status(404).send('User not found');
+    const rating_data = req.body;
+    try {
+        const user = await Users.findOne({ username: rating_data.username });
+        let book = await Books.findOne({ title: rating_data.title, author: rating_data.author });
+        
+        if (!book) {
+            book = await booksController.create(req);
         }
         
-        // Find or create the book
-        let book = await Books.findOne({ title: title, author: author });
-        if (!book) {
-            return booksController.create(req, res, async (createdBook) => { 
-                ratingsController.create({book_id: createdBook.book_id, user_id: user.user_id, rating},res)
-            });
-        }
-        else {
-            return ratingsController.create({book_id: book.book_id, user_id: user.user_id, rating},res)
-        }
+        const ratingResult = await ratingsController.create({book_id: book.book_id, user_id: user.user_id, rating : rating_data.rating});
+        res.json({ success: true, book, ratingResult });
+    } catch (error) {
+        console.error('Error processing rating:', error);
+        res.status(500).json({ message: "Error processing rating", error: error.toString() });
+    }
+    
 });
 
 

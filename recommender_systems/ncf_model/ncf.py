@@ -11,10 +11,16 @@ from recommenders.evaluation.python_evaluation import (
 from recommenders.utils.constants import SEED 
 from pymongo import MongoClient
 
-
+print("Connecting to MongoDB")
 client = MongoClient('mongodb://localhost:27017/')
 db = client['database']  
-collection = db['predictions'] 
+predictions_collection = db['predictions']
+ratings_collection = db['ratings']
+users_collection = db['users']
+books_collection = db['books']
+
+print("Connected to MongoDB")
+
 
 
 # top k items to recommend
@@ -28,7 +34,17 @@ LEARNING_RATE = 0.0005778618758548964
 
 
 if __name__ == '__main__':
-    ratings_df = utils.get_ratings_from_db()
+
+    if (ratings_collection.count_documents({}) == 0):
+        utils.import_csv_to_mongodb('./csv_files/ratings.csv', ratings_collection)
+
+    if (books_collection.count_documents({}) == 0):
+        utils.import_csv_to_mongodb('./csv_files/books.csv', books_collection)
+    
+    if (users_collection.count_documents({}) == 0):
+        utils.import_csv_to_mongodb('./csv_files/users.csv', users_collection)
+
+    ratings_df = utils.get_ratings_from_db(ratings_collection)
 
     train, test = python_stratified_split(ratings_df, col_user="user_id", col_item="book_id")
 
@@ -79,18 +95,23 @@ if __name__ == '__main__':
 
 
     records = all_predictions.to_dict('records')
-    # Insert records into MongoDB
-    collection.delete_many({})
-    collection.insert_many(records)
+
+    predictions_collection.delete_many({})
+    predictions_collection.insert_many(records)
+
+    client.close()
     
     eval_ndcg = ndcg_at_k(test, all_predictions, col_prediction='prediction', col_item="book_id", col_user="user_id", k=TOP_K)
     eval_precision = precision_at_k(test, all_predictions, col_prediction='prediction',  col_item="book_id", col_user="user_id", k=TOP_K)
     eval_recall = recall_at_k(test, all_predictions, col_prediction='prediction',  col_item="book_id", col_user="user_id", k=TOP_K)
+    eval_f1 = utils.calculate_f1_score(eval_precision, eval_recall)
 
     print(
-        "NDCG:\t%f" % eval_ndcg,
-        "Precision@K:\t%f" % eval_precision,
-        "Recall@K:\t%f" % eval_recall, sep='\n')
+      "NDCG:\t\t%f" % eval_ndcg,
+      "Precision@K:\t%f" % eval_precision,
+      "Recall@K:\t%f" % eval_recall,
+      "F1 Score:\t%f" % eval_f1, sep='\n'
+    )   
 
 
 
