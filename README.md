@@ -1,6 +1,6 @@
 # TheReadingRoom
 
-This PWA provides a dedicated platform for users to share their own book reviews and explore reviews posted by others. It has many great features including:
+This PWA provides a dedicated platform for users to share their own book reviews, explore reviews posted by others and recieve book recommmendations based on the books they have read. It has many great features including:
 
 -Real time chat functionality
 The real-time chat functions were implemented using socket.io, enabling seamless and instant communication.
