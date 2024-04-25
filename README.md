@@ -36,6 +36,9 @@ Compared to the Singular Value Decomposition (SVD) model used as a baseline, the
   <br>
   <em>NCF Model Evaluation Results</em>
 </div>
+<br>
+
+To update the recommendations given to the user, the model needs to be retrained. This can be done by executing the `ncf.py` file. This file retrains the model, calculate the predictions for every user/item pair and subsequently uploads this to the database, allowing the website to use it to show recommendations.
 
 ## General Walkthrough
 On this website, a user can register an account and login (the password is hashed before being stored in the database). If they wish to look at reviews posted by others, they can do so by clicking on the relevant review in the table. This will bring them to a new page displaying the review and information about the book. At the bottom is the chat box, where a user can talk to other users viewing the same review, allowing for a discussion about the book. A user can also decide to post their own review. This is done by clicking on the relevant button and filling out the subsequent form. On the user's profile page, the user can recieve a list of recommendations based on their own personal reading history.
