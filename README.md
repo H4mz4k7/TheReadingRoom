@@ -24,6 +24,8 @@ This Progressive Web App (PWA) provides a dedicated platform for users to share 
 
 The Reading Room employs advanced recommender systems to enhance user experience by providing highly personalized book suggestions. We use collaborative filtering, a method that predicts a user's preferences based on the preferences of other users with similar interests. Specifically, our platform utilizes a Neural Collaborative Filtering (NCF) model, which leverages deep learning to improve recommendation accuracy by capturing the non-linear relationships between users and items.
 
+The dataset used to train the system is found at https://github.com/zygmuntz
+
 Compared to the Singular Value Decomposition (SVD) model used as a baseline, the NCF model demonstrated a tenfold improvement in performance. This was evidenced by significantly better evaluation scores, highlighting the effectiveness of incorporating neural network architectures in recommendation systems.
 
 <div align="center">
